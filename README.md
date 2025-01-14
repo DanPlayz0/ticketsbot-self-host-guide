@@ -39,7 +39,6 @@ The image above was made using [Excalidraw](https://excalidraw.com/).
    - `S3_ENDPOINT`: the endpoint of your S3 bucket (e.g. `minio:9000`)
    - `S3_ACCESS`: the access key of your S3 bucket (e.g. `AbCdEfFgHiJkLmNoPqRsTuVwXyZ`)
    - `S3_SECRET`: the secret key of your S3 bucket (e.g. `AbCdEfFgHiJkLmNoPqRsTuVwXyZ`)
-   - `ARCHIVER_URL`: the URL of your archiver (e.g. `http://logarchiver:4000`)
    - `ARCHIVER_AES_KEY`: your AES-128 key (e.g. `randomstring`)
    - `ARCHIVER_ADMIN_AUTH_TOKEN`: your archiver admin auth token (e.g. `randomstring`)
    - `SENTRY_DSN`: your Sentry DSN (e.g. `https://examplePublicKey@o0.ingest.sentry.io/0`)

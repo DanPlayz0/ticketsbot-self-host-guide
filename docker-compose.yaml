@@ -115,7 +115,7 @@ services:
       HTTP_ADDR: 0.0.0.0:4001
       DISCORD_PROXY_URL: http-proxy:80 # http://{proxy_url}/{discord's api path ex: api/v10/webhooks/...}
 
-      WORKER_ARCHIVER_URL: ${ARCHIVER_URL:-http://logarchiver:4000}
+      WORKER_ARCHIVER_URL: http://logarchiver:4000
       WORKER_ARCHIVER_AES_KEY: ${ARCHIVER_AES_KEY}
 
       DATABASE_HOST: ${DATABASE_HOST:-postgres:5432}
