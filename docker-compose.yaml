@@ -4,7 +4,7 @@ services:
     container_name: postgres
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: ticketsbotpass
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-null}
       POSTGRES_DB: ticketsbot
     # ports:  # Uncomment this line and the following line to access the main postgres on port 5433
     #   - "5433:5432"
@@ -24,7 +24,7 @@ services:
     container_name: postgres-cache
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-null}
       POSTGRES_DB: botcache
     # ports: # Uncomment this line and the following line to access the cache postgres on port 5434
     #   - "5434:5432"
@@ -44,7 +44,7 @@ services:
     container_name: postgres-archive
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-null}
       POSTGRES_DB: archive
     # ports: # Uncomment this line and the following line to access the archive postgres on port 5435
     #   - "5435:5432"
@@ -76,7 +76,7 @@ services:
   redis:
     image: redis:7
     container_name: redis
-    command: ["redis-server", "--requirepass", "yourpassword"]
+    command: ["redis-server", "--requirepass", "${REDIS_PASSWORD:-null}"]
     # ports: # Uncomment this line and the following line to access redis on port 6479
     #   - "6479:6379"
     networks:
@@ -88,12 +88,12 @@ services:
       retries: 5
 
   statsd:
-    image: ghcr.io/statsd/statsd:v0.10.2
+    image: ${STATSD_IMAGE:-ghcr.io/statsd/statsd:v0.10.2}
     networks:
       - app-network
 
   http-proxy:
-    image: ghcr.io/rxdn/http-proxy:metrics
+    image: ${HTTP_PROXY_IMAGE:-ghcr.io/rxdn/http-proxy:metrics}
     container_name: http-proxy
     environment:
       DISCORD_TOKEN: ${DISCORD_BOT_TOKEN}
@@ -101,7 +101,7 @@ services:
       - app-network
 
   worker-interactions:
-    image: ghcr.io/ticketsbot/worker:89dec1fd9a114ad0eb18fbf026da2624b7b5821d
+    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot/worker:89dec1fd9a114ad0eb18fbf026da2624b7b5821d}
     container_name: worker-interactions
     restart: on-failure:10
     # ports:
@@ -111,27 +111,27 @@ services:
 
       WORKER_PUBLIC_TOKEN: ${DISCORD_BOT_PUBLIC_KEY}
       WORKER_PUBLIC_ID: ${DISCORD_BOT_CLIENT_ID}
-      SUPPORT_SERVER_INVITE: ${DISCORD_SUPPORT_SERVER_INVITE}
+      SUPPORT_SERVER_INVITE: ${DISCORD_SUPPORT_SERVER_INVITE:-https://discord.gg/ticketsbot}
       HTTP_ADDR: 0.0.0.0:4001
       DISCORD_PROXY_URL: http-proxy:80 # http://{proxy_url}/{discord's api path ex: api/v10/webhooks/...}
 
-      WORKER_ARCHIVER_URL: http://logarchiver:4000
+      WORKER_ARCHIVER_URL: ${ARCHIVER_URL:-http://logarchiver:4000}
       WORKER_ARCHIVER_AES_KEY: ${ARCHIVER_AES_KEY}
 
-      DATABASE_HOST: postgres:5432
+      DATABASE_HOST: ${DATABASE_HOST:-postgres:5432}
       DATABASE_NAME: ticketsbot
       DATABASE_USER: postgres
-      DATABASE_PASSWORD: ticketsbotpass
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD:-null}
       DATABASE_THREADS: 4
 
-      CACHE_HOST: postgres-cache:5432
+      CACHE_HOST: ${CACHE_DATABASE_HOST:-postgres-cache:5432}
       CACHE_NAME: botcache
       CACHE_USER: postgres
-      CACHE_PASSWORD: password
+      CACHE_PASSWORD: ${CACHE_DATABASE_PASSWORD:-null}
       CACHE_THREADS: 4
 
-      WORKER_REDIS_ADDR: redis:6379
-      WORKER_REDIS_PASSWD: yourpassword
+      WORKER_REDIS_ADDR: ${REDIS_ADDR:-redis:6379}
+      WORKER_REDIS_PASSWD: ${REDIS_PASSWORD:-null}
       WORKER_REDIS_THREADS: 4
 
       KAFKA_BROKERS: kafka:9092
@@ -154,7 +154,7 @@ services:
       - app-network
 
   worker-gateway:
-    image: ghcr.io/ticketsbot/worker:89dec1fd9a114ad0eb18fbf026da2624b7b5821d
+    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot/worker:89dec1fd9a114ad0eb18fbf026da2624b7b5821d}
     container_name: worker-gateway
     restart: on-failure:10
     # ports:
@@ -169,20 +169,20 @@ services:
       HTTP_ADDR: 0.0.0.0:4001
       DISCORD_PROXY_URL: http-proxy:80
 
-      DATABASE_HOST: postgres:5432
+      DATABASE_HOST: ${DATABASE_HOST:-postgres:5432}
       DATABASE_NAME: ticketsbot
       DATABASE_USER: postgres
-      DATABASE_PASSWORD: ticketsbotpass
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD:-null}
       DATABASE_THREADS: 4
 
-      CACHE_HOST: postgres-cache:5432
+      CACHE_HOST: ${CACHE_DATABASE_HOST:-postgres-cache:5432}
       CACHE_NAME: botcache
       CACHE_USER: postgres
-      CACHE_PASSWORD: password
+      CACHE_PASSWORD: ${CACHE_DATABASE_PASSWORD:-null}
       CACHE_THREADS: 4
 
-      WORKER_REDIS_ADDR: redis:6379
-      WORKER_REDIS_PASSWD: yourpassword
+      WORKER_REDIS_ADDR: ${REDIS_ADDR:-redis:6379}
+      WORKER_REDIS_PASSWD: ${REDIS_PASSWORD:-null}
       WORKER_REDIS_THREADS: 4
 
       KAFKA_BROKERS: kafka:9092
@@ -203,7 +203,7 @@ services:
       - app-network
 
   http-gateway:
-    image: ghcr.io/ticketsbot/http-gateway:b0748cc2e964eb1fcb658565844a50a6182489cf
+    image: ${HTTP_GATEWAY_IMAGE:-ghcr.io/ticketsbot/http-gateway:b0748cc2e964eb1fcb658565844a50a6182489cf}
     container_name: http-gateway
     restart: on-failure:3
     ports:
@@ -215,10 +215,10 @@ services:
       public_token: ${DISCORD_BOT_TOKEN}
       public_public_key: ${DISCORD_BOT_PUBLIC_KEY}
 
-      database_uri: postgres://postgres:ticketsbotpass@postgres:5432/ticketsbot
+      database_uri: postgres://postgres:${DATABASE_PASSWORD:-null}@${DATABASE_HOST:-postgres:5432}/ticketsbot
       database_threads: 4
 
-      cache_uri: postgres://postgres:password@postgres-cache:5432/botcache
+      cache_uri: postgres://postgres:${CACHE_DATABASE_PASSWORD:-null}@${CACHE_DATABASE_HOST:-postgres-cache:5432}/botcache
       cache_threads: 4
 
       worker_svc_uri: worker-interactions:4001 # becomes: http://{svc_uri}/interactions
@@ -232,7 +232,7 @@ services:
       - app-network
 
   sharder-main:
-    image: ghcr.io/ticketsbot/main-sharder:a4bf4a98848094435d017d90c2cfc09a04146ef3
+    image: ${SHADER_IMAGE:-ghcr.io/ticketsbot/main-sharder:a4bf4a98848094435d017d90c2cfc09a04146ef3}
     container_name: sharder-main
     hostname: sharder-0
     ports:
@@ -242,8 +242,8 @@ services:
       # sharder_id: 0 # this is automatically set by the dash from the hostname
       sharder_total: 1
 
-      redis_addr: redis:6379
-      redis_password: yourpassword
+      redis_addr: ${REDIS_ADDR:-redis:6379}
+      redis_password: ${REDIS_PASSWORD:-null}
       redis_threads: 2
 
       metrics_addr: 0.0.0.0:8091
@@ -266,7 +266,7 @@ services:
       - app-network
 
   cachesync:
-    image: ghcr.io/ticketsbot/cache-sync-service:a4bf4a98848094435d017d90c2cfc09a04146ef3
+    image: ${CACHESYNC_IMAGE:-ghcr.io/ticketsbot/cache-sync-service:a4bf4a98848094435d017d90c2cfc09a04146ef3}
     restart: on-failure:3
     # ports:
     #   - '8091:8091' # metrics port
@@ -277,7 +277,7 @@ services:
       brokers: kafka:9092
       group_id: 1
       topic: ticketsbot
-      postgres_uri: 'postgres://postgres:password@postgres-cache:5432/botcache'
+      postgres_uri: 'postgres://postgres:${CACHE_DATABASE_PASSWORD:-null}@${CACHE_DATABASE_HOST:-postgres-cache:5432}/botcache'
       metric_server_addr: '0.0.0.0:8091'
     depends_on:
       postgres-cache:
@@ -288,7 +288,7 @@ services:
       - app-network
   
   api:
-    image: ghcr.io/ticketsbot/api:8f5d68ab0de450a60202788c4c660f2ebdb8c47c
+    image: ${API_IMAGE:-ghcr.io/ticketsbot/api:8f5d68ab0de450a60202788c4c660f2ebdb8c47c}
     restart: on-failure:10
     ports:
       - '8082:8081'
@@ -297,26 +297,25 @@ services:
       BASE_URL: ${DASHBOARD_URL}
       MAIN_SITE: ${LANDING_PAGE_URL} # Home/Landing (used for /premium)
       DATABASE_URI: 'postgres://postgres:ticketsbotpass@postgres/ticketsbot'
-      REDIS_HOST: redis
-      REDIS_PASSWORD: yourpassword
-      REDIS_PORT: 6379
+      REDIS_HOST: ${REDIS_HOST:-redis}
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-null}
+      REDIS_PORT: ${REDIS_PORT:-6379}
       REDIS_THREADS: 2
       RATELIMIT_WINDOW: 10
       RATELIMIT_MAX: 10
-      RealIpHeaders: 'X-Forwarded-For'
-      TRUSTED_PROXIES: '127.0.0.1,172.21.0.1'
+      RealIpHeaders: ${REAL_IP_HEADERS:-X-Forwarded-For}
+      TRUSTED_PROXIES: ${TRUSTED_PROXIES:-127.0.0.1,172.21.0.1}
       JWT_SECRET: ${JWT_SECRET}
       OAUTH_ID: ${DISCORD_BOT_CLIENT_ID}
       OAUTH_SECRET: '${DISCORD_BOT_OAUTH_SECRET}'
       OAUTH_REDIRECT_URI: '${DASHBOARD_URL}/callback'
       BOT_ID: ${DISCORD_BOT_CLIENT_ID}
       BOT_TOKEN: '${DISCORD_BOT_TOKEN}'
-      CACHE_URI: 'postgres://postgres:password@postgres-cache/botcache'
+      CACHE_URI: postgres://postgres:${DATABASE_PASSWORD:-null}@}postgres-cache/botcache
       # Optional?
       DISCORD_PROXY_URL: http-proxy:80
       METRIC_SERVER_ADDR: 0.0.0.0:8091
       ADMINS: ${ADMIN_USER_IDS}
-      # FORCED_WHITELABEL: USER_ID? # "was for really early testing of whitelabel before it was a tier on patreon" & "it'll only give you access to the whitelabel page on the dashboard"
       SENTRY_DSN: ${SENTRY_DSN}
       LOG_ARCHIVER_URL: http://logarchiver:4000
       LOG_AES_KEY: ${ARCHIVER_AES_KEY}
@@ -343,7 +342,7 @@ services:
       - '5000:5000'
 
   logarchiver:
-    image: ghcr.io/ticketsbot/logarchiver:0cfab8ec82cfaa88af9e6fabe4dd9a407f7537dd
+    image: ${LOGARCHIVER_IMAGE:-ghcr.io/ticketsbot/logarchiver:0cfab8ec82cfaa88af9e6fabe4dd9a407f7537dd}
     environment:
       ARCHIVER_ADDR: 0.0.0.0:4000
       S3_ENDPOINT: ${S3_ENDPOINT}
@@ -361,24 +360,24 @@ services:
         condition: service_healthy
 
   autoclosedaemon:
-    image: ghcr.io/ticketsbot/autoclosedaemon:68cb9a641e9536dd45378d9fe0a085902f99914c
+    image: ${AUTOCLOSEDAEMOON_IMAGE:-ghcr.io/ticketsbot/autoclosedaemon:68cb9a641e9536dd45378d9fe0a085902f99914c}
     environment:
-      DATABASE_URI: postgres://postgres:ticketsbotpass@postgres:5432/ticketsbot
+      DATABASE_URI: postgres://postgres:ticketsbotpass@${DATABASE_HOST:-postgres:5432}/ticketsbot
       DATABASE_THREADS: 4
-      CACHE_URI: postgres://postgres:password@postgres-cache/botcache
+      CACHE_URI: postgres://postgres:${CACHE_DATABASE_PASSWORD:-null}@postgres-cache/botcache
       CACHE_THREADS: 4
-      REDIS_ADDR: redis:6379
-      REDIS_PASSWORD: yourpassword
+      REDIS_ADDR: ${REDIS_ADDR:-redis:6379}
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-null}
       REDIS_THREADS: 4
       SENTRY_DSN: ${SENTRY_DSN}
-      SWEEP_TIME: 5 # in minutes
+      SWEEP_TIME: ${SWEEP_TIME:-10}
       BOT_TOKEN: ${DISCORD_BOT_TOKEN}
       PRODUCTION_MODE: true
     networks:
       - app-network
 
   discord-chat-replica:
-    image: ghcr.io/ticketsbot/discord-chat-replica:e7a42bfeb763b08d859f8a17430f5a38eb5d69a9
+    image: ${DISCORD_CHAT_REPLICA_IMAGE:-ghcr.io/ticketsbot/discord-chat-replica:e7a42bfeb763b08d859f8a17430f5a38eb5d69a9}
     environment:
       PORT: 8080
     networks:
