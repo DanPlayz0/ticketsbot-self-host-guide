@@ -24,7 +24,7 @@ services:
     container_name: postgres-cache
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-null}
+      POSTGRES_PASSWORD: ${CACHE_DATABASE_PASSWORD:-null}
       POSTGRES_DB: botcache
     # ports: # Uncomment this line and the following line to access the cache postgres on port 5434
     #   - "5434:5432"
@@ -44,7 +44,7 @@ services:
     container_name: postgres-archive
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-null}
+      POSTGRES_PASSWORD: ${ARCHIVE_DATABASE_PASSWORD:-null}
       POSTGRES_DB: archive
     # ports: # Uncomment this line and the following line to access the archive postgres on port 5435
     #   - "5435:5432"
@@ -311,7 +311,7 @@ services:
       OAUTH_REDIRECT_URI: '${DASHBOARD_URL}/callback'
       BOT_ID: ${DISCORD_BOT_CLIENT_ID}
       BOT_TOKEN: '${DISCORD_BOT_TOKEN}'
-      CACHE_URI: postgres://postgres:${DATABASE_PASSWORD:-null}@}postgres-cache/botcache
+      CACHE_URI: postgres://postgres:${CACHE_DATABASE_PASSWORD:-null}@}postgres-cache/botcache
       # Optional?
       DISCORD_PROXY_URL: http-proxy:80
       METRIC_SERVER_ADDR: 0.0.0.0:8091
@@ -352,7 +352,7 @@ services:
       SENTRY_DSN: "${SENTRY_DSN}"
       PRODUCTION_MODE: true
       ADMIN_AUTH_TOKEN: ${ARCHIVER_ADMIN_AUTH_TOKEN}
-      DATABASE_URI: postgres://postgres:password@postgres-archive:5432/archive
+      DATABASE_URI: postgres://postgres:${ARCHIVE_DATABASE_PASSWORD:-null}@${ARCHIVE_DATABASE_HOST:-postgres-archive:5432}/archive
     networks:
       - app-network
     depends_on:

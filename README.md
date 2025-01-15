@@ -64,11 +64,11 @@ As this bot is self-hosted, you will need to configure the bot yourself. Here ar
 1. Go to the [Discord Developer Portal](https://discord.com/developers/applications)
 2. Click on the application you created for the bot
 3. Set the `Interactions Endpoint URL` to `${HTTP_GATEWAY}/handle/${DISCORD_BOT_CLIENT_ID}`
-   - `HTTP_GATEWAY}` with the URL of your HTTP Gateway (e.g. `http://localhost:8080`, you must have a publicly accessible URL not localhost)
-   - `DISCORD_BOT_CLIENT_ID}` with your bot's application/client ID (e.g. `508391840525975553`)
+   - Replace `${HTTP_GATEWAY}` with the URL of your HTTP Gateway (e.g. `http://localhost:8080`, you must have a publicly accessible URL not localhost)
+   - Replace `${DISCORD_BOT_CLIENT_ID}` with your bot's application/client ID (e.g. `508391840525975553`)
 4. Go to the OAuth2 tab
 5. Add the redirect URL `${API_URL}/callback` to the OAuth2 redirect URIs
-   - `API_URL}` with the URL of your API (e.g. `http://localhost:8080`, make sure this matches what you set in the [Setup](#setup-simple) section)
+   - Replace `${API_URL}` with the URL of your API (e.g. `http://localhost:8080`, make sure this matches what you set in the [Setup](#setup-simple) section)
 
 ## Registering the slash commands using Docker (Recommended)
 
