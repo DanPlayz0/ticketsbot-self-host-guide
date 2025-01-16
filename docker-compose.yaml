@@ -296,7 +296,7 @@ services:
       SERVER_ADDR: 0.0.0.0:8081
       BASE_URL: ${DASHBOARD_URL}
       MAIN_SITE: ${LANDING_PAGE_URL} # Home/Landing (used for /premium)
-      DATABASE_URI: 'postgres://postgres:ticketsbotpass@postgres/ticketsbot'
+      DATABASE_URI: 'postgres://postgres:${DATABASE_PASSWORD:-null}@postgres/ticketsbot'
       REDIS_HOST: ${REDIS_HOST:-redis}
       REDIS_PASSWORD: ${REDIS_PASSWORD:-null}
       REDIS_PORT: ${REDIS_PORT:-6379}
