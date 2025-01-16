@@ -311,7 +311,7 @@ services:
       OAUTH_REDIRECT_URI: '${DASHBOARD_URL}/callback'
       BOT_ID: ${DISCORD_BOT_CLIENT_ID}
       BOT_TOKEN: '${DISCORD_BOT_TOKEN}'
-      CACHE_URI: postgres://postgres:${CACHE_DATABASE_PASSWORD:-null}@}postgres-cache/botcache
+      CACHE_URI: postgres://postgres:${CACHE_DATABASE_PASSWORD:-null}@postgres-cache/botcache
       # Optional?
       DISCORD_PROXY_URL: http-proxy:80
       METRIC_SERVER_ADDR: 0.0.0.0:8091
