@@ -82,7 +82,7 @@ services:
     networks:
       - app-network
     healthcheck:
-      test: ["CMD-SHELL", "redis-cli ping | grep PONG"]
+      test: ["CMD-SHELL", "redis-cli -a null ping | grep PONG"] 
       interval: 10s
       timeout: 3s
       retries: 5
