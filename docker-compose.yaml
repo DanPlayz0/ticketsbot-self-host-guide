@@ -61,6 +61,7 @@ services:
 
   kafka:
     image: apache/kafka:latest
+    container_name: kafka
     environment:
       KAFKA_NODE_ID: 1
       KAFKA_PROCESS_ROLES: broker,controller
@@ -89,6 +90,7 @@ services:
 
   statsd:
     image: ${STATSD_IMAGE:-ghcr.io/statsd/statsd:v0.10.2}
+    container_name: statsd
     networks:
       - app-network
 
@@ -269,6 +271,7 @@ services:
 
   cachesync:
     image: ${CACHESYNC_IMAGE:-ghcr.io/ticketsbot/cache-sync-service:a4bf4a98848094435d017d90c2cfc09a04146ef3}
+    container_name: cachesync
     restart: on-failure:3
     # ports:
     #   - '8091:8091' # metrics port
@@ -291,6 +294,7 @@ services:
   
   api:
     image: ${API_IMAGE:-ghcr.io/ticketsbot/api:8f5d68ab0de450a60202788c4c660f2ebdb8c47c}
+    container_name: api
     restart: on-failure:10
     ports:
       - '8082:8081'
@@ -340,11 +344,13 @@ services:
         REDIRECT_URI: ${DASHBOARD_URL:-http://localhost:5000}/callback 
         API_URL: ${API_URL:-http://localhost:8082}
         WS_URL: ${API_URL:-http://localhost:8082}
+    container_name: dashboard
     ports:
       - '5000:5000'
 
   logarchiver:
     image: ${LOGARCHIVER_IMAGE:-ghcr.io/ticketsbot/logarchiver:0cfab8ec82cfaa88af9e6fabe4dd9a407f7537dd}
+    container_name: logarchiver
     environment:
       ARCHIVER_ADDR: 0.0.0.0:4000
       S3_ENDPOINT: ${S3_ENDPOINT}
@@ -363,6 +369,7 @@ services:
 
   autoclosedaemon:
     image: ${AUTOCLOSEDAEMOON_IMAGE:-ghcr.io/ticketsbot/autoclosedaemon:68cb9a641e9536dd45378d9fe0a085902f99914c}
+    container_name: autoclosedaemon
     environment:
       DATABASE_URI: postgres://postgres:${DATABASE_PASSWORD:-null}@${DATABASE_HOST:-postgres:5432}/ticketsbot
       DATABASE_THREADS: 4
@@ -380,6 +387,7 @@ services:
 
   discord-chat-replica:
     image: ${DISCORD_CHAT_REPLICA_IMAGE:-ghcr.io/ticketsbot/discord-chat-replica:e7a42bfeb763b08d859f8a17430f5a38eb5d69a9}
+    container_name: discord-chat-replica
     environment:
       PORT: 8080
     networks:
