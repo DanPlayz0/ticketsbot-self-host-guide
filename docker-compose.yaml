@@ -385,6 +385,38 @@ services:
     networks:
       - app-network
 
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    environment:
+      MINIO_ROOT_USER: ${S3_ACCESS}
+      MINIO_ROOT_PASSWORD: ${S3_SECRET}
+    command: server /data --console-address ":9001"
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - ./miniodata:/data
+    networks:
+      - app-network
+
+  minio-setup:
+    image: minio/mc:latest
+    container_name: minio-setup
+    depends_on:
+      - minio
+    entrypoint: >
+      /bin/sh -c "
+      mc alias set myminio http://minio:9000 ${S3_ACCESS} ${S3_SECRET};
+      if mc ls myminio/ticketsbot >/dev/null 2>&1; then
+        echo 'The bucket already exists';
+      else
+        mc mb myminio/ticketsbot;
+        mc anonymous set public myminio/ticketsbot;
+      fi;
+      "
+    networks:
+      - app-network
 
 networks:
   app-network:

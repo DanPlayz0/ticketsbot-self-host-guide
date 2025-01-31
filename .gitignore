@@ -1,4 +1,5 @@
 /pg*data
 /redisdata
 /kafkadata
+/miniodata
 .env
