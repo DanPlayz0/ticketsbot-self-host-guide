@@ -70,52 +70,9 @@ As this bot is self-hosted, you will need to configure the bot yourself. Here ar
 
 ## Registering the slash commands using Docker (Recommended)
 
-1. Create the `commands.Dockerfile` and copy the following code block (this registers the commands with the bot)
-
-   ```dockerfile
-   # Build container
-   FROM golang:1.22 AS builder
-
-   RUN go version
-
-   RUN apt-get update && apt-get upgrade -y && apt-get install -y ca-certificates git zlib1g-dev
-
-   WORKDIR /go/src/github.com/TicketsBot
-   RUN git clone https://github.com/TicketsBot/worker.git
-   WORKDIR /go/src/github.com/TicketsBot/worker
-
-   RUN git submodule update --init --recursive --remote
-
-   RUN set -Eeux && \
-       go mod download && \
-       go mod verify
-
-   RUN GOOS=linux GOARCH=amd64 \
-       go build \
-       -tags=jsoniter \
-       -trimpath \
-       -o main cmd/registercommands/main.go
-
-   # Executable container
-   FROM ubuntu:latest
-
-   RUN apt-get update && apt-get upgrade -y && apt-get install -y ca-certificates curl
-
-   COPY --from=builder /go/src/github.com/TicketsBot/worker/locale /srv/worker/locale
-   COPY --from=builder /go/src/github.com/TicketsBot/worker/main /srv/worker/main
-
-   RUN chmod +x /srv/worker/main
-
-   RUN useradd -m container
-   USER container
-   WORKDIR /srv/worker
-
-   ENTRYPOINT ["/srv/worker/main"]
-   ```
-
-2. Build the register commands cli utility using `docker build -t ticketsbot/registercommands -f commands.Dockerfile .`
-3. Get help by running `docker run --rm ticketsbot/registercommands --help`
-4. Register the commands
+1. Build the register commands cli utility using `docker build -t ticketsbot/registercommands -f commands.Dockerfile .`
+   - Get help by running `docker run --rm ticketsbot/registercommands --help`
+2. Register the commands
    - Global commands only: `docker run --rm ticketsbot/registercommands --token=your_bot_token --id=your_client_id`
    - Global & Admin commands by running `docker run --rm ticketsbot/registercommands --token=your_bot_token --id=your_client_id --admin-guild=your_admin_guild_id`
 
