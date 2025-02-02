@@ -112,7 +112,7 @@ services:
       WORKER_PUBLIC_TOKEN: ${DISCORD_BOT_PUBLIC_KEY}
       WORKER_PUBLIC_ID: ${DISCORD_BOT_CLIENT_ID}
       WORKER_BOT_ADMINS: ${ADMIN_USER_IDS}
-      # WORKER_BOT_HELPERS: ${HELPER_USER_IDS:-} # "Limited admin" controls
+      WORKER_BOT_HELPERS: ${HELPER_USER_IDS:-}
       SUPPORT_SERVER_INVITE: ${DISCORD_SUPPORT_SERVER_INVITE:-https://discord.gg/ticketsbot}
       HTTP_ADDR: 0.0.0.0:4001
       DISCORD_PROXY_URL: http-proxy:80 # http://{proxy_url}/{discord's api path ex: api/v10/webhooks/...}
