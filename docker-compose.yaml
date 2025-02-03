@@ -109,6 +109,12 @@ services:
     environment:
       WORKER_MODE: INTERACTIONS
 
+      DASHBOARD_URL: ${DASHBOARD_URL:-http://localhost:5000}
+      FRONTPAGE_URL: ${LANDING_PAGE_URL:-https://ticketsbot.net}
+      VOTE_URL: ${VOTE_URL:-https://vote.ticketsbot.net}
+      POWEREDBY: ${POWERED_BY:-github.com/ticketsbot}
+      ICON_URL: ${ICON_URL:-https://ticketsbot.net/assets/icon.png}
+
       WORKER_PUBLIC_TOKEN: ${DISCORD_BOT_PUBLIC_KEY}
       WORKER_PUBLIC_ID: ${DISCORD_BOT_CLIENT_ID}
       WORKER_BOT_ADMINS: ${ADMIN_USER_IDS}
@@ -164,6 +170,12 @@ services:
     environment:
       # WORKER_DEBUG: 
       WORKER_MODE: GATEWAY
+
+      DASHBOARD_URL: ${DASHBOARD_URL:-http://localhost:5000}
+      FRONTPAGE_URL: ${LANDING_PAGE_URL:-https://ticketsbot.net}
+      VOTE_URL: ${VOTE_URL:-https://vote.ticketsbot.net}
+      POWEREDBY: ${POWERED_BY:-github.com/ticketsbot}
+      ICON_URL: ${ICON_URL:-https://ticketsbot.net/assets/icon.png}
 
       WORKER_PUBLIC_TOKEN: ${DISCORD_BOT_PUBLIC_KEY}
       WORKER_PUBLIC_ID: ${DISCORD_BOT_CLIENT_ID}
