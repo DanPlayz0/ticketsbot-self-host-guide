@@ -101,7 +101,7 @@ services:
       - app-network
 
   worker-interactions:
-    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot/worker:89dec1fd9a114ad0eb18fbf026da2624b7b5821d}
+    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:v2.8.0}
     container_name: worker-interactions
     restart: on-failure:10
     # ports:
@@ -156,7 +156,7 @@ services:
       - app-network
 
   worker-gateway:
-    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot/worker:89dec1fd9a114ad0eb18fbf026da2624b7b5821d}
+    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:v2.8.0}
     container_name: worker-gateway
     restart: on-failure:10
     # ports:
