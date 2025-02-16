@@ -261,6 +261,10 @@ As this is just a cache database, you may also choose to stop the bot, delete th
 
 This issue is caused by the bot not being able to find any servers that you own or have admin for. You must first invite the bot into a server and run `/setup auto` in that server. Once you've done that, you should be able to login to the dashboard.
 
-### 5. When I run a command, I get an error
+### 5. The dashboard is blank when I log into the dashboard
+
+Make sure your endpoints are setup correctly and that they're `https`, not `http`.
+
+### 6. When I run a command, I get an error
 
 If you see the bot online and when running a command you get an error, it's likely you messed up the [Interactions Endpoint URL](https://discord.com/developers/docs/interactions/overview#configuring-an-interactions-endpoint-url), you can fix this by following the steps in the [Discord Bot Configuration](#discord-bot-configuration) section. Specifically step 3.
