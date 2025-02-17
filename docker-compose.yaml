@@ -302,7 +302,7 @@ services:
       - app-network
   
   api:
-    image: ${API_IMAGE:-ghcr.io/ticketsbot/api:8f5d68ab0de450a60202788c4c660f2ebdb8c47c}
+    image: ${API_IMAGE:-ghcr.io/ticketsbot/api:07943c2e1a9b8788d030b4b19db3e656513b6481}
     restart: on-failure:10
     ports:
       - '8082:8081'
