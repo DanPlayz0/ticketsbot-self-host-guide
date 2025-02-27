@@ -264,3 +264,15 @@ This issue is caused by the bot not being able to find any servers that you own 
 ### 6. When I run a command, I get an error
 
 If you see the bot online and when running a command you get an error, it's likely you messed up the [Interactions Endpoint URL](https://discord.com/developers/docs/interactions/overview#configuring-an-interactions-endpoint-url), you can fix this by following the steps in the [Discord Bot Configuration](#discord-bot-configuration) section. Specifically step 3.
+
+### 7. ERROR: relation "import_logs" does not exist
+
+This error only occurs for users who have previously setup the bot before importing was supported.
+
+> :warning: Make sure you have the latest version of the bot before running the following command. As the `init-support-import.sql` file was added as a bind mount to `postgres` in the `docker-compose.yaml` file. Making the following command possible.
+
+To fix this error you will need to run the following command in the `postgres` container:
+
+```bash
+docker compose exec postgres psql -U postgres -d ticketsbot -f /docker-entrypoint-initdb.d/init-support-import.sql
+```
