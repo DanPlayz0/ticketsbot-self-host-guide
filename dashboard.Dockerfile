@@ -10,7 +10,7 @@ WORKDIR /tmp
 USER node
 
 # Clone the repository to /tmp
-RUN git clone https://github.com/TicketsBot/dashboard.git /tmp
+RUN git clone https://github.com/TicketsBot-cloud/dashboard.git /tmp
 
 # Switch directories to the frontend
 WORKDIR /tmp/frontend

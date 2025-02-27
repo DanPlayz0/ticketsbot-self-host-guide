@@ -307,7 +307,7 @@ services:
       - app-network
   
   api:
-    image: ${API_IMAGE:-ghcr.io/ticketsbot/api:07943c2e1a9b8788d030b4b19db3e656513b6481}
+    image: ${API_IMAGE:-ghcr.io/ticketsbot-cloud/api:09589cb7ca1196cb02fd49f38d32541a267e159b }
     restart: on-failure:10
     ports:
       - '8082:8081'
@@ -407,6 +407,70 @@ services:
     networks:
       - app-network
 
+  import-sync-data:
+    image: ${IMPORT_SYNC_IMAGE:-ghcr.io/ticketsbot-cloud/import-sync:5bf6245a4b697c6415ff9d4de47b03a68c9c350e} 
+    environment:
+      DAEMON_ENABLED: true
+      DAEMON_FREQUENCY: '1h'
+      DAEMON_EXECUTION_TIMEOUT: '30m'
+      DAEMON_TYPE: "DATA"
+      
+      BOT_TOKEN: ${DISCORD_BOT_TOKEN}
+      
+      REDIS_HOST: ${REDIS_HOST:-redis}
+      REDIS_PORT: ${REDIS_PORT:-6379}
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-null}
+      REDIS_THREADS: 2
+
+      SENTRY_DSN: ${SENTRY_DSN}
+      DATABASE_URI: postgres://postgres:${DATABASE_PASSWORD:-null}@${DATABASE_HOST:-postgres:5432}/ticketsbot
+
+      S3_IMPORT_BUCKET: 'todo' # TODO: this still needs some work
+      S3_ARCHIVE_BUCKET: 'todo' # TODO: this still needs some work
+      S3_ENDPOINT: ${S3_ENDPOINT}
+      S3_ACCESS_KEY: ${S3_ACCESS}
+      S3_SECRET_KEY: ${S3_SECRET}
+
+      V1_PUBLIC_KEY: "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA0As3ltZKpZLjS2kLVbEv4LCKNZKqNW1Pv6o6dtema94=\n-----END PUBLIC KEY-----"
+
+      LOG_ARCHIVER_URL: http://logarchiver:4000
+      LOG_ARCHIVER_KEY: ${ARCHIVER_AES_KEY}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  import-sync-transcripts:
+    image: ${IMPORT_SYNC_IMAGE:-ghcr.io/ticketsbot-cloud/import-sync:5bf6245a4b697c6415ff9d4de47b03a68c9c350e}
+    environment:
+      DAEMON_ENABLED: true
+      DAEMON_FREQUENCY: '1h'
+      DAEMON_EXECUTION_TIMEOUT: '30m'
+      DAEMON_TYPE: "TRANSCRIPT"
+      
+      BOT_TOKEN: ${DISCORD_BOT_TOKEN}
+      
+      REDIS_HOST: ${REDIS_HOST:-redis}
+      REDIS_PORT: ${REDIS_PORT:-6379}
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-null}
+      REDIS_THREADS: 2
+
+      SENTRY_DSN: ${SENTRY_DSN}
+      DATABASE_URI: postgres://postgres:${DATABASE_PASSWORD:-null}@${DATABASE_HOST:-postgres:5432}/ticketsbot
+
+      S3_IMPORT_BUCKET: 'todo' # TODO: this still needs some work
+      S3_ARCHIVE_BUCKET: 'todo' # TODO: this still needs some work
+      S3_ENDPOINT: ${S3_ENDPOINT}
+      S3_ACCESS_KEY: ${S3_ACCESS}
+      S3_SECRET_KEY: ${S3_SECRET}
+
+      V1_PUBLIC_KEY: "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA0As3ltZKpZLjS2kLVbEv4LCKNZKqNW1Pv6o6dtema94=\n-----END PUBLIC KEY-----"
+
+      LOG_ARCHIVER_URL: http://logarchiver:4000
+      LOG_ARCHIVER_KEY: ${ARCHIVER_AES_KEY}
+    networks:
+      - app-network
 
 networks:
   app-network:
