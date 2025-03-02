@@ -382,6 +382,11 @@ services:
       DATABASE_URI: postgres://postgres:${ARCHIVE_DATABASE_PASSWORD:-null}@${ARCHIVE_DATABASE_HOST:-postgres-archive:5432}/archive
     networks:
       - app-network
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "4000"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
     depends_on:
       postgres-archive:
         condition: service_healthy
@@ -444,6 +449,8 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+      logarchiver:
+        condition: service_healthy
     networks:
       - app-network
 
@@ -477,6 +484,8 @@ services:
       LOG_ARCHIVER_KEY: ${ARCHIVER_AES_KEY}
     depends_on:
       postgres:
+        condition: service_healthy
+      logarchiver:
         condition: service_healthy
     networks:
       - app-network
