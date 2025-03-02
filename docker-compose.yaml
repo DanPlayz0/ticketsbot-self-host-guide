@@ -157,6 +157,8 @@ services:
         restart: true
       postgres-cache:
         condition: service_healthy
+      redis:
+        condition: service_healthy
       # sharder-main:
       #   condition: service_healthy
     networks:
@@ -218,6 +220,8 @@ services:
         condition: service_healthy
         restart: true
       postgres-cache:
+        condition: service_healthy
+      redis:
         condition: service_healthy
     networks:
       - app-network
@@ -410,6 +414,10 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+      postgres-cache:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
 
   discord-chat-replica:
     image: ${DISCORD_CHAT_REPLICA_IMAGE:-ghcr.io/ticketsbot/discord-chat-replica:e7a42bfeb763b08d859f8a17430f5a38eb5d69a9}
@@ -451,6 +459,8 @@ services:
         condition: service_healthy
       logarchiver:
         condition: service_healthy
+      redis:
+        condition: service_healthy
     networks:
       - app-network
 
@@ -486,6 +496,8 @@ services:
       postgres:
         condition: service_healthy
       logarchiver:
+        condition: service_healthy
+      redis:
         condition: service_healthy
     networks:
       - app-network
