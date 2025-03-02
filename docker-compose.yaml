@@ -430,7 +430,7 @@ services:
     image: ${IMPORT_SYNC_IMAGE:-ghcr.io/ticketsbot-cloud/import-sync:e5557bccf8771fc9bbe349e62487c28253027461} 
     environment:
       DAEMON_ENABLED: true
-      DAEMON_FREQUENCY: '1h'
+      DAEMON_FREQUENCY: ${IMPORT_DAEMON_FREQUENCY:-1h}
       DAEMON_EXECUTION_TIMEOUT: '30m'
       DAEMON_TYPE: "DATA"
       
@@ -468,7 +468,7 @@ services:
     image: ${IMPORT_SYNC_IMAGE:-ghcr.io/ticketsbot-cloud/import-sync:e5557bccf8771fc9bbe349e62487c28253027461}
     environment:
       DAEMON_ENABLED: true
-      DAEMON_FREQUENCY: '1h'
+      DAEMON_FREQUENCY: ${IMPORT_DAEMON_FREQUENCY:-1h}
       DAEMON_EXECUTION_TIMEOUT: '30m'
       DAEMON_TYPE: "TRANSCRIPT"
       
