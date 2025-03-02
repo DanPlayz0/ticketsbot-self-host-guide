@@ -213,6 +213,14 @@ For the `pgcachedata` "cache" database:
 docker compose exec postgres-cache psql -U postgres -d botcache -c "SQL_COMMAND"
 ```
 
+### 10. How do I import data from ticketsbot.net?
+
+You first will need to have the exports from [export.ticketsbot.net](https://export.ticketsbot.net). Then you will need to open the self-hosted bot's dashboard and go to the import page and upload the exports.
+
+You must upload the data export first, wait for it to import, then after data is imported, you can upload the transcript export.
+
+The way the self hosted import works, you _*should** be able to import both data and transcripts at the same time, and it may work, but it is not recommended.
+
 ## Common Issues
 
 ### 1. There's an error. (`no active bucket`)
