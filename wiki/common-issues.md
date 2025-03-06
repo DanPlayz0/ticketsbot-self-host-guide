@@ -63,3 +63,16 @@ To fix this error you will need to run the following command in the `postgres` c
 ```bash
 docker compose exec postgres psql -U postgres -d ticketsbot -f /docker-entrypoint-initdb.d/init-support-import.sql
 ```
+
+## 8. ERROR: relation "panel_here_mentions" does not exist
+
+Related issue: Error: Failed to load panels: An internal server error occurred
+Related issue: Ticket Panels in dashboard gives me an internal server error
+
+This error only occurs for users who have previously setup the bot before `@ here` was supported in ticket panels.
+
+You will need to run the following command in the `postgres` container:
+
+```bash
+docker compose exec postgres psql -U postgres -d ticketsbot -f /docker-entrypoint-initdb.d/panel-here-mentions.sql
+```

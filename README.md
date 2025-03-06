@@ -103,10 +103,14 @@ For common issues, please refer to the [Common Issues](./wiki/common-issues.md) 
 - [When I run a command, I get an error](./wiki/common-issues.md#6-when-i-run-a-command-i-get-an-error)
 - [ERROR: relation "import_logs" does not exist](./wiki/common-issues.md#7-error-relation-import_logs-does-not-exist)
 - [Failed to get import runs: An internal server error occurred](./wiki/common-issues.md#7-error-relation-import_logs-does-not-exist)
+- [ERROR: relation "panel_here_mentions" does not exist](./wiki/common-issues.md#8-error-relation-panel_here_mentions-does-not-exist)
+- [Error: Failed to load panels: An internal server error occurred](./wiki/common-issues.md#8-error-relation-panel_here_mentions-does-not-exist)
+- [Ticket Panels in dashboard gives me an internal server error](./wiki/common-issues.md#8-error-relation-panel_here_mentions-does-not-exist)
 
 ## Migrations
 
 If you have previously setup the bot and want to update to the latest version, you will need to run the following based on when you set this up. (Sorted newest first)
 
+- Before [Guide PR#15](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/15), use [Common Issue #8](./wiki/common-issues.md#8-error-failed-to-load-panels-an-internal-server-error-occurred)
 - Before [Guide PR#14](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/14), use [Common Issue #7](./wiki/common-issues.md#7-error-relation-import_logs-does-not-exist)
 - Before [Guide PR#9](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/9), use [Common Issue #4](./wiki/common-issues.md#4-error-column-last_seen-of-relation-does-not-exist)
