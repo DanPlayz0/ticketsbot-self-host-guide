@@ -367,6 +367,7 @@ services:
         REDIRECT_URI: ${DASHBOARD_URL:-http://localhost:5000}/callback 
         API_URL: ${API_URL:-http://localhost:8082}
         WS_URL: ${API_URL:-http://localhost:8082}
+        CACHEBUST: "this is randeom" # (OPTIONAL) Change this whenever you update the dashboard repository
     ports:
       - '5000:5000'
     networks:
