@@ -11,7 +11,7 @@ USER node
 
 # Bust cache (this will allow it to pull the latest version of the dashboard from the repo)
 ARG CACHEBUST=1
-ARG COMMIT_HASH=cd5be3fc8619a7720c47d59d763efaabeafd61b2
+ARG COMMIT_HASH=27b2c0e8c63dc66ed9c715823dcfd2b57c1a4beb
 
 # Clone the repository to /tmp
 RUN git clone https://github.com/TicketsBot-cloud/dashboard.git /tmp

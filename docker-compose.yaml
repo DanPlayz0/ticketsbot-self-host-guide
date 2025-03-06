@@ -103,7 +103,7 @@ services:
       - app-network
 
   worker-interactions:
-    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:v2.8.0}
+    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:4e0ecbd29ce2a26ba13378905411592713d1ca8c}
     container_name: worker-interactions
     restart: on-failure:10
     # ports:
@@ -166,7 +166,7 @@ services:
       - app-network
 
   worker-gateway:
-    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:v2.8.0}
+    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:4e0ecbd29ce2a26ba13378905411592713d1ca8c}
     container_name: worker-gateway
     restart: on-failure:10
     # ports:
@@ -313,7 +313,7 @@ services:
       - app-network
   
   api:
-    image: ${API_IMAGE:-ghcr.io/ticketsbot-cloud/api:d4128ca2ee3601a87e2d45b02763d057dab4d414}
+    image: ${API_IMAGE:-ghcr.io/ticketsbot-cloud/api:27b2c0e8c63dc66ed9c715823dcfd2b57c1a4beb}
     restart: on-failure:10
     ports:
       - '8082:8081'
@@ -368,7 +368,7 @@ services:
         REDIRECT_URI: ${DASHBOARD_URL:-http://localhost:5000}/callback 
         API_URL: ${API_URL:-http://localhost:8082}
         WS_URL: ${API_URL:-http://localhost:8082}
-        COMMIT_HASH: ${DASHBOARD_HASH:-cd5be3fc8619a7720c47d59d763efaabeafd61b2}
+        COMMIT_HASH: ${DASHBOARD_HASH:-27b2c0e8c63dc66ed9c715823dcfd2b57c1a4beb}
         CACHEBUST: "this is randeom" # (OPTIONAL) Change this whenever you update the dashboard repository
     ports:
       - '5000:5000'
