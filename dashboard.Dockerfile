@@ -11,10 +11,12 @@ USER node
 
 # Bust cache (this will allow it to pull the latest version of the dashboard from the repo)
 ARG CACHEBUST=1
+ARG GIT_URL=https://github.com/TicketsBot-cloud/dashboard
+ARG GIT_BRANCH=master
 ARG COMMIT_HASH=27b2c0e8c63dc66ed9c715823dcfd2b57c1a4beb
 
 # Clone the repository to /tmp
-RUN git clone https://github.com/TicketsBot-cloud/dashboard.git /tmp
+RUN git clone -b $GIT_BRANCH $GIT_URL.git /tmp
 
 # Switch to "known-working" commit.
 RUN git reset --hard $COMMIT_HASH

@@ -368,6 +368,8 @@ services:
         REDIRECT_URI: ${DASHBOARD_URL:-http://localhost:5000}/callback 
         API_URL: ${API_URL:-http://localhost:8082}
         WS_URL: ${API_URL:-http://localhost:8082}
+        GIT_URL: ${DASHBOARD_GIT_URL:-https://github.com/TicketsBot-cloud/dashboard}
+        GIT_BRANCH: ${DASHBOARD_GIT_BRANCH:-master}
         COMMIT_HASH: ${DASHBOARD_COMMIT_HASH:-27b2c0e8c63dc66ed9c715823dcfd2b57c1a4beb}
         CACHEBUST: "this is randeom" # (OPTIONAL) Change this whenever you update the dashboard repository
     ports:
