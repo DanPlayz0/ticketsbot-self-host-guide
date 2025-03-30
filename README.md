@@ -67,7 +67,8 @@ As this bot is self-hosted, you will need to configure the bot yourself. Here ar
 4. Go to the OAuth2 tab
 5. Add the redirect URL `${DASHBOARD_URL}/callback` to the OAuth2 redirect URIs
    - Replace `${DASHBOARD_URL}` with the URL of your API (e.g. `http://localhost:8080`, make sure this matches what you set in the [Setup](#setup) section)
-
+6. Go to the Bot tab 
+   - Activate "Message Content Intent" (Required for functional transcripts)
 ## Registering the slash commands using Docker (Recommended)
 
 1. Build the register commands cli utility using `docker build -t ticketsbot/registercommands -f commands.Dockerfile .`
