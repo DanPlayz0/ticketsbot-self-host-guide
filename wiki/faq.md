@@ -12,6 +12,15 @@ I cannot recommend any specific requirements, but I can give you some informatio
 
 - Starting up the bot the peak was around 475.44MB of RAM and 43.21% CPU. (This was on a fresh start, it may vary)
 - After using the bot for a while, the bot was using around 1.5GB of RAM and 18% of a CPU.
+- Your CPU must support AVX
+
+Linux:
+
+```bash
+cat /proc/cpuinfo | grep avx
+```
+
+If not your output is blank you will need to run the bot on a different CPU that does support it.
 
 ## 3. Can I turn off the logging?
 
