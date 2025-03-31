@@ -76,3 +76,15 @@ You will need to run the following command in the `postgres` container:
 ```bash
 docker compose exec postgres psql -U postgres -d ticketsbot -f /docker-entrypoint-initdb.d/panel-here-mentions.sql
 ```
+
+## 9. Exited with code 132
+
+This error is caused by your CPU not supporting the `AVX2` instruction set. You can check if your CPU supports this by running the following command:
+
+Linux:
+
+```bash
+cat /proc/cpuinfo | grep avx
+```
+
+If you see `avx2` in the output, your CPU supports it. If not, you will need to run the bot on a different CPU that does support it.

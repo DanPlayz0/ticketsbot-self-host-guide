@@ -108,6 +108,8 @@ For common issues, please refer to the [Common Issues](./wiki/common-issues.md) 
 - [#8 ERROR: relation "panel_here_mentions" does not exist](./wiki/common-issues.md#8-error-relation-panel_here_mentions-does-not-exist)
 - [#8 Error: Failed to load panels: An internal server error occurred](./wiki/common-issues.md#8-error-relation-panel_here_mentions-does-not-exist)
 - [#8 Ticket Panels in dashboard gives me an internal server error](./wiki/common-issues.md#8-error-relation-panel_here_mentions-does-not-exist)
+- [#9 Exited with code 132](./wiki/common-issues.md#9-exited-with-code-132)
+- [#9 CPU does not support AVX2](./wiki/common-issues.md#9-exited-with-code-132)
 
 ## Migrations
 
