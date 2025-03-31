@@ -111,6 +111,7 @@ For common issues, please refer to the [Common Issues](./wiki/common-issues.md) 
 
 If you have previously setup the bot and want to update to the latest version, you will need to run the following based on when you set this up. (Sorted newest first)
 
+- If your repo did not have `delete-mentions.sql`, run it within the `postgres` container, see [FAQ #9](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers) for how to do this.
 - Before [Guide PR#15](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/15), use [Common Issue #8](./wiki/common-issues.md#8-error-relation-panel_here_mentions-does-not-exist)
 - Before [Guide PR#14](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/14), use [Common Issue #7](./wiki/common-issues.md#7-error-relation-import_logs-does-not-exist)
 - Before [Guide PR#9](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/9), use [Common Issue #4](./wiki/common-issues.md#4-error-column-last_seen-of-relation-does-not-exist)
