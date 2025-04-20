@@ -63,7 +63,7 @@ services:
       retries: 10
 
   kafka:
-    image: apache/kafka:latest
+    image: apache/kafka:3.7.2
     environment:
       KAFKA_NODE_ID: 1
       KAFKA_PROCESS_ROLES: broker,controller
