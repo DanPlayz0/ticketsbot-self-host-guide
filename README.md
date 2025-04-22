@@ -9,12 +9,12 @@ Dieses unoffizielle guide zeigt dir wie man den [Tickets bot](https://discord.co
 - Du solltest ein basis wissen in GoLang, Rust, und Svelte haben
 - Du solltest ein basis wissen haben, wie man eine datenbasis benutzt (speziell PostgreSQL)
 
-## How does the bot work?
+## Wie funktioniert der bot?
 
-To be completely honest, I still don't know. The image below is a rough diagram of how I think the bot works after nearly a week of tinkering with the TicketsBot codebase. The dotted boxes are the containers that I did not implement into the `docker-compose.yaml` in this repository.
+Um ehrlich zu sein, weiß ich das noch nicht. Das bild unten ist ein ungefähres diagram, dass zeigt, wie ich denke das der bot funktionier, nach etwas über einer woche an tüffteln mit der ticketsbot codebasis. Die gepunkteten boxen sind teile des bots, die ich nicht in die `docker-compose.yaml` datei, in diesem repository, eingefügt habe, weshalb sie fehlen.
 
 ![Excalidraw](./images/ticketsbot-2025-01-11T23_47_40_622Z.svg)
-The image above was made using [Excalidraw](https://excalidraw.com/).
+Das obrige Bild, wurde mit [Excalidraw](https://excalidraw.com/) erstellt.
 
 ## Setup
 
