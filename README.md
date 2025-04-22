@@ -11,7 +11,7 @@ Dieses unoffizielle guide zeigt dir wie man den [Tickets bot](https://discord.co
 
 ## Wie funktioniert der bot?
 
-Um ehrlich zu sein, weiß ich das noch nicht. Das bild unten ist ein ungefähres diagram, dass zeigt, wie ich denke das der bot funktionier, nach etwas über einer woche an tüffteln mit der ticketsbot codebasis. Die gepunkteten boxen sind teile des bots, die ich nicht in die `docker-compose.yaml` datei, in diesem repository, eingefügt habe, weshalb sie fehlen.
+Um ehrlich zu sein, weiß ich das selbst noch nicht. Das bild unten ist ein ungefähres diagram, dass zeigt, wie ich denke, das der bot funktionier, nach etwas über einer woche an tüffteln mit der ticketsbot codebasis. Die gepunkteten boxen sind teile des bots, die ich nicht in die `docker-compose.yaml` datei, in diesem repository, eingefügt habe, weshalb sie fehlen.
 
 ![Excalidraw](./images/ticketsbot-2025-01-11T23_47_40_622Z.svg)
 Das obrige Bild, wurde mit [Excalidraw](https://excalidraw.com/) erstellt.
