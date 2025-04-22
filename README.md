@@ -1,6 +1,6 @@
 # Self Hosting Tickets Bot
 
-This is a guide to self host the [Tickets bot](https://discord.com/users/508391840525975553). Which was [announced to sunset on the 5th of March 2025](https://discord.com/channels/508392876359680000/508410703439462400/1325516916995129445) in [their support server](https://discord.gg/XX2TxVCq6g). This guide will help you set up the bot on your own machine using Docker. **This is not an official guide and I will not provide support.**
+Dieses unoffizielle guide zeigt ihnen wie man den [Tickets bot](https://discord.com/users/508391840525975553) selber hosten kann. Dieser bot wurde leider abgeschalted, [was am fünften märz geschehen sollte/ist](https://discord.com/channels/508392876359680000/508410703439462400/1325516916995129445) in [dem support server](https://discord.gg/XX2TxVCq6g) angesagt wurde. Dieses guide wir dir helfen, den bot auf deiner eigenen maschine oder einem server selber zu hosten mit der hilfe von Docker. **Dieses ist kein offizielles guide weshalb auch kein support dafür bereit gestellt wird.** Alle fragen sollten im [support server](https://discord.gg/XX2TxVCq6g) des ticketsbots, im selfhosting kanal gestellt werden.
 
 ## Pre-requisites
 
