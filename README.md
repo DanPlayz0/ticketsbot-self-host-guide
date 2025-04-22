@@ -2,12 +2,12 @@
 
 Dieses unoffizielle guide zeigt dir wie man den [Tickets bot](https://discord.com/users/508391840525975553) selber hosten kann. Dieser bot wurde leider abgeschalted, [was am fünften märz geschehen sollte/ist](https://discord.com/channels/508392876359680000/508410703439462400/1325516916995129445) und in [dem support server](https://discord.gg/XX2TxVCq6g) angekündigt wurde. Dieses guide wir dir helfen, den bot auf deiner eigenen maschine oder einem server selber zu hosten mit der hilfe von Docker. **Dieses ist kein offizielles guide weshalb auch kein support dafür bereit gestellt wird.** Alle fragen sollten im [support server](https://discord.gg/XX2TxVCq6g) des ticketsbots, im selfhosting kanal gestellt werden.
 
-## Pre-requisites
+## Vorraussetzungen
 
-- You must have knowledge of how to use, deploy and run containers (specifically Docker)
-- You must have an idea of how to use a terminal
-- You should have a basic understanding of GoLang, Rust, and Svelte
-- You should have a basic understanding of how to use a database (specifically PostgreSQL)
+- Du musst Wissen, wie man container benutzt, bereitstellt und ausführt (speziell Docker)
+- Du musst Wissen, wie man ein Terminal benutzt
+- Du solltest ein basis wissen in GoLang, Rust, und Svelte haben
+- Du solltest ein basis wissen haben, wie man eine datenbasis benutzt (speziell PostgreSQL)
 
 ## How does the bot work?
 
