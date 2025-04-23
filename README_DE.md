@@ -78,40 +78,40 @@ Da dieser bot selbst-gehosted ist, musst du, denn bot selbst konfigurieren. Hier
    - nur Globale commands: `docker run --rm ticketsbot/registercommands --token=your_bot_token --id=your_client_id`
    - Globale & Admin commands durch ausführung von `docker run --rm ticketsbot/registercommands --token=your_bot_token --id=your_client_id --admin-guild=your_admin_guild_id`
 
-## Frequently Asked Questions
+## Häufig gestellte Fragen
 
-For frequently asked questions, please refer to the [FAQ](./wiki/faq.md) document.
+Für Häufig gestellte Fragen, bitte das [FAQ](./wiki/faq.md) dokument lesen. <sup>nur in englisch vorhanden</sup>
 
-- [#1 What can I host this on?](./wiki/faq.md#1-what-can-i-host-this-on)
-- [#2 What are the system requirements?](./wiki/faq.md#2-what-are-the-system-requirements)
-- [#3 Can I turn off the logging?](./wiki/faq.md#3-can-i-turn-off-the-logging)
-- [#4 How do I update the bot?](./wiki/faq.md#4-how-do-i-update-the-bot)
-- [#5 How do I get rid of the `ticketsbot.net` branding?](./wiki/faq.md#5-how-do-i-get-rid-of-the-ticketsbotnet-branding)
-- [#6 I want anyone to be able to use the dashboard, how do I do that?](./wiki/faq.md#6-i-want-anyone-to-be-able-to-use-the-dashboard-how-do-i-do-that)
-- [#7 This requires S3, can I host this without S3? (NOT recommended)](./wiki/faq.md#7-this-requires-s3-can-i-host-this-without-s3-not-recommended)
-- [#8 How do I activate premium features?](./wiki/faq.md#8-how-do-i-activate-premium-features)
-- [#9 How do I run the sql commands inside the database containers?](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers)
-- [#10 How do I import data from ticketsbot.net?](./wiki/faq.md#10-how-do-i-import-data-from-ticketsbotnet)
+- [#1 Worauf kann ich den bot hosten?](./wiki/faq.md#1-what-can-i-host-this-on)
+- [#2 Was sind die system vorausetzungen?](./wiki/faq.md#2-what-are-the-system-requirements)
+- [#3 Kann ich die logs ausschalten?](./wiki/faq.md#3-can-i-turn-off-the-logging)
+- [#4 Wie update ich den bot?](./wiki/faq.md#4-how-do-i-update-the-bot)
+- [#5 Wie entferne ich das `ticketsbot.net` Branding?](./wiki/faq.md#5-how-do-i-get-rid-of-the-ticketsbotnet-branding)
+- [#6 Ich möchte das jeder auf das dashboard zugriff hat, wie mache ich das?](./wiki/faq.md#6-i-want-anyone-to-be-able-to-use-the-dashboard-how-do-i-do-that)
+- [#7 Das braucht S3, kann Ich auch ohne S3 hosten? (NICHT EMPFOHLEN)](./wiki/faq.md#7-this-requires-s3-can-i-host-this-without-s3-not-recommended)
+- [#8 wie aktiviere ich premium features?](./wiki/faq.md#8-how-do-i-activate-premium-features)
+- [#9 Wie führe ich sql commands in den datenbasis containern aus?](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers)
+- [#10 Wie importiere ich meine daten von ticketsbot.net?](./wiki/faq.md#10-how-do-i-import-data-from-ticketsbotnet)
 
-## Common Issues
+## häufige Probleme
 
-For common issues, please refer to the [Common Issues](./wiki/common-issues.md) document.
+Für häufige Probleme, bitte das [Common Issues](./wiki/common-issues.md) dokument lesen. <sup>auch nur in englisch vorhanden</sup>
 
-- [#1 There's an error. (`no active bucket`)](./wiki/common-issues.md#1-theres-an-error-no-active-bucket)
-- [#2 I got an error while setting the interactions url. (`The specified interactions endpoint url could not be verified.`)](./wiki/common-issues.md#2-i-got-an-error-while-setting-the-interactions-url-the-specified-interactions-endpoint-url-could-not-be-verified)
-- [#3 Invalid OAuth2 redirect_uri](./wiki/common-issues.md#3-invalid-oauth2-redirect_uri)
+- [#1 Dort ist ein error. (`no active bucket`)](./wiki/common-issues.md#1-theres-an-error-no-active-bucket)
+- [#2 Ich habe einen error beim setzen der interactions url bekommen. (`The specified interactions endpoint url could not be verified.`)](./wiki/common-issues.md#2-i-got-an-error-while-setting-the-interactions-url-the-specified-interactions-endpoint-url-could-not-be-verified)
+- [#3 Ungültige OAuth2 redirect_uri](./wiki/common-issues.md#3-invalid-oauth2-redirect_uri)
 - [#4 ERROR: column "last_seen" of relation does not exist](./wiki/common-issues.md#4-error-column-last_seen-of-relation-does-not-exist)
-- [#5 I can't login to the dashboard. Every time I try to login, it loops/redirects me back to the login page](./wiki/common-issues.md#5-i-cant-login-to-the-dashboard-every-time-i-try-to-login-it-loopsredirects-me-back-to-the-login-page)
-- [#6 When I run a command, I get an error](./wiki/common-issues.md#6-when-i-run-a-command-i-get-an-error)
+- [#5 Ich kann mich nicht in das dashboard einloggen. immer wenn ich versuche mich einzuloggen, wiederholt/leited es mich zur login seite zurück](./wiki/common-issues.md#5-i-cant-login-to-the-dashboard-every-time-i-try-to-login-it-loopsredirects-me-back-to-the-login-page)
+- [#6 Wenn ich einen command ausführe, kriege ich einen error](./wiki/common-issues.md#6-when-i-run-a-command-i-get-an-error)
 - [#7 ERROR: relation "import_logs" does not exist](./wiki/common-issues.md#7-error-relation-import_logs-does-not-exist)
 - [#7 Failed to get import runs: An internal server error occurred](./wiki/common-issues.md#7-error-relation-import_logs-does-not-exist)
 - [#8 ERROR: relation "panel_here_mentions" does not exist](./wiki/common-issues.md#8-error-relation-panel_here_mentions-does-not-exist)
 - [#8 Error: Failed to load panels: An internal server error occurred](./wiki/common-issues.md#8-error-relation-panel_here_mentions-does-not-exist)
-- [#8 Ticket Panels in dashboard gives me an internal server error](./wiki/common-issues.md#8-error-relation-panel_here_mentions-does-not-exist)
+- [#8 Ticket Panels im dashboard geben mir einen internal server error](./wiki/common-issues.md#8-error-relation-panel_here_mentions-does-not-exist)
 - [#9 Exited with code 132](./wiki/common-issues.md#9-exited-with-code-132)
-- [#9 CPU does not support AVX2](./wiki/common-issues.md#9-exited-with-code-132)
+- [#9 CPU unterstützt AVX2 nicht](./wiki/common-issues.md#9-exited-with-code-132)
 
-## Migrations
+## Migrationen
 
 If you have previously setup the bot and want to update to the latest version, you will need to run the following based on when you set this up. (Sorted newest first)
 
