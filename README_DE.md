@@ -120,4 +120,4 @@ Falls du den bot früher schon mal aufgesetzt hast und zur neusten version upgra
 - vor [Guide PR#14](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/14), siehe [Common Issue #7](./wiki/common-issues.md#7-error-relation-import_logs-does-not-exist)
 - vor [Guide PR#9](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/9), siehe [Common Issue #4](./wiki/common-issues.md#4-error-column-last_seen-of-relation-does-not-exist)
 
-<sub>dieses tutorial wurde von [Chaoskjell44](https://linktr.ee/chaoskjell44) aus dem englischen übersetzt.</sub>
+<sub>Dieses tutorial wurde von [Chaoskjell44](https://linktr.ee/chaoskjell44) aus dem [englischen](README.md) übersetzt.</sub>
