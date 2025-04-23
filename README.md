@@ -18,7 +18,7 @@ Das obrige Bild, wurde mit [Excalidraw](https://excalidraw.com/) erstellt.
 
 ## Setup
 
-1. öffne dein terminal, in dem ordner, in welchem du den bot installieren möchtest. (Oder erstelle einen ordner und öffne das terminal dort drinne)
+1. Öffne dein terminal, in dem ordner, in welchem du den bot installieren möchtest. (Oder erstelle einen ordner und öffne das terminal dort drinne)
 2. Klone dieses repository in den ordner (`git clone https://github.com/DanPlayz0/ticketsbot-self-host-guide.git .`)
    - Der `.` am ende ist sehr wichtig, da mit ihm, das repository in den jetzigen ordner kopiert wird
 3. Erstelle die `.env` datei durch kopieren der bereitgestellten `.env.example` datei.
