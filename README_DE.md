@@ -52,8 +52,8 @@ Das obrige Bild, wurde mit [Excalidraw](https://excalidraw.com/) erstellt.
    ```
 
 5. Führe folgenden command aus `docker compose up -d` , um die docker bilder zu ziehen und den bot zu starten.
-6. Konfiguriere den Discord bot. ([siehe unten](#discord-bot-configuration))
-7. Registriere die slash commands ([siehe unten](#registering-the-slash-commands-using-docker-recommended))
+6. Konfiguriere den Discord bot. ([siehe unten](#discord-bot-konfiguration))
+7. Registriere die slash commands ([siehe unten](#registrierung-der-slash-commands-mithilfe-von-Docker-empfohlen))
 
 ## Discord Bot Konfiguration
 
