@@ -30,7 +30,7 @@ Das obrige Bild, wurde mit [Excalidraw](https://excalidraw.com/) erstellt.
    - `ADMIN_USER_IDS`: ein komma separiert die liste mit benutzer IDs (z.B. `209796601357533184,585576154958921739,user_id,user_id`, eine einzelne ID wäre `209796601357533184`)
    - `DISCORD_SUPPORT_SERVER_INVITE`: der invite link zu deinem support server (z.B. `https://discord.gg/ticketsbot`)
    - `DASHBOARD_URL`: die URL deines dashboards (z.B. `http://localhost:5000`)
-   - `LANDING_PAGE_URL`: die URL deiner landungs seite (z.B. `https://ticketsbot.cloud`)
+   - `LANDING_PAGE_URL`: die URL deiner home page (z.B. `https://ticketsbot.cloud`)
    - `API_URL`: die URL deiner API (z.B. `http://localhost:8082`)
    - `DATABASE_HOST`: dein PostgreSQL host (z.B. `postgres:5432`)
    - `DATABASE_PASSWORD`: dein PostgreSQL password (z.B. `password`)
@@ -62,7 +62,7 @@ Da dieser bot selbst-gehosted ist, musst du, denn bot selbst konfigurieren. Hier
 1. Gehe zum [Discord Developer Portal](https://discord.com/developers/applications)
 2. Klicke auf anwendung die du für den bot erstellt hast 
 3. Setze die `Interactions Endpoint URL` zu `${HTTP_GATEWAY}/handle/${DISCORD_BOT_CLIENT_ID}`
-   - Ersetzte `${HTTP_GATEWAY}` mit der URL deines HTTP Gateway (z.B. `http://localhost:8080`, Du must eine [öffentlich erreichbare URL](./wiki/faq.md#6-i-want-anyone-to-be-able-to-use-the-dashboard-how-do-i-do-that) haben nicht localhost)
+   - Ersetzte `${HTTP_GATEWAY}` mit der URL deines HTTP Gateway (z.B. `https://gateway.example.com`, Du must eine [öffentlich erreichbare URL](./wiki/faq.md#6-i-want-anyone-to-be-able-to-use-the-dashboard-how-do-i-do-that) haben nicht localhost)
    - Ersetze `${DISCORD_BOT_CLIENT_ID}` mit deiner bot application/client ID (z.B. `508391840525975553`)
 4. Gehe in das OAuth2 tab
 5. Füge die redirect URL `${DASHBOARD_URL}/callback` zu den OAuth2 redirect URIs hinzu
