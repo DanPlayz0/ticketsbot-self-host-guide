@@ -70,13 +70,13 @@ Da dieser bot selbst-gehosted ist, musst du, denn bot selbst konfigurieren. Hier
 6. Gehe in das Bot tab
 7. Schalte die `Server Members Intent` und `Message Content Intent` toggles an
 
-## Registering the slash commands using Docker (Recommended)
+## Registrierung der slash commands mithilfe von Docker (Empfohlen)
 
-1. Build the register commands cli utility using `docker build -t ticketsbot/registercommands -f commands.Dockerfile .`
-   - Get help by running `docker run --rm ticketsbot/registercommands --help`
-2. Register the commands
-   - Global commands only: `docker run --rm ticketsbot/registercommands --token=your_bot_token --id=your_client_id`
-   - Global & Admin commands by running `docker run --rm ticketsbot/registercommands --token=your_bot_token --id=your_client_id --admin-guild=your_admin_guild_id`
+1. Baue das register commands cli utility durch ausführung von `docker build -t ticketsbot/registercommands -f commands.Dockerfile .`
+   - Hilfe gibt es mit `docker run --rm ticketsbot/registercommands --help`
+2. Registrierung der commands
+   - nur Globale commands: `docker run --rm ticketsbot/registercommands --token=your_bot_token --id=your_client_id`
+   - Globale & Admin commands durch ausführung von `docker run --rm ticketsbot/registercommands --token=your_bot_token --id=your_client_id --admin-guild=your_admin_guild_id`
 
 ## Frequently Asked Questions
 
