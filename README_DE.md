@@ -57,18 +57,18 @@ Das obrige Bild, wurde mit [Excalidraw](https://excalidraw.com/) erstellt.
 
 ## Discord Bot Konfiguration
 
-As this bot is self-hosted, you will need to configure the bot yourself. Here are the steps to configure the bot:
+Da dieser bot selbst-gehosted ist, musst du, denn bot selbst konfigurieren. Hier die schritte zum konfigurieren des bots:
 
-1. Go to the [Discord Developer Portal](https://discord.com/developers/applications)
-2. Click on the application you created for the bot
-3. Set the `Interactions Endpoint URL` to `${HTTP_GATEWAY}/handle/${DISCORD_BOT_CLIENT_ID}`
-   - Replace `${HTTP_GATEWAY}` with the URL of your HTTP Gateway (e.g. `http://localhost:8080`, you must have a [publicly accessible URL](./wiki/faq.md#6-i-want-anyone-to-be-able-to-use-the-dashboard-how-do-i-do-that) not localhost)
-   - Replace `${DISCORD_BOT_CLIENT_ID}` with your bot's application/client ID (e.g. `508391840525975553`)
-4. Go to the OAuth2 tab
-5. Add the redirect URL `${DASHBOARD_URL}/callback` to the OAuth2 redirect URIs
-   - Replace `${DASHBOARD_URL}` with the URL of your API (e.g. `http://localhost:8080`, make sure this matches what you set in the [Setup](#setup) section)
-6. Go to the Bot tab
-7. Enable the `Server Members Intent` and `Message Content Intent` toggles
+1. Gehe zum [Discord Developer Portal](https://discord.com/developers/applications)
+2. Klicke auf anwendung die du für den bot erstellt hast 
+3. Setze die `Interactions Endpoint URL` zu `${HTTP_GATEWAY}/handle/${DISCORD_BOT_CLIENT_ID}`
+   - Ersetzte `${HTTP_GATEWAY}` mit der URL deines HTTP Gateway (z.B. `http://localhost:8080`, Du must eine [öffentlich erreichbare URL](./wiki/faq.md#6-i-want-anyone-to-be-able-to-use-the-dashboard-how-do-i-do-that) haben nicht localhost)
+   - Ersetze `${DISCORD_BOT_CLIENT_ID}` mit deiner bot application/client ID (z.B. `508391840525975553`)
+4. Gehe in das OAuth2 tab
+5. Füge die redirect URL `${DASHBOARD_URL}/callback` zu den OAuth2 redirect URIs hinzu
+   - Ersetze `${DASHBOARD_URL}` mit der URL deiner API (z.B. `http://localhost:8080`, Stelle sicher das diese, mit der URL, die du, in dem [Setup](#setup) abschnitt gesetzt hast, überein stimmt)
+6. Gehe in das Bot tab
+7. Schalte die `Server Members Intent` und `Message Content Intent` toggles an
 
 ## Registering the slash commands using Docker (Recommended)
 
