@@ -1,6 +1,6 @@
 # Self Hosting Tickets Bot
 
-Dieses unoffizielle guide zeigt dir wie man den [Tickets bot](https://discord.com/users/508391840525975553) selber hosten kann. Dieser bot wurde leider abgeschalted, [was am fünften märz geschehen sollte/ist](https://discord.com/channels/508392876359680000/508410703439462400/1325516916995129445) und in [dem support server](https://discord.gg/XX2TxVCq6g) angekündigt wurde. Dieses guide wir dir helfen, den bot auf deiner eigenen maschine oder einem server selber zu hosten mit der hilfe von Docker. **Dieses ist kein offizielles guide weshalb auch kein support dafür bereit gestellt wird.**
+Dieses unoffizielle guide zeigt dir wie man den [Tickets bot](https://discord.com/users/508391840525975553) selber hosten kann. Dieser bot wurde leider abgeschalted, [was am fünften märz geschehen sollte/ist](https://discord.com/channels/508392876359680000/508410703439462400/1325516916995129445) und in [dem support server](https://discord.gg/XX2TxVCq6g) angekündigt wurde. Dieses guide wird dir helfen, den bot auf deiner eigenen maschine oder einem server selber zu hosten, und zwar mit der hilfe von Docker. **Dieses ist kein offizielles guide weshalb auch kein support dafür bereit gestellt wird.**
 
 ## Vorraussetzungen
 
@@ -11,7 +11,7 @@ Dieses unoffizielle guide zeigt dir wie man den [Tickets bot](https://discord.co
 
 ## Wie funktioniert der bot?
 
-Um ehrlich zu sein, weiß ich das selbst noch nicht. Das bild unten ist ein ungefähres diagram, dass zeigt, wie ich denke, das der bot funktionier, nach etwas über einer woche an tüffteln mit der ticketsbot codebasis. Die gepunkteten boxen sind teile des bots, die ich nicht in die `docker-compose.yaml` datei, in diesem repository, eingefügt habe, weshalb sie fehlen.
+Um ehrlich zu sein, weiß ich das selbst noch nicht. Das bild unten ist ein ungefähres diagram, dass zeigt, wie ich denke, das der bot funktioniert, nach etwas über einer woche an tüffteln mit der ticketsbot codebasis. Die gepunkteten boxen sind teile des bots, die ich nicht in die `docker-compose.yaml` datei, in diesem repository, eingefügt habe, weshalb sie fehlen.
 
 ![Excalidraw](./images/ticketsbot-2025-01-11T23_47_40_622Z.svg)
 Das obrige Bild, wurde mit [Excalidraw](https://excalidraw.com/) erstellt.
