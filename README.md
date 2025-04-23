@@ -18,44 +18,44 @@ Das obrige Bild, wurde mit [Excalidraw](https://excalidraw.com/) erstellt.
 
 ## Setup
 
-1. Open a terminal in the folder you want to install the bot in. (Or create a folder and open a terminal in that folder)
-2. Clone this repository into that folder (`git clone https://github.com/DanPlayz0/ticketsbot-self-host-guide.git .`)
-   - The `.` at the end is important as it clones the repository into the current folder
-3. Create an `.env` file by copying the provided `.env.example` file.
+1. öffne dein terminal, in dem ordner, in welchem du den bot installieren möchtest. (Oder erstelle einen ordner und öffne das terminal dort drinne)
+2. Klone dieses repository in den ordner (`git clone https://github.com/DanPlayz0/ticketsbot-self-host-guide.git .`)
+   - Der `.` am ende ist sehr wichtig, da mit ihm, das repository in den jetzigen ordner kopiert wird
+3. Erstelle die `.env` datei durch kopieren der bereitgestellten `.env.example` datei.
 
-   - `DISCORD_BOT_TOKEN`: your bot token (e.g. `OTAyMzYyNTAxMDg4NDM2MjI0.YXdUkQ.TqZm7gNV2juZHXIvLdSvaAHKQCzLxgu9`)
-   - `DISCORD_BOT_CLIENT_ID`: your bot's client ID (e.g. `508391840525975553`)
-   - `DISCORD_BOT_OAUTH_SECRET`: your bot's client secret (e.g. `AAlRmln88YpOr8H8j1VvFuidKLJxg9rM`)
-   - `DISCORD_BOT_PUBLIC_KEY`: your bot's public key (e.g. `fcd10216ebbc818d7ef1408a5c3c5702225b929b53b0a265b82e82b96a9a8358`)
-   - `ADMIN_USER_IDS`: a comma-separated list of user IDs (e.g. `209796601357533184,585576154958921739,user_id,user_id`, a single id would be `209796601357533184`)
-   - `DISCORD_SUPPORT_SERVER_INVITE`: the invite link to your support server (e.g. `https://discord.gg/ticketsbot`)
-   - `DASHBOARD_URL`: the URL of your dashboard (e.g. `http://localhost:5000`)
-   - `LANDING_PAGE_URL`: the URL of your landing page (e.g. `https://ticketsbot.cloud`)
-   - `API_URL`: the URL of your API (e.g. `http://localhost:8082`)
-   - `DATABASE_HOST`: your PostgreSQL host (e.g. `postgres:5432`)
-   - `DATABASE_PASSWORD`: your PostgreSQL password (e.g. `password`)
-   - `CACHE_DATABASE_HOST`: your cache database host (e.g. `postgres-cache:5432`)
-   - `CACHE_DATABASE_PASSWORD`: your cache database password (e.g. `password`)
-   - `S3_ENDPOINT`: the endpoint of your S3 bucket (e.g. `minio:9000`)
-   - `S3_ACCESS`: the access key of your S3 bucket (e.g. `AbCdEfFgHiJkLmNoPqRsTuVwXyZ`)
-   - `S3_SECRET`: the secret key of your S3 bucket (e.g. `AbCdEfFgHiJkLmNoPqRsTuVwXyZ`)
-   - `ARCHIVER_AES_KEY`: your AES-128 key (e.g. `randomstring`)
+   - `DISCORD_BOT_TOKEN`: dein bot token (e.g. `OTAyMzYyNTAxMDg4NDM2MjI0.YXdUkQ.TqZm7gNV2juZHXIvLdSvaAHKQCzLxgu9`)
+   - `DISCORD_BOT_CLIENT_ID`: die client ID deines bots (e.g. `508391840525975553`)
+   - `DISCORD_BOT_OAUTH_SECRET`: dein bot client secret (e.g. `AAlRmln88YpOr8H8j1VvFuidKLJxg9rM`)
+   - `DISCORD_BOT_PUBLIC_KEY`: dein bot public key (e.g. `fcd10216ebbc818d7ef1408a5c3c5702225b929b53b0a265b82e82b96a9a8358`)
+   - `ADMIN_USER_IDS`: ein komma separiert die liste mit benutzer IDs (e.g. `209796601357533184,585576154958921739,user_id,user_id`, eine einzelne ID wäre `209796601357533184`)
+   - `DISCORD_SUPPORT_SERVER_INVITE`: der invite link zu deinem support server (e.g. `https://discord.gg/ticketsbot`)
+   - `DASHBOARD_URL`: die URL deines dashboards (e.g. `http://localhost:5000`)
+   - `LANDING_PAGE_URL`: die URL deiner landungs seite (e.g. `https://ticketsbot.cloud`)
+   - `API_URL`: die URL deiner API (e.g. `http://localhost:8082`)
+   - `DATABASE_HOST`: dein PostgreSQL host (e.g. `postgres:5432`)
+   - `DATABASE_PASSWORD`: dein PostgreSQL password (e.g. `password`)
+   - `CACHE_DATABASE_HOST`: dein cache database host (e.g. `postgres-cache:5432`)
+   - `CACHE_DATABASE_PASSWORD`: dein cache database password (e.g. `password`)
+   - `S3_ENDPOINT`: der endpunkt von deinem S3 bucket (e.g. `minio:9000`)
+   - `S3_ACCESS`: der access key von deinem S3 bucket (e.g. `AbCdEfFgHiJkLmNoPqRsTuVwXyZ`)
+   - `S3_SECRET`: der secret key von deinem S3 bucket (e.g. `AbCdEfFgHiJkLmNoPqRsTuVwXyZ`)
+   - `ARCHIVER_AES_KEY`: dein AES-128 key (e.g. `randomstring`)
      - Bash: `openssl rand -hex 16`
      - NodeJS: `node -e "console.log(require('crypto').randomBytes(16).toString('hex'))"`
-   - `ARCHIVER_ADMIN_AUTH_TOKEN`: your archiver admin auth token (e.g. `randomstring`)
-   - `SENTRY_DSN`: your Sentry DSN (e.g. `https://examplePublicKey@o0.ingest.sentry.io/0`)
+   - `ARCHIVER_ADMIN_AUTH_TOKEN`: dein archiver admin auth token (e.g. `randomstring`)
+   - `SENTRY_DSN`: dein Sentry DSN (e.g. `https://examplePublicKey@o0.ingest.sentry.io/0`)
 
-4. Replace the placeholders in the following command and paste it at the bottom of `init-archive.sql`. There are 2 placeholders in the command, `${S3_ARCHIVE_BUCKET}` and `${S3_ENDPOINT}`. Replace them with your bucket name and S3 endpoint respectively. You can also just edit the `init-archive.sql` file too, you just have to uncomment it (by removing the `--` at the start of the line) and replace variables there.
+4. Tausche die platzhalter in dem folgenden command und paste es ganz unten, in die `init-archive.sql` datei. Es gibt zwei platzhalter in dem command, `${S3_ARCHIVE_BUCKET}` und `${S3_ENDPOINT}`. Ersetze sie jeweils mit deinem bucket namen und deinem S3 endpunkt. Du kannst auch einfach die `init-archive.sql` datei editieren und musst einfach den command entkommentieren (durch entfernen der `--` am anfang der zeile) und ersetze die platzhalter hier.
 
    ```sql
    INSERT INTO buckets (id, endpoint_url, name, active) VALUES ('b77cc1a0-91ec-4d64-bb6d-21717737ea3c', 'https://${S3_ENDPOINT}', '${S3_ARCHIVE_BUCKET}', TRUE);
    ```
 
-5. Run `docker compose up -d` to pull the images and start the bot.
-6. Configure the Discord bot. ([see below](#discord-bot-configuration))
-7. Register the slash commands ([see below](#registering-the-slash-commands-using-docker-recommended))
+5. Führe folgenden command aus `docker compose up -d` , um die docker bilder zu ziehen und den bot zu starten.
+6. Konfiguriere den Discord bot. ([siehe unten](#discord-bot-configuration))
+7. Registriere die slash commands ([siehe unten](#registering-the-slash-commands-using-docker-recommended))
 
-## Discord Bot Configuration
+## Discord Bot Konfiguration
 
 As this bot is self-hosted, you will need to configure the bot yourself. Here are the steps to configure the bot:
 
