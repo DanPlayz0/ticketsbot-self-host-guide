@@ -23,27 +23,27 @@ Das obrige Bild, wurde mit [Excalidraw](https://excalidraw.com/) erstellt.
    - Der `.` am ende ist sehr wichtig, da mit ihm, das repository in den jetzigen ordner kopiert wird
 3. Erstelle die `.env` datei durch kopieren der bereitgestellten `.env.example` datei.
 
-   - `DISCORD_BOT_TOKEN`: dein bot token (e.g. `OTAyMzYyNTAxMDg4NDM2MjI0.YXdUkQ.TqZm7gNV2juZHXIvLdSvaAHKQCzLxgu9`)
-   - `DISCORD_BOT_CLIENT_ID`: die client ID deines bots (e.g. `508391840525975553`)
-   - `DISCORD_BOT_OAUTH_SECRET`: dein bot client secret (e.g. `AAlRmln88YpOr8H8j1VvFuidKLJxg9rM`)
-   - `DISCORD_BOT_PUBLIC_KEY`: dein bot public key (e.g. `fcd10216ebbc818d7ef1408a5c3c5702225b929b53b0a265b82e82b96a9a8358`)
-   - `ADMIN_USER_IDS`: ein komma separiert die liste mit benutzer IDs (e.g. `209796601357533184,585576154958921739,user_id,user_id`, eine einzelne ID wäre `209796601357533184`)
-   - `DISCORD_SUPPORT_SERVER_INVITE`: der invite link zu deinem support server (e.g. `https://discord.gg/ticketsbot`)
-   - `DASHBOARD_URL`: die URL deines dashboards (e.g. `http://localhost:5000`)
-   - `LANDING_PAGE_URL`: die URL deiner landungs seite (e.g. `https://ticketsbot.cloud`)
-   - `API_URL`: die URL deiner API (e.g. `http://localhost:8082`)
-   - `DATABASE_HOST`: dein PostgreSQL host (e.g. `postgres:5432`)
-   - `DATABASE_PASSWORD`: dein PostgreSQL password (e.g. `password`)
-   - `CACHE_DATABASE_HOST`: dein cache database host (e.g. `postgres-cache:5432`)
-   - `CACHE_DATABASE_PASSWORD`: dein cache database password (e.g. `password`)
-   - `S3_ENDPOINT`: der endpunkt von deinem S3 bucket (e.g. `minio:9000`)
-   - `S3_ACCESS`: der access key von deinem S3 bucket (e.g. `AbCdEfFgHiJkLmNoPqRsTuVwXyZ`)
-   - `S3_SECRET`: der secret key von deinem S3 bucket (e.g. `AbCdEfFgHiJkLmNoPqRsTuVwXyZ`)
-   - `ARCHIVER_AES_KEY`: dein AES-128 key (e.g. `randomstring`)
+   - `DISCORD_BOT_TOKEN`: dein bot token (z.B. `OTAyMzYyNTAxMDg4NDM2MjI0.YXdUkQ.TqZm7gNV2juZHXIvLdSvaAHKQCzLxgu9`)
+   - `DISCORD_BOT_CLIENT_ID`: die client ID deines bots (z.B. `508391840525975553`)
+   - `DISCORD_BOT_OAUTH_SECRET`: dein bot client secret (z.B. `AAlRmln88YpOr8H8j1VvFuidKLJxg9rM`)
+   - `DISCORD_BOT_PUBLIC_KEY`: dein bot public key (z.B. `fcd10216ebbc818d7ef1408a5c3c5702225b929b53b0a265b82e82b96a9a8358`)
+   - `ADMIN_USER_IDS`: ein komma separiert die liste mit benutzer IDs (z.B. `209796601357533184,585576154958921739,user_id,user_id`, eine einzelne ID wäre `209796601357533184`)
+   - `DISCORD_SUPPORT_SERVER_INVITE`: der invite link zu deinem support server (z.B. `https://discord.gg/ticketsbot`)
+   - `DASHBOARD_URL`: die URL deines dashboards (z.B. `http://localhost:5000`)
+   - `LANDING_PAGE_URL`: die URL deiner landungs seite (z.B. `https://ticketsbot.cloud`)
+   - `API_URL`: die URL deiner API (z.B. `http://localhost:8082`)
+   - `DATABASE_HOST`: dein PostgreSQL host (z.B. `postgres:5432`)
+   - `DATABASE_PASSWORD`: dein PostgreSQL password (z.B. `password`)
+   - `CACHE_DATABASE_HOST`: dein cache database host (z.B. `postgres-cache:5432`)
+   - `CACHE_DATABASE_PASSWORD`: dein cache database password (z.B. `password`)
+   - `S3_ENDPOINT`: der endpunkt von deinem S3 bucket (z.B. `minio:9000`)
+   - `S3_ACCESS`: der access key von deinem S3 bucket (z.B. `AbCdEfFgHiJkLmNoPqRsTuVwXyZ`)
+   - `S3_SECRET`: der secret key von deinem S3 bucket (z.B. `AbCdEfFgHiJkLmNoPqRsTuVwXyZ`)
+   - `ARCHIVER_AES_KEY`: dein AES-128 key (z.B. `randomstring`)
      - Bash: `openssl rand -hex 16`
      - NodeJS: `node -e "console.log(require('crypto').randomBytes(16).toString('hex'))"`
-   - `ARCHIVER_ADMIN_AUTH_TOKEN`: dein archiver admin auth token (e.g. `randomstring`)
-   - `SENTRY_DSN`: dein Sentry DSN (e.g. `https://examplePublicKey@o0.ingest.sentry.io/0`)
+   - `ARCHIVER_ADMIN_AUTH_TOKEN`: dein archiver admin auth token (z.B. `randomstring`)
+   - `SENTRY_DSN`: dein Sentry DSN (z.B. `https://examplePublicKey@o0.ingest.sentry.io/0`)
 
 4. Tausche die platzhalter in dem folgenden command und paste es ganz unten, in die `init-archive.sql` datei. Es gibt zwei platzhalter in dem command, `${S3_ARCHIVE_BUCKET}` und `${S3_ENDPOINT}`. Ersetze sie jeweils mit deinem bucket namen und deinem S3 endpunkt. Du kannst auch einfach die `init-archive.sql` datei editieren und musst einfach den command entkommentieren (durch entfernen der `--` am anfang der zeile) und ersetze die platzhalter hier.
 
