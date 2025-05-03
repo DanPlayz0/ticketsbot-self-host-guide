@@ -66,8 +66,8 @@ As this bot is self-hosted, you will need to configure the bot yourself. Here ar
    - Replace `${HTTP_GATEWAY}` with the URL of your HTTP Gateway (e.g. `https://gateway.example.com`, you must have a [publicly accessible URL](./wiki/faq.md#6-i-want-anyone-to-be-able-to-use-the-dashboard-how-do-i-do-that) not localhost)
    - Replace `${DISCORD_BOT_CLIENT_ID}` with your bot's application/client ID (e.g. `508391840525975553`)
 4. Go to the OAuth2 tab
-5. Add the redirect URL `${DASHBOARD_URL}/callback` to the OAuth2 redirect URIs
-   - Replace `${DASHBOARD_URL}` with the URL of your API (e.g. `http://localhost:8080`, make sure this matches what you set in the [Setup](#setup) section)
+5. Add the redirect URLs `${DASHBOARD_URL}/callback` and `${API_URL}/callback` to the OAuth2 redirect URIs
+   - Replace `${DASHBOARD_URL}` with the URL of your dashboard (e. g. `http://localhost:5000`) and `${API_URL}` with the URL of you API (e.g. `http://localhost:8082`) (make sure this matches what you set in the [Setup](#setup) section)
 6. Go to the Bot tab
 7. Enable the `Server Members Intent` and `Message Content Intent` toggles
 

@@ -65,8 +65,8 @@ Da dieser bot selbst-gehosted ist, musst du, denn bot selbst konfigurieren. Hier
    - Ersetzte `${HTTP_GATEWAY}` mit der URL deines HTTP Gateway (z.B. `https://gateway.example.com`, Du must eine [öffentlich erreichbare URL](./wiki/faq.md#6-i-want-anyone-to-be-able-to-use-the-dashboard-how-do-i-do-that) haben nicht localhost)
    - Ersetze `${DISCORD_BOT_CLIENT_ID}` mit deiner bot application/client ID (z.B. `508391840525975553`)
 4. Gehe in das OAuth2 tab
-5. Füge die redirect URL `${DASHBOARD_URL}/callback` zu den OAuth2 redirect URIs hinzu
-   - Ersetze `${DASHBOARD_URL}` mit der URL deiner API (z.B. `http://localhost:8080`, Stelle sicher das diese, mit der URL, die du, in dem [Setup](#setup) abschnitt gesetzt hast, überein stimmt)
+5. Füge die redirect URLs `${DASHBOARD_URL}/callback` und `${API_URL}/callback`zu den OAuth2 redirect URIs hinzu
+   - Ersetze `${DASHBOARD_URL}` mit der URL deines Dashboards (z. B. `http://localhost:5000`) und `${API_URL}` mit der URL deiner API (z.B. `http://localhost:8082`) (Stelle sicher das diese, mit der URL, die du, in dem [Setup](#setup) abschnitt gesetzt hast, überein stimmt)
 6. Gehe in das Bot tab
 7. Schalte die `Server Members Intent` und `Message Content Intent` schalter an
 

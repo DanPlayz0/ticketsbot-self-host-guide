@@ -66,8 +66,8 @@ Aangezien deze bot zelf gehost wordt, zul je de bot zelf moeten configureren. Hi
    - vervang `${HTTP_GATEWAY}` met de URL van je HTTP-gateway (e.g. `https://gateway.example.com`, Je moet wel een [openbaar URL](./wiki/faq.md#6-i-want-anyone-to-be-able-to-use-the-dashboard-how-do-i-do-that) Geen localhost)
    - vervangen `${DISCORD_BOT_CLIENT_ID}` met de applicatie-/client-ID van je bot (e.g. `508391840525975553`)
 4. ga naar te OAuth2 tab
-5. Voeg de redirect-URL toe `${DASHBOARD_URL}/callback` aan de OAuth2-redirect-URI's
-   - vervang `${DASHBOARD_URL}` met de URL van je API (e.g. `http://localhost:8080`,  zorg ervoor dat dit overeenkomt met wat je hebt ingesteld in de [opstelling](#opstelling) section)
+5. Voeg de redirect-URL's `${DASHBOARD_URL}/callback` en `${API_URL}/callback` toe aan de OAuth2-redirect-URI's
+   - Vervang `${DASHBOARD_URL}` door de URL van uw dashboard (e. g. `http://localhost:5000`) en `${API_URL}` door de URL van uw API (e. g. `http://localhost:8082`) ( zorg ervoor dat dit overeenkomt met wat je hebt ingesteld in de [opstelling](#opstelling) section)
 6. Ga naar het tabblad 'Bot
 7. Schakel de wisselknoppen `Server Members Intent` en `Message Content Intent` in
 
