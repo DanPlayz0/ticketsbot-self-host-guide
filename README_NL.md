@@ -67,7 +67,7 @@ Aangezien deze bot zelf gehost wordt, zul je de bot zelf moeten configureren. Hi
    - vervangen `${DISCORD_BOT_CLIENT_ID}` met de applicatie-/client-ID van je bot (e.g. `508391840525975553`)
 4. ga naar te OAuth2 tab
 5. Voeg de redirect-URL toe `${DASHBOARD_URL}/callback` aan de OAuth2-redirect-URI's
-   - vervang `${DASHBOARD_URL}` met de URL van je API (e.g. `http://localhost:8080`,  zorg ervoor dat dit overeenkomt met wat je hebt ingesteld in de [opstelling](#opstelling) section)
+   - vervang `${DASHBOARD_URL}` met de URL van je Dashboard (e.g. `http://localhost:5000`, zorg ervoor dat dit overeenkomt met wat je hebt ingesteld in de [opstelling](#opstelling) section)
 6. Ga naar het tabblad 'Bot
 7. Schakel de wisselknoppen `Server Members Intent` en `Message Content Intent` in
 
