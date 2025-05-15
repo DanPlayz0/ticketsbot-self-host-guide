@@ -9,11 +9,10 @@ RUN mkdir -p /tmp && chown -R node:node /tmp
 WORKDIR /tmp
 USER node
 
-# Bust cache (this will allow it to pull the latest version of the dashboard from the repo)
-ARG CACHEBUST=1
+# Define a specific "known-working" version from GitHub
 ARG GIT_URL=https://github.com/TicketsBot-cloud/dashboard
 ARG GIT_BRANCH=master
-ARG COMMIT_HASH=27b2c0e8c63dc66ed9c715823dcfd2b57c1a4beb
+ARG COMMIT_HASH=2441d52b1df85168d57e398fe2c90eec1a5c642b
 
 # Clone the repository to /tmp
 RUN git clone -b $GIT_BRANCH $GIT_URL.git /tmp
@@ -32,6 +31,7 @@ ARG CLIENT_ID
 ARG REDIRECT_URI
 ARG API_URL
 ARG WS_URL
+ARG INVITE_URL
 
 RUN npm run build
 

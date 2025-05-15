@@ -104,7 +104,7 @@ services:
       - app-network
 
   worker-interactions:
-    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:207ef5f2fd5d1302a150bfeed42b41150fcae3af}
+    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:1c83fc5f5eb79bbb2b73e5b6906ddb8ff0e61873}
     container_name: worker-interactions
     restart: on-failure:10
     # ports:
@@ -113,10 +113,10 @@ services:
       WORKER_MODE: INTERACTIONS
 
       DASHBOARD_URL: ${DASHBOARD_URL:-http://localhost:5000}
-      FRONTPAGE_URL: ${LANDING_PAGE_URL:-https://ticketsbot.net}
-      VOTE_URL: ${VOTE_URL:-https://vote.ticketsbot.net}
-      POWEREDBY: ${POWERED_BY:-github.com/ticketsbot}
-      ICON_URL: ${ICON_URL:-https://ticketsbot.net/assets/icon.png}
+      FRONTPAGE_URL: ${LANDING_PAGE_URL:-https://ticketsbot.cloud}
+      VOTE_URL: ${VOTE_URL:-https://vote.ticketsbot.cloud}
+      POWEREDBY: ${POWERED_BY:-github.com/ticketsbot-cloud}
+      ICON_URL: ${ICON_URL:-https://ticketsbot.cloud/assets/img/logo.png}
 
       WORKER_PUBLIC_TOKEN: ${DISCORD_BOT_TOKEN}
       WORKER_PUBLIC_ID: ${DISCORD_BOT_CLIENT_ID}
@@ -167,7 +167,7 @@ services:
       - app-network
 
   worker-gateway:
-    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:207ef5f2fd5d1302a150bfeed42b41150fcae3af}
+    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:1c83fc5f5eb79bbb2b73e5b6906ddb8ff0e61873}
     container_name: worker-gateway
     restart: on-failure:10
     # ports:
@@ -177,10 +177,10 @@ services:
       WORKER_MODE: GATEWAY
 
       DASHBOARD_URL: ${DASHBOARD_URL:-http://localhost:5000}
-      FRONTPAGE_URL: ${LANDING_PAGE_URL:-https://ticketsbot.net}
-      VOTE_URL: ${VOTE_URL:-https://vote.ticketsbot.net}
-      POWEREDBY: ${POWERED_BY:-github.com/ticketsbot}
-      ICON_URL: ${ICON_URL:-https://ticketsbot.net/assets/icon.png}
+      FRONTPAGE_URL: ${LANDING_PAGE_URL:-https://ticketsbot.cloud}
+      VOTE_URL: ${VOTE_URL:-https://vote.ticketsbot.cloud}
+      POWEREDBY: ${POWERED_BY:-github.com/ticketsbot-cloud}
+      ICON_URL: ${ICON_URL:-https://ticketsbot.cloud/assets/img/logo.png}
 
       WORKER_PUBLIC_TOKEN: ${DISCORD_BOT_TOKEN}
       WORKER_PUBLIC_ID: ${DISCORD_BOT_CLIENT_ID}
@@ -314,14 +314,14 @@ services:
       - app-network
   
   api:
-    image: ${API_IMAGE:-ghcr.io/ticketsbot-cloud/api:df62f9d44ce25b3c667c980345e1fbe3d21930c0}
+    image: ${API_IMAGE:-ghcr.io/ticketsbot-cloud/api:2441d52b1df85168d57e398fe2c90eec1a5c642b}
     restart: on-failure:10
     ports:
       - '8082:8081'
     environment:
       SERVER_ADDR: 0.0.0.0:8081
       BASE_URL: ${DASHBOARD_URL:-http://localhost:5000}
-      MAIN_SITE: ${LANDING_PAGE_URL:-https://ticketsbot.net} # Home/Landing (used for /premium)
+      MAIN_SITE: ${LANDING_PAGE_URL:-https://ticketsbot.cloud} # Home/Landing (used for /premium)
       DATABASE_URI: 'postgres://postgres:${DATABASE_PASSWORD:-null}@postgres/ticketsbot'
       REDIS_HOST: ${REDIS_HOST:-redis}
       REDIS_PASSWORD: ${REDIS_PASSWORD:-null}
@@ -346,15 +346,19 @@ services:
       LOG_ARCHIVER_URL: http://logarchiver:4000
       LOG_AES_KEY: ${ARCHIVER_AES_KEY}
       RENDER_SERVICE_URL: http://discord-chat-replica:8080
+      # INTERACTIONS_BASE_URL: https://gateway.ticketsbot.cloud/
       # PREMIUM_PROXY_URL
       # PREMIUM_PROXY_KEY
       # SESSION_DB_THREADS
       # SESSION_SECRET
       S3_IMPORT_ENDPOINT: ${S3_ENDPOINT}
+      S3_IMPORT_SECURE: ${S3_SECURE}
       S3_IMPORT_ACCESS_KEY: ${S3_ACCESS}
       S3_IMPORT_SECRET_KEY: ${S3_SECRET}
       S3_IMPORT_TRANSCRIPT_BUCKET: ${S3_TRANSCRIPT_IMPORT_BUCKET}
       S3_IMPORT_DATA_BUCKET: ${S3_DATA_IMPORT_BUCKET}
+      POWEREDBY: ${POWERED_BY:-github.com/ticketsbot-cloud}
+      ICON_URL: ${ICON_URL:-https://ticketsbot.cloud/assets/img/logo.png}
     depends_on:
       postgres:
         condition: service_healthy
@@ -371,15 +375,15 @@ services:
         WS_URL: ${API_URL:-http://localhost:8082}
         GIT_URL: ${DASHBOARD_GIT_URL:-https://github.com/TicketsBot-cloud/dashboard}
         GIT_BRANCH: ${DASHBOARD_GIT_BRANCH:-master}
-        COMMIT_HASH: ${DASHBOARD_COMMIT_HASH:-27b2c0e8c63dc66ed9c715823dcfd2b57c1a4beb}
-        CACHEBUST: "this is randeom" # (OPTIONAL) Change this whenever you update the dashboard repository
+        COMMIT_HASH: ${DASHBOARD_COMMIT_HASH:-2441d52b1df85168d57e398fe2c90eec1a5c642b}
+        INVITE_URL: https://discord.com/oauth2/authorize?client_id=${DISCORD_BOT_CLIENT_ID}&scope=bot+applications.commands&permissions=395942816984
     ports:
-      - '5000:5000'
+      - '5000:8000'
     networks:
       - app-network
 
   logarchiver:
-    image: ${LOGARCHIVER_IMAGE:-ghcr.io/ticketsbot/logarchiver:0cfab8ec82cfaa88af9e6fabe4dd9a407f7537dd}
+    image: ${LOGARCHIVER_IMAGE:-ghcr.io/ticketsbot-cloud/logarchiver:7298e06b5dc5d21d3fb75633ffebd29638c1ed1d}
     environment:
       ARCHIVER_ADDR: 0.0.0.0:4000
       S3_ENDPOINT: ${S3_ENDPOINT}
@@ -433,7 +437,7 @@ services:
       - app-network
 
   import-sync-data:
-    image: ${IMPORT_SYNC_IMAGE:-ghcr.io/ticketsbot-cloud/import-sync:e5557bccf8771fc9bbe349e62487c28253027461} 
+    image: ${IMPORT_SYNC_IMAGE:-ghcr.io/ticketsbot-cloud/import-sync:dc709612edbd83a5e3704eb609db0cd6a82c3402} 
     environment:
       DAEMON_ENABLED: true
       DAEMON_FREQUENCY: 1m
@@ -450,11 +454,17 @@ services:
       SENTRY_DSN: ${SENTRY_DSN}
       DATABASE_URI: postgres://postgres:${DATABASE_PASSWORD:-null}@${DATABASE_HOST:-postgres:5432}/ticketsbot
 
+      S3_IMPORT_ENDPOINT: ${S3_ENDPOINT}
+      S3_IMPORT_SECURE: ${S3_SECURE}
+      S3_IMPORT_ACCESS_KEY: ${S3_ACCESS}
+      S3_IMPORT_SECRET_KEY: ${S3_SECRET}
       S3_IMPORT_BUCKET: ${S3_DATA_IMPORT_BUCKET}
+
+      S3_ARCHIVE_ENDPOINT: ${S3_ENDPOINT}
+      S3_ARCHIVE_SECURE: ${S3_SECURE}
+      S3_ARCHIVE_ACCESS_KEY: ${S3_ACCESS}
+      S3_ARCHIVE_SECRET_KEY: ${S3_SECRET}
       S3_ARCHIVE_BUCKET: ${S3_ARCHIVE_BUCKET}
-      S3_ENDPOINT: ${S3_ENDPOINT}
-      S3_ACCESS_KEY: ${S3_ACCESS}
-      S3_SECRET_KEY: ${S3_SECRET}
 
       V1_PUBLIC_KEY: "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA0As3ltZKpZLjS2kLVbEv4LCKNZKqNW1Pv6o6dtema94=\n-----END PUBLIC KEY-----"
 
@@ -488,11 +498,17 @@ services:
       SENTRY_DSN: ${SENTRY_DSN}
       DATABASE_URI: postgres://postgres:${DATABASE_PASSWORD:-null}@${DATABASE_HOST:-postgres:5432}/ticketsbot
 
+      S3_IMPORT_ENDPOINT: ${S3_ENDPOINT}
+      S3_IMPORT_SECURE: ${S3_SECURE}
+      S3_IMPORT_ACCESS_KEY: ${S3_ACCESS}
+      S3_IMPORT_SECRET_KEY: ${S3_SECRET}
       S3_IMPORT_BUCKET: ${S3_TRANSCRIPT_IMPORT_BUCKET}
+
+      S3_ARCHIVE_ENDPOINT: ${S3_ENDPOINT}
+      S3_ARCHIVE_SECURE: ${S3_SECURE}
+      S3_ARCHIVE_ACCESS_KEY: ${S3_ACCESS}
+      S3_ARCHIVE_SECRET_KEY: ${S3_SECRET}
       S3_ARCHIVE_BUCKET: ${S3_ARCHIVE_BUCKET}
-      S3_ENDPOINT: ${S3_ENDPOINT}
-      S3_ACCESS_KEY: ${S3_ACCESS}
-      S3_SECRET_KEY: ${S3_SECRET}
 
       V1_PUBLIC_KEY: "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA0As3ltZKpZLjS2kLVbEv4LCKNZKqNW1Pv6o6dtema94=\n-----END PUBLIC KEY-----"
 
