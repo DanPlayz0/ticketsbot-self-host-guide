@@ -51,4 +51,4 @@ COPY --from=build --chown=node:node /tmp/frontend/node_modules /app/node_modules
 COPY --from=build --chown=node:node /tmp/frontend/public /app/public
 
 ENV NODE_ENV=production
-CMD ["npm", "run", "start"]
+CMD ["npx", "sirv", "public", "-s", "--no-clear", "--host", "0.0.0.0", "--port", "5000"]
