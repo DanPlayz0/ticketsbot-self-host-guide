@@ -112,7 +112,7 @@ services:
     environment:
       WORKER_MODE: INTERACTIONS
 
-      DASHBOARD_URL: ${DASHBOARD_URL:-http://localhost:5000}
+      DASHBOARD_URL: ${DASHBOARD_URL:-http://localhost:8000}
       FRONTPAGE_URL: ${LANDING_PAGE_URL:-https://ticketsbot.cloud}
       VOTE_URL: ${VOTE_URL:-https://vote.ticketsbot.cloud}
       POWEREDBY: ${POWERED_BY:-github.com/ticketsbot-cloud}
@@ -176,7 +176,7 @@ services:
       # WORKER_DEBUG: 
       WORKER_MODE: GATEWAY
 
-      DASHBOARD_URL: ${DASHBOARD_URL:-http://localhost:5000}
+      DASHBOARD_URL: ${DASHBOARD_URL:-http://localhost:8000}
       FRONTPAGE_URL: ${LANDING_PAGE_URL:-https://ticketsbot.cloud}
       VOTE_URL: ${VOTE_URL:-https://vote.ticketsbot.cloud}
       POWEREDBY: ${POWERED_BY:-github.com/ticketsbot-cloud}
@@ -320,7 +320,7 @@ services:
       - '8082:8081'
     environment:
       SERVER_ADDR: 0.0.0.0:8081
-      BASE_URL: ${DASHBOARD_URL:-http://localhost:5000}
+      BASE_URL: ${DASHBOARD_URL:-http://localhost:8000}
       MAIN_SITE: ${LANDING_PAGE_URL:-https://ticketsbot.cloud} # Home/Landing (used for /premium)
       DATABASE_URI: 'postgres://postgres:${DATABASE_PASSWORD:-null}@postgres/ticketsbot'
       REDIS_HOST: ${REDIS_HOST:-redis}
@@ -334,7 +334,7 @@ services:
       JWT_SECRET: ${JWT_SECRET}
       OAUTH_ID: ${DISCORD_BOT_CLIENT_ID}
       OAUTH_SECRET: '${DISCORD_BOT_OAUTH_SECRET}'
-      OAUTH_REDIRECT_URI: '${DASHBOARD_URL:-http://localhost:5000}/callback'
+      OAUTH_REDIRECT_URI: '${DASHBOARD_URL:-http://localhost:8000}/callback'
       BOT_ID: ${DISCORD_BOT_CLIENT_ID}
       BOT_TOKEN: '${DISCORD_BOT_TOKEN}'
       CACHE_URI: postgres://postgres:${CACHE_DATABASE_PASSWORD:-null}@postgres-cache/botcache
@@ -370,7 +370,7 @@ services:
       dockerfile: './dashboard.Dockerfile'
       args:
         CLIENT_ID: ${DISCORD_BOT_CLIENT_ID}
-        REDIRECT_URI: ${DASHBOARD_URL:-http://localhost:5000}/callback 
+        REDIRECT_URI: ${DASHBOARD_URL:-http://localhost:8000}/callback 
         API_URL: ${API_URL:-http://localhost:8082}
         WS_URL: ${API_URL:-http://localhost:8082}
         GIT_URL: ${DASHBOARD_GIT_URL:-https://github.com/TicketsBot-cloud/dashboard}
