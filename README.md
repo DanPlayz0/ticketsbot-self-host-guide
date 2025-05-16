@@ -46,7 +46,7 @@ The image above was made using [Excalidraw](https://excalidraw.com/).
    - `ARCHIVER_ADMIN_AUTH_TOKEN`: your archiver admin auth token (e.g. `randomstring`)
    - `SENTRY_DSN`: your Sentry DSN (e.g. `https://examplePublicKey@o0.ingest.sentry.io/0`)
 
-4. Replace the placeholders in the following command and paste it at the bottom of `init-archive.sql`. There are 2 placeholders in the command, `${S3_ARCHIVE_BUCKET}` and `${S3_ENDPOINT}`. Replace them with your bucket name and S3 endpoint respectively. You can also just edit the `init-archive.sql` file too, you just have to uncomment it (by removing the `--` at the start of the line) and replace variables there.
+4. Replace the placeholders in the following command and paste it at the bottom of `sql-migrations/0-init-archive.sql`. There are 2 placeholders in the command, `${S3_ARCHIVE_BUCKET}` and `${S3_ENDPOINT}`. Replace them with your bucket name and S3 endpoint respectively. You can also just edit the `sql-migrations/0-init-archive.sql` file too, you just have to uncomment it (by removing the `--` at the start of the line) and replace variables there.
 
    ```sql
    INSERT INTO buckets (id, endpoint_url, name, active) VALUES ('b77cc1a0-91ec-4d64-bb6d-21717737ea3c', 'https://${S3_ENDPOINT}', '${S3_ARCHIVE_BUCKET}', TRUE);
@@ -116,7 +116,8 @@ For common issues, please refer to the [Common Issues](./wiki/common-issues.md) 
 
 If you have previously setup the bot and want to update to the latest version, you will need to run the following based on when you set this up. (Sorted newest first)
 
+- If your repo did not have the `sql-migrations/` folder. Pull the latest changes then make sure to update the `sql-migrations/0-init-archive.sql` file with your changes from the original `init-archive.sql` file.
 - If your repo did not have `delete-mentions.sql`, run it within the `postgres` container, see [FAQ #9](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers) for how to do this.
-- Before [Guide PR#15](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/15), use [Common Issue #8](./wiki/common-issues.md#8-error-relation-panel_here_mentions-does-not-exist)
-- Before [Guide PR#14](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/14), use [Common Issue #7](./wiki/common-issues.md#7-error-relation-import_logs-does-not-exist)
+- Before [Guide PR#15](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/15) (aka missing `panel-here-mentions.sql`), use [Common Issue #8](./wiki/common-issues.md#8-error-relation-panel_here_mentions-does-not-exist)
+- Before [Guide PR#14](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/14) (aka missing `init-support-import.sql`), use [Common Issue #7](./wiki/common-issues.md#7-error-relation-import_logs-does-not-exist)
 - Before [Guide PR#9](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/9), use [Common Issue #4](./wiki/common-issues.md#4-error-column-last_seen-of-relation-does-not-exist)

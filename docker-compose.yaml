@@ -10,10 +10,10 @@ services:
     #   - "5433:5432"
     volumes:
       - ./pgdata:/var/lib/postgresql/data
-      - ./init.sql:/docker-entrypoint-initdb.d/1-init.sql
-      - ./init-support-import.sql:/docker-entrypoint-initdb.d/2-init-support-import.sql
-      - ./panel-here-mentions.sql:/docker-entrypoint-initdb.d/3-panel-here-mentions.sql
-      - ./delete-mentions.sql:/docker-entrypoint-initdb.d/4-delete-mentions.sql
+      - ./sql-migrations/0-init.sql:/docker-entrypoint-initdb.d/0-init.sql
+      - ./sql-migrations/1-init-support-import.sql:/docker-entrypoint-initdb.d/1-init-support-import.sql
+      - ./sql-migrations/2-panel-here-mentions.sql:/docker-entrypoint-initdb.d/2-panel-here-mentions.sql
+      - ./sql-migrations/3-delete-mentions.sql:/docker-entrypoint-initdb.d/3-delete-mentions.sql
     networks:
       - app-network
     healthcheck:
@@ -33,7 +33,7 @@ services:
     #   - "5434:5432"
     volumes:
       - ./pgcachedata:/var/lib/postgresql/data
-      - ./init-cache.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./sql-migrations/0-init-cache.sql:/docker-entrypoint-initdb.d/0-init.sql
     networks:
       - app-network
     healthcheck:
@@ -53,7 +53,7 @@ services:
     #   - "5435:5432"
     volumes:
       - ./pgarchivedata:/var/lib/postgresql/data
-      - ./init-archive.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./sql-migrations/0-init-archive.sql:/docker-entrypoint-initdb.d/0-init.sql
     networks:
       - app-network
     healthcheck:
