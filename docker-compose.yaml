@@ -346,7 +346,7 @@ services:
       LOG_ARCHIVER_URL: http://logarchiver:4000
       LOG_AES_KEY: ${ARCHIVER_AES_KEY}
       RENDER_SERVICE_URL: http://discord-chat-replica:8080
-      # INTERACTIONS_BASE_URL: https://gateway.ticketsbot.cloud/
+      INTERACTIONS_BASE_URL: ${INTERACTIONS_BASE_URL:-https://gateway.ticketsbot.cloud/}
       # PREMIUM_PROXY_URL
       # PREMIUM_PROXY_KEY
       # SESSION_DB_THREADS
