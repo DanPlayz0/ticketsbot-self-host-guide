@@ -29,7 +29,7 @@ De bovenstaande afbeelding is gemaakt met [Excalidraw](https://excalidraw.com/).
    - `DISCORD_BOT_PUBLIC_KEY`: de openbare sleutel van je bot (e.g. `fcd10216ebbc818d7ef1408a5c3c5702225b929b53b0a265b82e82b96a9a8358`)
    - `ADMIN_USER_IDS`: een komma-gescheiden lijst van gebruikers IDs (e.g. `209796601357533184,585576154958921739,user_id,user_id`, een enkele id zou zijn `209796601357533184`)
    - `DISCORD_SUPPORT_SERVER_INVITE`: de uitnodigingslink naar je ondersteuningsserver (e.g. `https://discord.gg/ticketsbot`)
-   - `DASHBOARD_URL`: de URL van je dashboard (e.g. `http://localhost:5000`)
+   - `DASHBOARD_URL`: de URL van je dashboard (e.g. `http://localhost:8000`)
    - `LANDING_PAGE_URL`: de URL van je landingspagina (e.g. `https://ticketsbot.cloud`)
    - `API_URL`: de URL van je API (e.g. `http://localhost:8082`)
    - `DATABASE_HOST`: je PostgreSQL-host (e.g. `postgres:5432`)
@@ -67,7 +67,7 @@ Aangezien deze bot zelf gehost wordt, zul je de bot zelf moeten configureren. Hi
    - vervangen `${DISCORD_BOT_CLIENT_ID}` met de applicatie-/client-ID van je bot (e.g. `508391840525975553`)
 4. ga naar te OAuth2 tab
 5. Voeg de redirect-URL toe `${DASHBOARD_URL}/callback` aan de OAuth2-redirect-URI's
-   - vervang `${DASHBOARD_URL}` met de URL van je Dashboard (e.g. `http://localhost:5000`, zorg ervoor dat dit overeenkomt met wat je hebt ingesteld in de [opstelling](#opstelling) section)
+   - vervang `${DASHBOARD_URL}` met de URL van je Dashboard (e.g. `http://localhost:8000`, zorg ervoor dat dit overeenkomt met wat je hebt ingesteld in de [opstelling](#opstelling) section)
 6. Ga naar het tabblad 'Bot
 7. Schakel de wisselknoppen `Server Members Intent` en `Message Content Intent` in
 

@@ -20,9 +20,9 @@ The most common error is that the URL you inputted is not publicly accessible (a
 
 ## 3. Invalid OAuth2 redirect_uri
 
-> :warning: If you set up a [reverse proxy](#6-i-want-anyone-to-be-able-to-use-the-dashboard-how-do-i-do-that), you should use the dashboard domain (e.g. `https://dashboard.example.com`) you set instead of `http://localhost:5000`.
+> :warning: If you set up a [reverse proxy](#6-i-want-anyone-to-be-able-to-use-the-dashboard-how-do-i-do-that), you should use the dashboard domain (e.g. `https://dashboard.example.com`) you set instead of `http://localhost:8000`.
 
-This error is caused by you not setting the OAuth2 redirect URI in the [Discord Bot Configuration](#discord-bot-configuration) section. You need to set the redirect URI to `${DASHBOARD_URL}/callback`. Replace `${DASHBOARD_URL}` with the URL of your dashboard (e.g. `http://localhost:5000`).
+This error is caused by you not setting the OAuth2 redirect URI in the [Discord Bot Configuration](#discord-bot-configuration) section. You need to set the redirect URI to `${DASHBOARD_URL}/callback`. Replace `${DASHBOARD_URL}` with the URL of your dashboard (e.g. `http://localhost:8000`).
 
 If have already started the bot once and you've changed the `DASHBOARD_URL` in the `.env` file, you will need to delete the `dashboard` image. The "easy way" is to run `docker compose up dashboard -d --force-recreate --build` to force the dashboard to rebuild. This will not delete the images, but it will recreate the container with the new environment variables.
 

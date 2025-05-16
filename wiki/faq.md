@@ -45,7 +45,7 @@ You have to setup a reverse proxy (examples being; [NginX](https://nginx.org/), 
 > :warning: I assume you are using the default ports from the compose file, if you are not, you will have to change the ports in the examples below.
 
 - `api.example.com` -> `http://localhost:8082` (api container)
-- `dashboard.example.com` -> `http://localhost:5000` (dashboard container)
+- `dashboard.example.com` -> `http://localhost:8000` (dashboard container)
 - `gateway.example.com` -> `http://localhost:8080` (http-gateway container)
 
 ## 7. This requires S3, can I host this without S3? (NOT recommended)
