@@ -14,6 +14,7 @@ services:
       - ./sql-migrations/1-init-support-import.sql:/docker-entrypoint-initdb.d/1-init-support-import.sql
       - ./sql-migrations/2-panel-here-mentions.sql:/docker-entrypoint-initdb.d/2-panel-here-mentions.sql
       - ./sql-migrations/3-delete-mentions.sql:/docker-entrypoint-initdb.d/3-delete-mentions.sql
+      - ./sql-migrations/4-ticket-counters.sql:/docker-entrypoint-initdb.d/4-ticket-counters.sql
     networks:
       - app-network
     healthcheck:
@@ -104,7 +105,7 @@ services:
       - app-network
 
   worker-interactions:
-    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:1c83fc5f5eb79bbb2b73e5b6906ddb8ff0e61873}
+    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:3476508640267594183930154577f07c2e745c76}
     container_name: worker-interactions
     restart: on-failure:10
     # ports:
@@ -167,7 +168,7 @@ services:
       - app-network
 
   worker-gateway:
-    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:1c83fc5f5eb79bbb2b73e5b6906ddb8ff0e61873}
+    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:3476508640267594183930154577f07c2e745c76}
     container_name: worker-gateway
     restart: on-failure:10
     # ports:

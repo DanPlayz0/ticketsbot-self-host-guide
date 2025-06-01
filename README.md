@@ -116,6 +116,7 @@ For common issues, please refer to the [Common Issues](./wiki/common-issues.md) 
 
 If you have previously setup the bot and want to update to the latest version, you will need to run the following based on when you set this up. (Sorted newest first)
 
+- If your repo was missing `sql-migrations/4-ticket-counters.sql`, run it within the `postgres` container, see [FAQ #9](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers) for how to do this.
 - If your repo did not have the `sql-migrations/` folder. Pull the latest changes then make sure to update the `sql-migrations/0-init-archive.sql` file with your changes from the original `init-archive.sql` file.
 - If your repo did not have `delete-mentions.sql`, run it within the `postgres` container, see [FAQ #9](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers) for how to do this.
 - Before [Guide PR#15](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/15) (aka missing `panel-here-mentions.sql`), use [Common Issue #8](./wiki/common-issues.md#8-error-relation-panel_here_mentions-does-not-exist)
