@@ -28,7 +28,7 @@ De bovenstaande afbeelding is gemaakt met [Excalidraw](https://excalidraw.com/).
    - `DISCORD_BOT_OAUTH_SECRET`: de client van je bot geheim (e.g. `AAlRmln88YpOr8H8j1VvFuidKLJxg9rM`)
    - `DISCORD_BOT_PUBLIC_KEY`: de openbare sleutel van je bot (e.g. `fcd10216ebbc818d7ef1408a5c3c5702225b929b53b0a265b82e82b96a9a8358`)
    - `ADMIN_USER_IDS`: een komma-gescheiden lijst van gebruikers IDs (e.g. `209796601357533184,585576154958921739,user_id,user_id`, een enkele id zou zijn `209796601357533184`)
-   - `DISCORD_SUPPORT_SERVER_INVITE`: de uitnodigingslink naar je ondersteuningsserver (e.g. `https://invite.tickets.bot`)
+   - `DISCORD_SUPPORT_SERVER_INVITE`: de uitnodigingslink naar je ondersteuningsserver (e.g. `https://discord.gg/ticketsbot`)
    - `DASHBOARD_URL`: de URL van je dashboard (e.g. `http://localhost:5000`)
    - `LANDING_PAGE_URL`: de URL van je landingspagina (e.g. `https://tickets.bot`)
    - `API_URL`: de URL van je API (e.g. `http://localhost:8082`)

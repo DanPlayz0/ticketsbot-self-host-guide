@@ -28,7 +28,7 @@ Das obrige Bild, wurde mit [Excalidraw](https://excalidraw.com/) erstellt.
    - `DISCORD_BOT_OAUTH_SECRET`: dein bot client secret (z.B. `AAlRmln88YpOr8H8j1VvFuidKLJxg9rM`)
    - `DISCORD_BOT_PUBLIC_KEY`: dein bot public key (z.B. `fcd10216ebbc818d7ef1408a5c3c5702225b929b53b0a265b82e82b96a9a8358`)
    - `ADMIN_USER_IDS`: ein komma separiert die liste mit benutzer IDs (z.B. `209796601357533184,585576154958921739,user_id,user_id`, eine einzelne ID wäre `209796601357533184`)
-   - `DISCORD_SUPPORT_SERVER_INVITE`: der invite link zu deinem support server (z.B. `https://invite.tickets.bot`)
+   - `DISCORD_SUPPORT_SERVER_INVITE`: der invite link zu deinem support server (z.B. `https://discord.gg/ticketsbot`)
    - `DASHBOARD_URL`: die URL deines dashboards (z.B. `http://localhost:5000`)
    - `LANDING_PAGE_URL`: die URL deiner home page (z.B. `https://tickets.bot`)
    - `API_URL`: die URL deiner API (z.B. `http://localhost:8082`)
