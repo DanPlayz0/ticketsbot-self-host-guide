@@ -114,10 +114,10 @@ services:
       WORKER_MODE: INTERACTIONS
 
       DASHBOARD_URL: ${DASHBOARD_URL:-http://localhost:5000}
-      FRONTPAGE_URL: ${LANDING_PAGE_URL:-https://ticketsbot.cloud}
-      VOTE_URL: ${VOTE_URL:-https://vote.ticketsbot.cloud}
+      FRONTPAGE_URL: ${LANDING_PAGE_URL:-https://tickets.bot}
+      VOTE_URL: ${VOTE_URL:-https://vote.tickets.bot}
       POWEREDBY: ${POWERED_BY:-github.com/ticketsbot-cloud}
-      ICON_URL: ${ICON_URL:-https://ticketsbot.cloud/assets/img/logo.png}
+      ICON_URL: ${ICON_URL:-https://tickets.bot/assets/img/logo.png}
 
       WORKER_PUBLIC_TOKEN: ${DISCORD_BOT_TOKEN}
       WORKER_PUBLIC_ID: ${DISCORD_BOT_CLIENT_ID}
@@ -195,10 +195,10 @@ services:
       WORKER_MODE: GATEWAY
 
       DASHBOARD_URL: ${DASHBOARD_URL:-http://localhost:5000}
-      FRONTPAGE_URL: ${LANDING_PAGE_URL:-https://ticketsbot.cloud}
-      VOTE_URL: ${VOTE_URL:-https://vote.ticketsbot.cloud}
+      FRONTPAGE_URL: ${LANDING_PAGE_URL:-https://tickets.bot}
+      VOTE_URL: ${VOTE_URL:-https://vote.tickets.bot}
       POWEREDBY: ${POWERED_BY:-github.com/ticketsbot-cloud}
-      ICON_URL: ${ICON_URL:-https://ticketsbot.cloud/assets/img/logo.png}
+      ICON_URL: ${ICON_URL:-https://tickets.bot/assets/img/logo.png}
 
       WORKER_PUBLIC_TOKEN: ${DISCORD_BOT_TOKEN}
       WORKER_PUBLIC_ID: ${DISCORD_BOT_CLIENT_ID}
@@ -356,7 +356,7 @@ services:
     environment:
       SERVER_ADDR: 0.0.0.0:8081
       BASE_URL: ${DASHBOARD_URL:-http://localhost:5000}
-      MAIN_SITE: ${LANDING_PAGE_URL:-https://ticketsbot.cloud} # Home/Landing (used for /premium)
+      MAIN_SITE: ${LANDING_PAGE_URL:-https://tickets.bot} # Home/Landing (used for /premium)
       DATABASE_URI: 'postgres://postgres:${DATABASE_PASSWORD:-null}@postgres/ticketsbot'
       REDIS_HOST: ${REDIS_HOST:-redis}
       REDIS_PASSWORD: ${REDIS_PASSWORD:-null}
@@ -381,7 +381,7 @@ services:
       LOG_ARCHIVER_URL: http://logarchiver:4000
       LOG_AES_KEY: ${ARCHIVER_AES_KEY}
       RENDER_SERVICE_URL: http://discord-chat-replica:8080
-      INTERACTIONS_BASE_URL: ${INTERACTIONS_BASE_URL:-https://gateway.ticketsbot.cloud/}
+      INTERACTIONS_BASE_URL: ${INTERACTIONS_BASE_URL:-https://gateway.tickets.bot/}
       # PREMIUM_PROXY_URL
       # PREMIUM_PROXY_KEY
       # SESSION_DB_THREADS
@@ -393,7 +393,7 @@ services:
       S3_IMPORT_TRANSCRIPT_BUCKET: ${S3_TRANSCRIPT_IMPORT_BUCKET}
       S3_IMPORT_DATA_BUCKET: ${S3_DATA_IMPORT_BUCKET}
       POWEREDBY: ${POWERED_BY:-github.com/ticketsbot-cloud}
-      ICON_URL: ${ICON_URL:-https://ticketsbot.cloud/assets/img/logo.png}
+      ICON_URL: ${ICON_URL:-https://tickets.bot/assets/img/logo.png}
     depends_on:
       postgres:
         condition: service_healthy
@@ -412,6 +412,12 @@ services:
         GIT_BRANCH: ${DASHBOARD_GIT_BRANCH:-master}
         COMMIT_HASH: ${DASHBOARD_COMMIT_HASH:-2441d52b1df85168d57e398fe2c90eec1a5c642b}
         INVITE_URL: https://discord.com/oauth2/authorize?client_id=${DISCORD_BOT_CLIENT_ID}&scope=bot+applications.commands&permissions=395942816984
+
+        TITLE: ${DASHBOARD_TITLE}
+        DESCRIPTION: ${DASHBOARD_DESCRIPTION}
+        FAVICON: ${DASHBOARD_FAVICON_URL}
+        FAVICON_TYPE: ${DASHBOARD_FAVICON_TYPE}
+        WHITELABEL_DISABLED: ${DASHBOARD_WHITELABEL_DISABLED:-true}
     ports:
       - '5000:5000'
     networks:

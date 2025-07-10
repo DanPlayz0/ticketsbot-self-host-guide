@@ -31,7 +31,7 @@ The image above was made using [Excalidraw](https://excalidraw.com/).
    - `ADMIN_USER_IDS`: a comma-separated list of user IDs (e.g. `209796601357533184,585576154958921739,user_id,user_id`, a single id would be `209796601357533184`)
    - `DISCORD_SUPPORT_SERVER_INVITE`: the invite link to your support server (e.g. `https://discord.gg/ticketsbot`)
    - `DASHBOARD_URL`: the URL of your dashboard (e.g. `http://localhost:5000`)
-   - `LANDING_PAGE_URL`: the URL of your landing page (e.g. `https://ticketsbot.cloud`)
+   - `LANDING_PAGE_URL`: the URL of your landing page (e.g. `https://tickets.bot`)
    - `API_URL`: the URL of your API (e.g. `http://localhost:8082`)
    - `DATABASE_HOST`: your PostgreSQL host (e.g. `postgres:5432`)
    - `DATABASE_PASSWORD`: your PostgreSQL password (e.g. `password`)
