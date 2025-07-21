@@ -76,8 +76,8 @@ Aangezien deze bot zelf gehost wordt, zul je de bot zelf moeten configureren. Hi
 1. Bouw het CLI-hulpprogramma voor het registreren van commando's met behulp van `docker build -t ticketsbot/registercommands -f commands.Dockerfile .`
    - Krijg hulp door het uitvoeren van `docker run --rm ticketsbot/registercommands --help`
 2. Registreer de commando's
-   - Alleen globale commando's: `docker run --rm ticketsbot/registercommands --token=your_bot_token --id=your_client_id`
-   - Globale en admin-commando's door het uitvoeren van `docker run --rm ticketsbot/registercommands --token=your_bot_token --id=your_client_id --admin-guild=your_admin_guild_id`
+   - Alleen globale commando's: `docker run --rm ticketsbot/registercommands --token=your_bot_token`
+   - Globale en admin-commando's door het uitvoeren van `docker run --rm ticketsbot/registercommands --token=your_bot_token --admin-guild=your_admin_guild_id`
 
 ## Veelgestelde Vragen
 

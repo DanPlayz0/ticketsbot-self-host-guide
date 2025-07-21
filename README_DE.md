@@ -75,8 +75,8 @@ Da dieser bot selbst-gehosted ist, musst du, denn bot selbst konfigurieren. Hier
 1. Baue das register commands cli utility durch ausführung von `docker build -t ticketsbot/registercommands -f commands.Dockerfile .`
    - Hilfe gibt es mit `docker run --rm ticketsbot/registercommands --help`
 2. Registrierung der commands
-   - nur Globale commands: `docker run --rm ticketsbot/registercommands --token=your_bot_token --id=your_client_id`
-   - Globale & Admin commands durch ausführung von `docker run --rm ticketsbot/registercommands --token=your_bot_token --id=your_client_id --admin-guild=your_admin_guild_id`
+   - nur Globale commands: `docker run --rm ticketsbot/registercommands --token=your_bot_token`
+   - Globale & Admin commands durch ausführung von `docker run --rm ticketsbot/registercommands --token=your_bot_token --admin-guild=your_admin_guild_id`
 
 ## Häufig gestellte Fragen
 
