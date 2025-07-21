@@ -105,7 +105,7 @@ services:
       - app-network
 
   worker-interactions:
-    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:322e15986e7a6f6c63d2165025f2bcf6b9a802be}
+    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:a8730c1e0cb2c23fb526804d17fb8a031ee78e5f}
     container_name: worker-interactions
     restart: on-failure:10
     # ports:
@@ -186,7 +186,7 @@ services:
       - app-network
 
   worker-gateway:
-    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:322e15986e7a6f6c63d2165025f2bcf6b9a802be}
+    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:a8730c1e0cb2c23fb526804d17fb8a031ee78e5f}
     container_name: worker-gateway
     restart: on-failure:10
     # ports:
@@ -266,7 +266,7 @@ services:
       - app-network
 
   http-gateway:
-    image: ${HTTP_GATEWAY_IMAGE:-ghcr.io/ticketsbot/http-gateway:b0748cc2e964eb1fcb658565844a50a6182489cf}
+    image: ${HTTP_GATEWAY_IMAGE:-ghcr.io/ticketsbot-cloud/http-gateway:82473c78811a26bba07da982e7e5637733a22e00}
     container_name: http-gateway
     restart: on-failure:3
     ports:
@@ -295,7 +295,7 @@ services:
       - app-network
 
   sharder-main:
-    image: ${SHADER_IMAGE:-ghcr.io/ticketsbot/main-sharder:a4bf4a98848094435d017d90c2cfc09a04146ef3}
+    image: ${SHADER_IMAGE:-ghcr.io/ticketsbot-cloud/main-sharder:82473c78811a26bba07da982e7e5637733a22e00}
     container_name: sharder-main
     hostname: sharder-0
     ports:
@@ -329,7 +329,7 @@ services:
       - app-network
 
   cachesync:
-    image: ${CACHESYNC_IMAGE:-ghcr.io/ticketsbot/cache-sync-service:a4bf4a98848094435d017d90c2cfc09a04146ef3}
+    image: ${CACHESYNC_IMAGE:-ghcr.io/ticketsbot-cloud/cache-sync-service:82473c78811a26bba07da982e7e5637733a22e00}
     restart: on-failure:3
     # ports:
     #   - '8091:8091' # metrics port
@@ -351,7 +351,7 @@ services:
       - app-network
   
   api:
-    image: ${API_IMAGE:-ghcr.io/ticketsbot-cloud/api:2441d52b1df85168d57e398fe2c90eec1a5c642b}
+    image: ${API_IMAGE:-ghcr.io/ticketsbot-cloud/api:29a9bba1a26d77eab3300f2ae61708478990feff}
     restart: on-failure:10
     ports:
       - '8082:8081'
@@ -449,7 +449,7 @@ services:
         condition: service_healthy
 
   autoclosedaemon:
-    image: ${AUTOCLOSEDAEMOON_IMAGE:-ghcr.io/ticketsbot/autoclosedaemon:68cb9a641e9536dd45378d9fe0a085902f99914c}
+    image: ${AUTOCLOSEDAEMOON_IMAGE:-ghcr.io/ticketsbot-cloud/autoclosedaemon:6f5970c64e53536a2e47b6e49c13ee58ba023cdd}
     environment:
       DATABASE_URI: postgres://postgres:${DATABASE_PASSWORD:-null}@${DATABASE_HOST:-postgres:5432}/ticketsbot
       DATABASE_THREADS: 4
@@ -473,14 +473,14 @@ services:
         condition: service_healthy
 
   discord-chat-replica:
-    image: ${DISCORD_CHAT_REPLICA_IMAGE:-ghcr.io/ticketsbot/discord-chat-replica:e7a42bfeb763b08d859f8a17430f5a38eb5d69a9}
+    image: ${DISCORD_CHAT_REPLICA_IMAGE:-ghcr.io/ticketsbot-cloud/discord-chat-replica:0cfcc9b9e2ad07b0c62ecb0ebfc8e002329c2c67}
     environment:
       PORT: 8080
     networks:
       - app-network
 
   import-sync-data:
-    image: ${IMPORT_SYNC_IMAGE:-ghcr.io/ticketsbot-cloud/import-sync:dc709612edbd83a5e3704eb609db0cd6a82c3402} 
+    image: ${IMPORT_SYNC_IMAGE:-ghcr.io/ticketsbot-cloud/import-sync:dbe858a79d96f37458c79655cd5663f9c85d048f} 
     environment:
       DAEMON_ENABLED: true
       DAEMON_FREQUENCY: 1m
@@ -524,7 +524,7 @@ services:
       - app-network
 
   import-sync-transcripts:
-    image: ${IMPORT_SYNC_IMAGE:-ghcr.io/ticketsbot-cloud/import-sync:dc709612edbd83a5e3704eb609db0cd6a82c3402}
+    image: ${IMPORT_SYNC_IMAGE:-ghcr.io/ticketsbot-cloud/import-sync:dbe858a79d96f37458c79655cd5663f9c85d048f}
     environment:
       DAEMON_ENABLED: true
       DAEMON_FREQUENCY: 2m
