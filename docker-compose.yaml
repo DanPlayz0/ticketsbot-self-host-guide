@@ -1,6 +1,7 @@
 services:
   postgres:
     image: postgres:15
+    user: "${UID}:${GID}"
     container_name: postgres
     environment:
       POSTGRES_USER: postgres
@@ -25,6 +26,7 @@ services:
   
   postgres-cache:
     image: postgres:15
+    user: "${UID}:${GID}"
     container_name: postgres-cache
     environment:
       POSTGRES_USER: postgres
@@ -45,6 +47,7 @@ services:
 
   postgres-archive:
     image: postgres:15
+    user: "${UID}:${GID}"
     container_name: postgres-archive
     environment:
       POSTGRES_USER: postgres
@@ -65,6 +68,7 @@ services:
 
   kafka:
     image: apache/kafka:3.7.2
+    user: "${UID}:${GID}"
     environment:
       KAFKA_NODE_ID: 1
       KAFKA_PROCESS_ROLES: broker,controller
@@ -79,6 +83,7 @@ services:
 
   redis:
     image: redis:7
+    user: "${UID}:${GID}"
     container_name: redis
     command: ["redis-server", "--requirepass", "${REDIS_PASSWORD:-null}"]
     # ports: # Uncomment this line and the following line to access redis on port 6479
@@ -93,11 +98,13 @@ services:
 
   statsd:
     image: ${STATSD_IMAGE:-ghcr.io/statsd/statsd:v0.10.2}
+    user: "${UID}:${GID}"
     networks:
       - app-network
 
   http-proxy:
     image: ${HTTP_PROXY_IMAGE:-ghcr.io/rxdn/http-proxy:metrics}
+    user: "${UID}:${GID}"
     container_name: http-proxy
     environment:
       DISCORD_TOKEN: ${DISCORD_BOT_TOKEN}
@@ -106,6 +113,7 @@ services:
 
   worker-interactions:
     image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:a8730c1e0cb2c23fb526804d17fb8a031ee78e5f}
+    user: "${UID}:${GID}"
     container_name: worker-interactions
     restart: on-failure:10
     # ports:
@@ -187,6 +195,7 @@ services:
 
   worker-gateway:
     image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:a8730c1e0cb2c23fb526804d17fb8a031ee78e5f}
+    user: "${UID}:${GID}"
     container_name: worker-gateway
     restart: on-failure:10
     # ports:
@@ -267,6 +276,7 @@ services:
 
   http-gateway:
     image: ${HTTP_GATEWAY_IMAGE:-ghcr.io/ticketsbot-cloud/http-gateway:82473c78811a26bba07da982e7e5637733a22e00}
+    user: "${UID}:${GID}"
     container_name: http-gateway
     restart: on-failure:3
     ports:
@@ -296,6 +306,7 @@ services:
 
   sharder-main:
     image: ${SHADER_IMAGE:-ghcr.io/ticketsbot-cloud/main-sharder:82473c78811a26bba07da982e7e5637733a22e00}
+    user: "${UID}:${GID}"
     container_name: sharder-main
     hostname: sharder-0
     ports:
@@ -330,6 +341,7 @@ services:
 
   cachesync:
     image: ${CACHESYNC_IMAGE:-ghcr.io/ticketsbot-cloud/cache-sync-service:82473c78811a26bba07da982e7e5637733a22e00}
+    user: "${UID}:${GID}"
     restart: on-failure:3
     # ports:
     #   - '8091:8091' # metrics port
@@ -352,6 +364,7 @@ services:
   
   api:
     image: ${API_IMAGE:-ghcr.io/ticketsbot-cloud/api:29a9bba1a26d77eab3300f2ae61708478990feff}
+    user: "${UID}:${GID}"
     restart: on-failure:10
     ports:
       - '8082:8081'
@@ -420,6 +433,7 @@ services:
         FAVICON: ${DASHBOARD_FAVICON_URL:-}
         FAVICON_TYPE: ${DASHBOARD_FAVICON_TYPE:-}
         WHITELABEL_DISABLED: ${DASHBOARD_WHITELABEL_DISABLED:-true}
+    user: "${UID}:${GID}"
     ports:
       - '5000:5000'
     networks:
@@ -427,6 +441,7 @@ services:
 
   logarchiver:
     image: ${LOGARCHIVER_IMAGE:-ghcr.io/ticketsbot-cloud/logarchiver:7298e06b5dc5d21d3fb75633ffebd29638c1ed1d}
+    user: "${UID}:${GID}"
     environment:
       ARCHIVER_ADDR: 0.0.0.0:4000
       S3_ENDPOINT: ${S3_ENDPOINT}
@@ -450,6 +465,7 @@ services:
 
   autoclosedaemon:
     image: ${AUTOCLOSEDAEMOON_IMAGE:-ghcr.io/ticketsbot-cloud/autoclosedaemon:6f5970c64e53536a2e47b6e49c13ee58ba023cdd}
+    user: "${UID}:${GID}"
     environment:
       DATABASE_URI: postgres://postgres:${DATABASE_PASSWORD:-null}@${DATABASE_HOST:-postgres:5432}/ticketsbot
       DATABASE_THREADS: 4
@@ -474,6 +490,7 @@ services:
 
   discord-chat-replica:
     image: ${DISCORD_CHAT_REPLICA_IMAGE:-ghcr.io/ticketsbot-cloud/discord-chat-replica:0cfcc9b9e2ad07b0c62ecb0ebfc8e002329c2c67}
+    user: "${UID}:${GID}"
     environment:
       PORT: 8080
     networks:
@@ -481,6 +498,7 @@ services:
 
   import-sync-data:
     image: ${IMPORT_SYNC_IMAGE:-ghcr.io/ticketsbot-cloud/import-sync:dbe858a79d96f37458c79655cd5663f9c85d048f} 
+    user: "${UID}:${GID}"
     environment:
       DAEMON_ENABLED: true
       DAEMON_FREQUENCY: 1m
@@ -525,6 +543,7 @@ services:
 
   import-sync-transcripts:
     image: ${IMPORT_SYNC_IMAGE:-ghcr.io/ticketsbot-cloud/import-sync:dbe858a79d96f37458c79655cd5663f9c85d048f}
+    user: "${UID}:${GID}"
     environment:
       DAEMON_ENABLED: true
       DAEMON_FREQUENCY: 2m
