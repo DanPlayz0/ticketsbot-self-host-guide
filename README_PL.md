@@ -123,4 +123,4 @@ If you have previously setup the bot and want to update to the latest version, y
 - Before [Guide PR#14](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/14) (aka missing `init-support-import.sql`), use [Common Issue #7](./wiki/common-issues.md#7-error-relation-import_logs-does-not-exist)
 - Before [Guide PR#9](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/9), use [Common Issue #4](./wiki/common-issues.md#4-error-column-last_seen-of-relation-does-not-exist)
 
- * Brak możliwości przetłumaczenia
+`*` Brak możliwości przetłumaczenia
