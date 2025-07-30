@@ -88,6 +88,8 @@ services:
     command: ["redis-server", "--requirepass", "${REDIS_PASSWORD:-null}"]
     # ports: # Uncomment this line and the following line to access redis on port 6479
     #   - "6479:6379"
+    volumes:
+      - redis_data:/data
     networks:
       - app-network
     healthcheck:
@@ -585,6 +587,9 @@ services:
         condition: service_healthy
     networks:
       - app-network
+
+volumes:
+  redis_data:
 
 networks:
   app-network:
