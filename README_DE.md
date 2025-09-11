@@ -115,7 +115,10 @@ Für häufige Probleme, bitte das [Common Issues](./wiki/common-issues.md) dokum
 
 Falls du den bot früher schon mal aufgesetzt hast und zur neusten version upgraden möchtest, musst du die folgenden sachen machen, basierend auf wann du den bot aufgesetzt hast. (sortiert neustes zuerst)
 
-- Falls deine repo nicht die `delete-mentions.sql` datei hat, führe es im `postgres` container aus, siehe [FAQ #9](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers) for how to do this.
+- vor [Guide PR#30](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/30) (aka Fehlend datei `sql-migrations/5-modal-labels.sql`), führe es im `postgres` container aus, siehe [FAQ #9](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers), um zu sehen wie das geht. 
+- Falls deine repo nicht die `sql-migrations/4-ticket-counters.sql` datei hat, führe sie im `postgres` container aus, siehe [FAQ #9](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers),  um zu sehen wie das geht.
+- Falls deine repo nicht den `sql-migrations/` Ordner hat, hole dir die neuesten Updates und vergess nicht die `sql-migrations/0-init-archive.sql` datei mit den änderungen, der original `init-archive.sql` datei, zu füllen.
+- Falls deine repo nicht die `delete-mentions.sql` datei hat, führe es im `postgres` container aus, siehe [FAQ #9](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers) um zu sehen wie das geht.
 - vor [Guide PR#15](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/15), siehe [Common Issue #8](./wiki/common-issues.md#8-error-relation-panel_here_mentions-does-not-exist)
 - vor [Guide PR#14](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/14), siehe [Common Issue #7](./wiki/common-issues.md#7-error-relation-import_logs-does-not-exist)
 - vor [Guide PR#9](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/9), siehe [Common Issue #4](./wiki/common-issues.md#4-error-column-last_seen-of-relation-does-not-exist)

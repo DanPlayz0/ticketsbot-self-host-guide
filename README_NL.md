@@ -116,6 +116,9 @@ Voor veelgestelde vragen, verwijs alstublieft naar de [veelgestelde vragen](./wi
 
 Als je de bot eerder hebt ingesteld en naar de nieuwste versie wilt updaten, moet je het volgende uitvoeren, afhankelijk van wanneer je dit hebt ingesteld. (Sorteer op nieuwste eerst)
 
+- Voer het vóór [Guide PR#30](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/30) (ook wel ontbrekende `sql-migrations/5-modal-labels.sql`) uit in de `postgres` container, zie [FAQ #9](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers) voor hoe u dit kunt doen.
+- Als uw repository `sql-migrations/4-ticket-counters.sql` mist, voer het dan uit in de `postgres` container, zie [FAQ #9](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers) voor hoe u dit kunt doen.
+- Als uw repository niet de map `sql-migrations/` had. Haal de laatste wijzigingen op en zorg ervoor dat u het bestand `sql-migrations/0-init-archive.sql` bijwerkt met uw wijzigingen uit het originele bestand `init-archive.sql`.
 - Als je repository dit niet had `delete-mentions.sql`, voer het uit binnen de `postgres` container, kijk [veelgestelde vragen #9](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers) voor hoe je dit moet doen.
 - voor [Guide PR#15](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/15), gebruik [Common Issue #8](./wiki/common-issues.md#8-error-relation-panel_here_mentions-does-not-exist)
 - voor [Guide PR#14](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/14), gebruik [Common Issue #7](./wiki/common-issues.md#7-error-relation-import_logs-does-not-exist)
