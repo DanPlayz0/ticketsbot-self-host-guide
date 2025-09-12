@@ -426,7 +426,7 @@ services:
         WS_URL: ${API_URL:-http://localhost:8082}
         GIT_URL: ${DASHBOARD_GIT_URL:-https://github.com/TicketsBot-cloud/dashboard}
         GIT_BRANCH: ${DASHBOARD_GIT_BRANCH:-master}
-        COMMIT_HASH: ${DASHBOARD_COMMIT_HASH:-2441d52b1df85168d57e398fe2c90eec1a5c642b}
+        COMMIT_HASH: ${DASHBOARD_COMMIT_HASH:-95070907a556172d499d93fefd88d84b546c70ac}
         INVITE_URL: https://discord.com/oauth2/authorize?client_id=${DISCORD_BOT_CLIENT_ID}&scope=bot+applications.commands&permissions=395942816984
 
         TITLE: ${DASHBOARD_TITLE:-}
