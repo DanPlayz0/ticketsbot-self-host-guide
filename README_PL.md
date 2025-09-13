@@ -116,7 +116,7 @@ Częste problemy znajdują się w dokumencie [Common Issues](./wiki/common-issue
 
 Jeśli wcześniej skonfigurowałeś bota i chcesz zaktualizować go do najnowszej wersji, musisz wykonać poniższe kroki w zależności od tego, kiedy go instalowałeś. (Posortowane od najnowszych)
 
-- Przed [Guide PR#30](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/30) (czyli brakującym `sql-migrations/5-modal-labels.sql`), uruchom go wewnątrz kontenera `postgres`. Zobacz [FAQ #9](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers) aby dowiedzieć się jak to zrobić.
+- Przed [Guide PR#30](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/30) (czyli brakującym `sql-migrations/5-modal-labels.sql`), uruchom go wewnątrz kontenera `postgres`. Zobacz [FAQ #9](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers), aby dowiedzieć się jak to zrobić.
 - Jeśli w Twoim repozytorium brakowało pliku `sql-migrations/4-ticket-counters.sql`, uruchom go wewnątrz kontenera `postgres`. Zobacz [FAQ #9](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers), aby dowiedzieć się jak to zrobić.
 - Jeśli twoje repozytorium nie zawierało folderu `sql-migrations/`, pobierz najnowsze zmiany, a następnie zaktualizuj plik `sql-migrations/0-init-archive.sql` uwzględniając zmiany z oryginalnego pliku `init-archive.sql`.
 - Jeśli Twoje repozytorium nie zawierało pliku `delete-mentions.sql`, uruchom go wewnątrz kontenera `postgres`. Zobacz [FAQ #9](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers), aby dowiedzieć się jak to zrobić.
