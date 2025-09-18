@@ -79,9 +79,13 @@ Aangezien deze bot zelf gehost wordt, zul je de bot zelf moeten configureren. Hi
    - Alleen globale commando's: `docker run --rm ticketsbot/registercommands --token=your_bot_token`
    - Globale en admin-commando's door het uitvoeren van `docker run --rm ticketsbot/registercommands --token=your_bot_token --admin-guild=your_admin_guild_id`
 
+## Aanvullende diensten
+
+Hier vindt u aanvullende services met installatiehandleidingen: [Addons](/Addons/README.md) <sup>alleen beschikbaar in het Engels</sup>
+
 ## Veelgestelde Vragen
 
-Voor veelgestelde vragen, verwijs alstublieft naar de [veelgestelde vragen](./wiki/faq.md) document.
+Voor veelgestelde vragen, verwijs alstublieft naar de [veelgestelde vragen](./wiki/faq.md) document. <sup>alleen beschikbaar in het Engels</sup>
 
 - [#1 Op welk platform kan ik dit hosten?](./wiki/faq.md#1-what-can-i-host-this-on)
 - [#2 Wat zijn de systeemvereisten?](./wiki/faq.md#2-what-are-the-system-requirements)
