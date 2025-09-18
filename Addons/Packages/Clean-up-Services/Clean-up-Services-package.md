@@ -34,14 +34,14 @@ Copy the following at the **bottom** of your docker-compose.yaml. **Make sure th
     networks:
     - app-network
 
-  cleanupdaimon:
-    image: ${CLEANUPDAIMON_IMAGE:-ghcr.io/ticketsbot-cloud/cleanupdaemon:1266ddeac31c626cfa64561b38a5cbeaeb9b475c}
-    container_name: clean-up-daimon
+  clean-up-daemon:
+    image: ${CLEANUPDAEMON_IMAGE:-ghcr.io/ticketsbot-cloud/cleanupdaemon:1266ddeac31c626cfa64561b38a5cbeaeb9b475c}
+    container_name: clean-up-daemon
     environment:
       DB_URI: 'postgres://postgres:${DATABASE_PASSWORD:-null}@postgres/ticketsbot'
       LOG_ARCHIVER_URI: http://logarchiver:4000
-      ONESHOT: ${CLEANUPDAIMON_ONESHOT:-false}
-      PRODUCTION_MODE: ${CLEANUPDAIMON_PROD_MODE:-false}
+      ONESHOT: ${CLEANUPDAEMON_ONESHOT:-false}
+      PRODUCTION_MODE: ${CLEANUPDAEMON_PROD_MODE:-false}
       SENTRY_DNS: ${SENTRY_DSN}
       MAIN_BOT_TOKEN: '${DISCORD_BOT_TOKEN}'
       DISCORD_PROXY_URL: http-proxy:80
@@ -66,7 +66,7 @@ Copy the following to the **Top** of your docker-compose.yaml. **Make sure this 
 ```
 include:
   - path:
-    - /addons/Packages/Clean-up-Services/docker-compose.yaml
+    - /addons/packages/clean-up-services/docker-compose.yaml
 ```
 
 Then copy the contents of the provided [.env.example](./.env.example) file into your .env file from the guide.

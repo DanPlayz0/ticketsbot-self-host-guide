@@ -1,5 +1,5 @@
 services:
-  server_counter:
+  server-counter:
     image: ${SERVER_COUNTER_IMAGE:-ghcr.io/ticketsbot-cloud/server-counter:82473c78811a26bba07da982e7e5637733a22e00}
     container_name: server-counter
     ports:

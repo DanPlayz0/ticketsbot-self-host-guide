@@ -80,7 +80,7 @@ As this bot is self-hosted, you will need to configure the bot yourself. Here ar
 
 ## Additional Services
 
-You can find additional containers with installation guides here: [Addons](/Addons/README.md)
+You can find additional containers with installation guides here: [Addons](/addons/README.md)
 
 ## Frequently Asked Questions
 

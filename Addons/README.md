@@ -6,16 +6,16 @@ Each addon contains multiple services which are bundeled into a package for ease
 
 ### Clean Up Services:
 
-This package adds both Cleanup Services the bot has. It includes the Cleanup Daimon for old Transcripts data and the Data Removal service for all Bot data.
+This package adds both Cleanup Services the bot has. It includes the Cleanup Daemon for old Transcripts data and the Data Removal service for all Bot data.
 
-**See how to add this package here: [Clean Up Services: Install](./Packages/Clean-up-Services/Clean-up-Services-package.md)**
+**See how to add this package here: [Clean Up Services: Install](./packages/clean-up-services/clean-up-services-package.md)**
 
 
 ### Server Counter:
 
 This package adds both services for the Server Counter. It includes the general Web Server Counter and the Stats-channel-updater which is for in Discord Server counts.
 
-**See how to add this package here: [Server Counter: Install](./Packages/Server-Counter/Server-counter-package.md)**
+**See how to add this package here: [Server Counter: Install](./packages/server-counter/server-counter-package.md)**
 
 
 ### Clickhouse Services:

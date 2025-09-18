@@ -81,7 +81,7 @@ Aangezien deze bot zelf gehost wordt, zul je de bot zelf moeten configureren. Hi
 
 ## Aanvullende diensten
 
-Hier vindt u aanvullende services met installatiehandleidingen: [Addons](/Addons/README.md) <sup>alleen beschikbaar in het Engels</sup>
+Hier vindt u aanvullende services met installatiehandleidingen: [Addons](/addons/README.md) <sup>alleen beschikbaar in het Engels</sup>
 
 ## Veelgestelde Vragen
 

@@ -13,7 +13,7 @@ There are 2 ways you can install this package.
 Copy the following at the **bottom** of your docker-compose.yaml. **Make sure this is above the networks section!**
 
 ```
-  server_counter:
+  server-counter:
     image: ${SERVER_COUNTER_IMAGE:-ghcr.io/ticketsbot-cloud/server-counter:82473c78811a26bba07da982e7e5637733a22e00}
     container_name: server-counter
     ports:
@@ -54,7 +54,7 @@ Copy the following to the **Top** of your docker-compose.yaml. **Make sure this 
 ```
 include:
   - path:
-    - /addons/Packages/Server-Counter/docker-compose.yaml
+    - /addons/packages/server-counter/docker-compose.yaml
 ```
 
 Then copy the contents of the provided [.env.example](./.env.example) file into your .env file from the guide.
