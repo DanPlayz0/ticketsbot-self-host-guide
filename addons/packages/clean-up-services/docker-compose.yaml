@@ -9,7 +9,7 @@ services:
       CACHE_URI: postgres://postgres:${CACHE_DATABASE_PASSWORD:-null}@postgres-cache/botcache
       DATABASE_URI: 'postgres://postgres:${DATABASE_PASSWORD:-null}@postgres/ticketsbot'
       QUERY_TIMEOUT: ${DATA_REMOVAL_TIMEOUT:-10m}
-      PURGE_THRESHOLD_DAYS: ${DATA_REMOVAL_THRESHOLD:-30}
+      PURGE_THRESHOLD_DAYS: ${DATA_REMOVAL_THRESHOLD_DAYS:-30}
     user: "${UID:-}:${GID:-}"
     depends_on:
       postgres:

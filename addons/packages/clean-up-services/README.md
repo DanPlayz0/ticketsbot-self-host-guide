@@ -1,18 +1,18 @@
-# Clean up Services package: Installation
+# Clean-up Services
 
 ## Prerequisites
 
 You will need to have a fully setup and working version of the guide up and running.
 
-
 ## Installation
+
 There are 2 ways you can install this package.
 
 ### 1: COMPLICATED WAY: Copying everything manually
 
-Copy the following at the **bottom** of your docker-compose.yaml. **Make sure this is above the networks section!**
+Copy the following at the **bottom** of your docker-compose.yaml. **Make sure this is above the `networks:` section!**
 
-```
+```yaml
   data-removal-service:
     image: ${DATA_REMOVAL_IMAGE:-ghcr.io/ticketsbot-cloud/data-removal-service:635d718130b13575d5cd28843483548d57d0ebda}
     container_name: data-removal-service
@@ -54,16 +54,15 @@ Copy the following at the **bottom** of your docker-compose.yaml. **Make sure th
     - app-network
 ```
 
-Then copy the contents of the provided [.env.example](./.env.example) file into your .env file from the guide.
+Then copy the contents of the provided [.env.example](./.env.example) file into your `.env` file from the guide.
 
 Optionally change the settings of the services to use production mode by setting the vars for it to true.
 
-
 ### 2: EASY WAY: Snipped installation
 
-Copy the following to the **Top** of your docker-compose.yaml. **Make sure this is above the Services section!**
+Copy the following to the **top** of your docker-compose.yaml. **Make sure this is above the `services:` section!**
 
-```
+```yaml
 include:
   - path:
     - /addons/packages/clean-up-services/docker-compose.yaml
@@ -77,4 +76,4 @@ Optionally change the settings of the services to use production mode by setting
 
 After you have installed this package with one of the above ways do `docker compose down && docker compose up -d` in your bot's directory.
 
-You should now have working cleaning services.
+You should now have working clean-up services.
