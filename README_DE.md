@@ -78,6 +78,10 @@ Da dieser bot selbst-gehosted ist, musst du, denn bot selbst konfigurieren. Hier
    - nur Globale commands: `docker run --rm ticketsbot/registercommands --token=your_bot_token`
    - Globale & Admin commands durch ausführung von `docker run --rm ticketsbot/registercommands --token=your_bot_token --admin-guild=your_admin_guild_id`
 
+## Weitere Services
+
+Du kannst extra Container mit Installations Guides hier finden: [Addons](/addons/README.md) <sup>nur in englisch vorhanden</sup>
+
 ## Häufig gestellte Fragen
 
 Für Häufig gestellte Fragen, bitte das [FAQ](./wiki/faq.md) dokument lesen. <sup>nur in englisch vorhanden</sup>
