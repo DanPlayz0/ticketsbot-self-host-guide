@@ -119,6 +119,7 @@ For common issues, please refer to the [Common Issues](./wiki/common-issues.md) 
 
 If you have previously setup the bot and want to update to the latest version, you will need to run the following based on when you set this up. (Sorted newest first)
 
+- If your repo was missing `sql-migrations/6-form-inputs.sql`, run it within the `postgres` container, see [FAQ #9](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers) for how to do this.
 - Before [Guide PR#30](https://github.com/DanPlayz0/ticketsbot-self-host-guide/pull/30) (aka missing `sql-migrations/5-modal-labels.sql`), run it within the `postgres` container, see [FAQ #9](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers) for how to do this.
 - If your repo was missing `sql-migrations/4-ticket-counters.sql`, run it within the `postgres` container, see [FAQ #9](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers) for how to do this.
 - If your repo did not have the `sql-migrations/` folder. Pull the latest changes then make sure to update the `sql-migrations/0-init-archive.sql` file with your changes from the original `init-archive.sql` file.
