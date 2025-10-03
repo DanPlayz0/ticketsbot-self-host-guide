@@ -18,6 +18,12 @@ This package adds both services for the Server Counter. It includes the general 
 
 > **See how to add this package here: [Server Counter: Install](./packages/server-counter/server-counter-package.md)**
 
+### MinIO S3 Storage
+
+This package adds MinIO, a self-hosted S3-compatible object storage service. MinIO is used for storing archived ticket transcripts and import data.
+
+> **See how to add this package here: [MinIO: Install](./packages/minio/README.md)**
+
 ### Clickhouse - Statistics
 
 **Coming Soon™**
