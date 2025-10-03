@@ -16,7 +16,7 @@ This package adds both cleanup services the bot has. It includes the cleanup dae
 
 This package adds both services for the Server Counter. It includes the general Web Server Counter and the Stats-channel-updater which is for in Discord Server counts.
 
-> **See how to add this package here: [Server Counter: Install](./packages/server-counter/server-counter-package.md)**
+> **See how to add this package here: [Server Counter: Install](./packages/server-counter/README.md)**
 
 ### MinIO S3 Storage
 
