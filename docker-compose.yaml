@@ -18,6 +18,7 @@ services:
       - ./sql-migrations/4-ticket-counters.sql:/docker-entrypoint-initdb.d/4-ticket-counters.sql
       - ./sql-migrations/5-modal-labels.sql:/docker-entrypoint-initdb.d/5-modal-labels.sql
       - ./sql-migrations/6-form-inputs.sql:/docker-entrypoint-initdb.d/6-form-inputs.sql
+      - ./sql-migrations/7-panel-support-hours.sql:/docker-entrypoint-initdb.d/7-panel-support-hours.sql
     networks:
       - app-network
     healthcheck:
