@@ -10,7 +10,7 @@ services:
       - "9000:9000"
       - "9001:9001"
     volumes:
-      - ./miniodata:/data
+      - ../../../miniodata:/data
     networks:
       - app-network
     healthcheck:
