@@ -1,0 +1,1 @@
+ALTER TABLE panels ADD COLUMN transcript_channel_id int8 DEFAULT NULL;
