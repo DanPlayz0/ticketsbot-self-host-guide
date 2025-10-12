@@ -27,7 +27,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 10
-  
+
   postgres-cache:
     image: postgres:15
     user: "${UID:-}:${GID:-}"
@@ -161,7 +161,7 @@ services:
       KAFKA_BROKERS: kafka:9092
       KAFKA_EVENTS_TOPIC: ticketsbot
       KAFKA_GOROUTINE_LIMIT: 1000
-      
+
       WORKER_STATSD_ADDR: statsd:8125
       WORKER_STATSD_PREFIX: ticketsbot
 
@@ -205,7 +205,7 @@ services:
     # ports:
       # - "6062:6060" # pprof port
     environment:
-      # WORKER_DEBUG: 
+      # WORKER_DEBUG:
       WORKER_MODE: GATEWAY
 
       DASHBOARD_URL: ${DASHBOARD_URL:-http://localhost:5000}
@@ -356,8 +356,8 @@ services:
       brokers: kafka:9092
       group_id: 1
       topic: ticketsbot
-      postgres_uri: 'postgres://postgres:${CACHE_DATABASE_PASSWORD:-null}@${CACHE_DATABASE_HOST:-postgres-cache:5432}/botcache'
-      metric_server_addr: '0.0.0.0:8091'
+      postgres_uri: "postgres://postgres:${CACHE_DATABASE_PASSWORD:-null}@${CACHE_DATABASE_HOST:-postgres-cache:5432}/botcache"
+      metric_server_addr: "0.0.0.0:8091"
     depends_on:
       postgres-cache:
         condition: service_healthy
@@ -365,18 +365,18 @@ services:
         condition: service_started
     networks:
       - app-network
-  
+
   api:
     image: ${API_IMAGE:-ghcr.io/ticketsbot-cloud/api:bb9ef642702b3f7847e5d041ddd86f26bb29ddec}
     user: "${UID:-}:${GID:-}"
     restart: on-failure:10
     ports:
-      - '8082:8081'
+      - "8082:8081"
     environment:
       SERVER_ADDR: 0.0.0.0:8081
       BASE_URL: ${DASHBOARD_URL:-http://localhost:5000}
       MAIN_SITE: ${LANDING_PAGE_URL:-https://tickets.bot} # Home/Landing (used for /premium)
-      DATABASE_URI: 'postgres://postgres:${DATABASE_PASSWORD:-null}@postgres/ticketsbot'
+      DATABASE_URI: "postgres://postgres:${DATABASE_PASSWORD:-null}@postgres/ticketsbot"
       REDIS_HOST: ${REDIS_HOST:-redis}
       REDIS_PASSWORD: ${REDIS_PASSWORD:-null}
       REDIS_PORT: ${REDIS_PORT:-6379}
@@ -387,10 +387,10 @@ services:
       TRUSTED_PROXIES: ${TRUSTED_PROXIES:-127.0.0.1,172.21.0.1}
       JWT_SECRET: ${JWT_SECRET:-}
       OAUTH_ID: ${DISCORD_BOT_CLIENT_ID}
-      OAUTH_SECRET: '${DISCORD_BOT_OAUTH_SECRET}'
-      OAUTH_REDIRECT_URI: '${DASHBOARD_URL:-http://localhost:5000}/callback'
+      OAUTH_SECRET: "${DISCORD_BOT_OAUTH_SECRET}"
+      OAUTH_REDIRECT_URI: "${DASHBOARD_URL:-http://localhost:5000}/callback"
       BOT_ID: ${DISCORD_BOT_CLIENT_ID}
-      BOT_TOKEN: '${DISCORD_BOT_TOKEN}'
+      BOT_TOKEN: "${DISCORD_BOT_TOKEN}"
       CACHE_URI: postgres://postgres:${CACHE_DATABASE_PASSWORD:-null}@postgres-cache/botcache
       # Optional?
       DISCORD_PROXY_URL: http-proxy:80
@@ -421,10 +421,10 @@ services:
 
   dashboard:
     build:
-      dockerfile: './dashboard.Dockerfile'
+      dockerfile: "./dashboard.Dockerfile"
       args:
         CLIENT_ID: ${DISCORD_BOT_CLIENT_ID}
-        REDIRECT_URI: ${DASHBOARD_URL:-http://localhost:5000}/callback 
+        REDIRECT_URI: ${DASHBOARD_URL:-http://localhost:5000}/callback
         API_URL: ${API_URL:-http://localhost:8082}
         WS_URL: ${API_URL:-http://localhost:8082}
         GIT_URL: ${DASHBOARD_GIT_URL:-https://github.com/TicketsBot-cloud/dashboard}
@@ -439,7 +439,7 @@ services:
         WHITELABEL_DISABLED: ${DASHBOARD_WHITELABEL_DISABLED:-true}
     user: "${UID:-}:${GID:-}"
     ports:
-      - '5000:5000'
+      - "5000:5000"
     networks:
       - app-network
 
@@ -501,16 +501,16 @@ services:
       - app-network
 
   import-sync-data:
-    image: ${IMPORT_SYNC_IMAGE:-ghcr.io/ticketsbot-cloud/import-sync:dbe858a79d96f37458c79655cd5663f9c85d048f} 
+    image: ${IMPORT_SYNC_IMAGE:-ghcr.io/ticketsbot-cloud/import-sync:dbe858a79d96f37458c79655cd5663f9c85d048f}
     user: "${UID:-}:${GID:-}"
     environment:
       DAEMON_ENABLED: true
       DAEMON_FREQUENCY: 1m
-      DAEMON_EXECUTION_TIMEOUT: '30m'
+      DAEMON_EXECUTION_TIMEOUT: "30m"
       DAEMON_TYPE: "DATA"
-      
+
       BOT_TOKEN: ${DISCORD_BOT_TOKEN}
-      
+
       REDIS_HOST: ${REDIS_HOST:-redis}
       REDIS_PORT: ${REDIS_PORT:-6379}
       REDIS_PASSWORD: ${REDIS_PASSWORD:-null}
@@ -551,11 +551,11 @@ services:
     environment:
       DAEMON_ENABLED: true
       DAEMON_FREQUENCY: 2m
-      DAEMON_EXECUTION_TIMEOUT: '30m'
+      DAEMON_EXECUTION_TIMEOUT: "30m"
       DAEMON_TYPE: "TRANSCRIPT"
-      
+
       BOT_TOKEN: ${DISCORD_BOT_TOKEN}
-      
+
       REDIS_HOST: ${REDIS_HOST:-redis}
       REDIS_PORT: ${REDIS_PORT:-6379}
       REDIS_PASSWORD: ${REDIS_PASSWORD:-null}

@@ -3,7 +3,7 @@ services:
     image: ${SERVER_COUNTER_IMAGE:-ghcr.io/ticketsbot-cloud/server-counter:82473c78811a26bba07da982e7e5637733a22e00}
     container_name: server-counter
     ports:
-      - '8089:8089'
+      - "8089:8089"
     environment:
       SERVER_ADDR: 0.0.0.0:8089
       CACHE_URI: postgres://postgres:${CACHE_DATABASE_PASSWORD:-null}@postgres-cache/botcache
@@ -12,7 +12,7 @@ services:
       postgres-cache:
         condition: service_healthy
     networks:
-    - app-network
+      - app-network
 
   stats-channel-updater:
     image: ${STATS_CHANNEL_UPDATER_IMAGE:-ghcr.io/ticketsbot/statschannelupdater:latest}
@@ -20,7 +20,7 @@ services:
     environment:
       SERVER_COUNTER_URL: ${STATS_CHANNEL_COUNTER_URL:-http://localhost:8089/total}
       DISCORD_TOKEN: ${DISCORD_BOT_TOKEN}
-      CHANNEL_ID:  ${STATS_CHANNEL_ID}
+      CHANNEL_ID: ${STATS_CHANNEL_ID}
     user: "${UID:-}:${GID:-}"
     networks:
       - app-network

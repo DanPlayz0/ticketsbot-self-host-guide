@@ -7,7 +7,7 @@ services:
       DAEMON_MODE: ${DATA_REMOVAL_DAEMON_MODE:-false}
       DAEMON_EXECUTION_FREQUENCY: ${DATA_REMOVAL_DAEMON_FREQUENCY:-1h}
       CACHE_URI: postgres://postgres:${CACHE_DATABASE_PASSWORD:-null}@postgres-cache/botcache
-      DATABASE_URI: 'postgres://postgres:${DATABASE_PASSWORD:-null}@postgres/ticketsbot'
+      DATABASE_URI: "postgres://postgres:${DATABASE_PASSWORD:-null}@postgres/ticketsbot"
       QUERY_TIMEOUT: ${DATA_REMOVAL_TIMEOUT:-10m}
       PURGE_THRESHOLD_DAYS: ${DATA_REMOVAL_THRESHOLD_DAYS:-30}
     user: "${UID:-}:${GID:-}"
@@ -18,18 +18,18 @@ services:
       postgres-cache:
         condition: service_healthy
     networks:
-    - app-network
+      - app-network
 
   clean-up-daemon:
     image: ${CLEANUPDAEMON_IMAGE:-ghcr.io/ticketsbot-cloud/cleanupdaemon:1266ddeac31c626cfa64561b38a5cbeaeb9b475c}
     container_name: clean-up-daemon
     environment:
-      DB_URI: 'postgres://postgres:${DATABASE_PASSWORD:-null}@postgres/ticketsbot'
+      DB_URI: "postgres://postgres:${DATABASE_PASSWORD:-null}@postgres/ticketsbot"
       LOG_ARCHIVER_URI: http://logarchiver:4000
       ONESHOT: ${CLEANUPDAEMON_ONESHOT:-false}
       PRODUCTION_MODE: ${CLEANUPDAEMON_PROD_MODE:-false}
       SENTRY_DNS: ${SENTRY_DSN}
-      MAIN_BOT_TOKEN: '${DISCORD_BOT_TOKEN}'
+      MAIN_BOT_TOKEN: "${DISCORD_BOT_TOKEN}"
       DISCORD_PROXY_URL: http-proxy:80
     user: "${UID:-}:${GID:-}"
     depends_on:
@@ -37,4 +37,4 @@ services:
         condition: service_healthy
         restart: true
     networks:
-    - app-network
+      - app-network

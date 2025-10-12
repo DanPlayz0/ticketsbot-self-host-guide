@@ -10,11 +10,13 @@ This package adds MinIO, a self-hosted S3-compatible object storage service. Min
 ## Installation
 
 1. Navigate to the addons directory:
+
    ```bash
    cd addons/packages/minio
    ```
 
 2. Make sure your `.env` file contains the required S3 configuration:
+
    ```env
    S3_ACCESS=your_access_key
    S3_SECRET=your_secret_key
@@ -26,6 +28,7 @@ This package adds MinIO, a self-hosted S3-compatible object storage service. Min
    ```
 
 3. Start the MinIO services:
+
    ```bash
    docker compose up -d
    ```
@@ -41,6 +44,7 @@ This package adds MinIO, a self-hosted S3-compatible object storage service. Min
 ## Configuration
 
 The setup container automatically creates the required buckets:
+
 - Archive bucket (for ticket transcripts)
 - Data import bucket
 - Transcript import bucket
