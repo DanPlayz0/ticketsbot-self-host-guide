@@ -12,7 +12,7 @@ USER node
 # Define a specific "known-working" version from GitHub
 ARG GIT_URL=https://github.com/TicketsBot-cloud/dashboard
 ARG GIT_BRANCH=master
-ARG COMMIT_HASH=95070907a556172d499d93fefd88d84b546c70ac
+ARG COMMIT_HASH=bb9ef642702b3f7847e5d041ddd86f26bb29ddec
 
 # Clone the repository to /tmp
 RUN git clone -b $GIT_BRANCH $GIT_URL.git /tmp
