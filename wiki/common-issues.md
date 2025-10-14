@@ -89,3 +89,25 @@ cat /proc/cpuinfo | grep avx
 ```
 
 If you see `avx2` in the output, your CPU supports it. If not, you will need to run the bot on a different CPU that does support it.
+
+## 10. The database was created using collation version 2.36, but the operating system provides version 2.41
+
+This issue stems from a minor patch to the `postgres:15` image tag. To fix the error message, use [FAQ #9](./faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers) and run the following:
+
+For the `postgres` "main" database:
+
+```sql
+ALTER DATABASE ticketsbot REFRESH COLLATION VERSION;
+```
+
+For the `pgarchivedata` "archive" database:
+
+```sql
+ALTER DATABASE archive REFRESH COLLATION VERSION;
+```
+
+For the `pgcachedata` "cache" database:
+
+```sql
+ALTER DATABASE botcache REFRESH COLLATION VERSION;
+```

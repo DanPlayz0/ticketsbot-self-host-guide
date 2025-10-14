@@ -114,6 +114,8 @@ For common issues, please refer to the [Common Issues](./wiki/common-issues.md) 
 - [#8 Ticket Panels in dashboard gives me an internal server error](./wiki/common-issues.md#8-error-relation-panel_here_mentions-does-not-exist)
 - [#9 Exited with code 132](./wiki/common-issues.md#9-exited-with-code-132)
 - [#9 CPU does not support AVX2](./wiki/common-issues.md#9-exited-with-code-132)
+- [#10 The database was created using collation version 2.36, but the operating system provides version 2.41](./wiki/common-issues.md#10-the-database-was-created-using-collation-version-236-but-the-operating-system-provides-version-241)
+- [#10 The database was created using collation version 2.xx, but the operating system provides version 2.xx](./wiki/common-issues.md#10-the-database-was-created-using-collation-version-236-but-the-operating-system-provides-version-241)
 
 ## Migrations
 
