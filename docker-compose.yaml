@@ -1,3 +1,9 @@
+# Example Addon Installation (commented out below)
+# include:
+#   - path:
+#     - ./addons/packages/minio/docker-compose.yaml
+#     - ./addons/packages/server-counter/docker-compose.yaml
+
 services:
   postgres:
     image: postgres:15

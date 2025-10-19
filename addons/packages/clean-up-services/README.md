@@ -8,7 +8,21 @@ You will need to have a fully setup and working version of the guide up and runn
 
 There are 2 ways you can install this package.
 
-### 1: COMPLICATED WAY: Copying everything manually
+### 1: EASY WAY: Snipped installation
+
+Copy the following to the **top** of your docker-compose.yaml. **Make sure this is above the `services:` section!**
+
+```yaml
+include:
+  - path:
+    - ./addons/packages/clean-up-services/docker-compose.yaml
+```
+
+Then copy the contents of the provided [.env.example](./.env.example) file into your .env file from the guide.
+
+Optionally change the settings of the services to use production mode by setting the vars for it to true.
+
+### 2: COMPLICATED WAY: Copying everything manually
 
 Copy the following at the **bottom** of your docker-compose.yaml. **Make sure this is above the `networks:` section!**
 
@@ -55,20 +69,6 @@ Copy the following at the **bottom** of your docker-compose.yaml. **Make sure th
 ```
 
 Then copy the contents of the provided [.env.example](./.env.example) file into your `.env` file from the guide.
-
-Optionally change the settings of the services to use production mode by setting the vars for it to true.
-
-### 2: EASY WAY: Snipped installation
-
-Copy the following to the **top** of your docker-compose.yaml. **Make sure this is above the `services:` section!**
-
-```yaml
-include:
-  - path:
-    - /addons/packages/clean-up-services/docker-compose.yaml
-```
-
-Then copy the contents of the provided [.env.example](./.env.example) file into your .env file from the guide.
 
 Optionally change the settings of the services to use production mode by setting the vars for it to true.
 

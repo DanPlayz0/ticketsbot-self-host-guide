@@ -8,7 +8,23 @@ You will need to have a fully setup and working version of this guide up and run
 
 There are 2 ways you can install this package.
 
-### 1: COMPLICATED WAY: Copying everything manually
+### 1: EASY WAY: Snipped installation
+
+Copy the following to the **top** of your docker-compose.yaml. **Make sure this is above the `services:` section!**
+
+```yaml
+include:
+  - path:
+    - ./addons/packages/server-counter/docker-compose.yaml
+```
+
+Then copy the contents of the provided [.env.example](./.env.example) file into your .env file from the guide.
+
+Fill out the Required variables of the .env file with the part they require.
+
+Optionally if you want to have the server counter accessible from everywhere you will need to forward the `https://localhost:8089` uri via a reverse proxy like Caddy or Traefik.
+
+### 2: COMPLICATED WAY: Copying everything manually
 
 Copy the following at the **bottom** of your docker-compose.yaml. **Make sure this is above the `networks:` section!**
 
@@ -38,22 +54,6 @@ Copy the following at the **bottom** of your docker-compose.yaml. **Make sure th
     user: "${UID:-}:${GID:-}"
     networks:
       - app-network
-```
-
-Then copy the contents of the provided [.env.example](./.env.example) file into your .env file from the guide.
-
-Fill out the Required variables of the .env file with the part they require.
-
-Optionally if you want to have the server counter accessible from everywhere you will need to forward the `https://localhost:8089` uri via a reverse proxy like Caddy or Traefik.
-
-### 2: EASY WAY: Snipped installation
-
-Copy the following to the **top** of your docker-compose.yaml. **Make sure this is above the `services:` section!**
-
-```yaml
-include:
-  - path:
-    - /addons/packages/server-counter/docker-compose.yaml
 ```
 
 Then copy the contents of the provided [.env.example](./.env.example) file into your .env file from the guide.

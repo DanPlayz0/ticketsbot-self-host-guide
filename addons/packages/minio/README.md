@@ -9,11 +9,13 @@ This package adds MinIO, a self-hosted S3-compatible object storage service. Min
 
 ## Installation
 
-1. Navigate to the addons directory:
+1. Copy the following to the **top** of your docker-compose.yaml. **Make sure this is above the `services:` section!**
 
-   ```bash
-   cd addons/packages/minio
-   ```
+```yaml
+include:
+  - path:
+    - ./addons/packages/minio/docker-compose.yaml
+```
 
 2. Make sure your `.env` file contains the required S3 configuration:
 
@@ -27,7 +29,7 @@ This package adds MinIO, a self-hosted S3-compatible object storage service. Min
    S3_SECURE=false
    ```
 
-3. Start the MinIO services:
+3. Start the services:
 
    ```bash
    docker compose up -d
