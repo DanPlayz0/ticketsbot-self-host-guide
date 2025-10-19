@@ -26,6 +26,7 @@ services:
       - ./sql-migrations/6-form-inputs.sql:/docker-entrypoint-initdb.d/6-form-inputs.sql
       - ./sql-migrations/7-panel-support-hours.sql:/docker-entrypoint-initdb.d/7-panel-support-hours.sql
       - ./sql-migrations/8-per-panel-transcripts.sql:/docker-entrypoint-initdb.d/8-per-panel-transcripts.sql
+      - ./sql-migrations/9-gdpr-logs.sql:/docker-entrypoint-initdb.d/9-gdpr-logs.sql
     networks:
       - app-network
     healthcheck:
