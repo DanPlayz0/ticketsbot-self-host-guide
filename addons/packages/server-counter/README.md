@@ -58,7 +58,7 @@ Copy the following at the **bottom** of your docker-compose.yaml. **Make sure th
 
 Then copy the contents of the provided [.env.example](./.env.example) file into your .env file from the guide.
 
-Fill out the Required variables of the .env file with the part they require.
+Fill out the required variables of the .env file with the part they require.
 
 Optionally if you want to have the server counter accessible from everywhere you will need to forward the `https://localhost:8089` uri via a reverse proxy like Caddy or Traefik.
 

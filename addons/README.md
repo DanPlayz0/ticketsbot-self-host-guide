@@ -24,6 +24,12 @@ This package adds MinIO, a self-hosted S3-compatible object storage service. Min
 
 > **See how to add this package here: [MinIO: Install](./packages/minio/README.md)**
 
+### GDPR Worker
+
+This package adds the gdpr worker that handles the backend for the `/gdpr` command.
+
+> **See how to add this package here: [GDPR Worker](./packages/gdpr-worker/README.md)**
+
 ### Clickhouse - Statistics
 
 **Coming Soon™**

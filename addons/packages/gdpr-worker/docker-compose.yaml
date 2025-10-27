@@ -1,0 +1,32 @@
+services:
+  gdpr-worker:
+    image: gdpr-worker
+    user: "${UID:-}:${GID:-}"
+    container_name: gdpr-worker
+    restart: unless-stopped
+    environment:
+      JSON_LOGS: false
+      LOG_LEVEL: info
+      MAX_CONCURRENCY: 1
+      MAX_RETRIES: 3
+      DATABASE_HOST: ${DATABASE_HOST:-postgres:5432}
+      DATABASE_NAME: ticketsbot
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD:-null}
+      DATABASE_THREADS: 4
+      REDIS_ADDR: ${REDIS_ADDR:-redis:6379}
+      REDIS_PASSWD: ${REDIS_PASSWORD:-null}
+      REDIS_THREADS: 4
+      ARCHIVER_URL: http://logarchiver:4000
+      ARCHIVER_AES_KEY: ${ARCHIVER_AES_KEY}
+      DISCORD_PROXY_URL: http-proxy:80 # http://{proxy_url}/{discord's api path ex: api/v10/webhooks/...}
+      DISCORD_TOKEN: ${DISCORD_BOT_TOKEN}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      logarchiver:
+        condition: service_healthy
+    networks:
+      - app-network
