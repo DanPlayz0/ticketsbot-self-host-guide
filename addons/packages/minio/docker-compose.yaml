@@ -1,7 +1,7 @@
 services:
   minio:
     image: minio/minio:latest
-    container_name: minio
+    container_name: ticketsbot-minio
     environment:
       MINIO_ROOT_USER: ${S3_ACCESS}
       MINIO_ROOT_PASSWORD: ${S3_SECRET}
@@ -21,7 +21,7 @@ services:
 
   minio-setup:
     image: minio/mc:latest
-    container_name: minio-setup
+    container_name: ticketsbot-minio-setup
     depends_on:
       minio:
         condition: service_healthy

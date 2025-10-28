@@ -31,7 +31,7 @@ Copy the following at the **bottom** of your docker-compose.yaml. **Make sure th
 ```yaml
   server-counter:
     image: ${SERVER_COUNTER_IMAGE:-ghcr.io/ticketsbot-cloud/server-counter:82473c78811a26bba07da982e7e5637733a22e00}
-    container_name: server-counter
+    container_name: ticketsbot-server-counter
     ports:
       - '8089:8089'
     environment:
@@ -46,7 +46,7 @@ Copy the following at the **bottom** of your docker-compose.yaml. **Make sure th
 
   stats-channel-updater:
     image: ${STATS_CHANNEL_UPDATER_IMAGE:-ghcr.io/ticketsbot/statschannelupdater:latest}
-    container_name: stats-channel-updater
+    container_name: ticketsbot-stats-channel-updater
     environment:
       SERVER_COUNTER_URL: ${STATS_CHANNEL_COUNTER_URL:-http://localhost:8089/total}
       DISCORD_TOKEN: ${DISCORD_BOT_TOKEN}

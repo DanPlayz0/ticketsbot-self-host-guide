@@ -2,7 +2,7 @@ services:
   gdpr-worker:
     image: ${GDPR_WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/gdpr-worker:ed793272a243f538272d19acd79114695a558691}
     user: "${UID:-}:${GID:-}"
-    container_name: gdpr-worker
+    container_name: ticketsbot-gdpr-worker
     restart: unless-stopped
     environment:
       JSON_LOGS: false
