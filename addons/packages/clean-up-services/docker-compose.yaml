@@ -1,7 +1,7 @@
 services:
   data-removal-service:
     image: ${DATA_REMOVAL_IMAGE:-ghcr.io/ticketsbot-cloud/data-removal-service:635d718130b13575d5cd28843483548d57d0ebda}
-    container_name: ticketsbot-data-removal-service
+    container_name: data-removal-service
     environment:
       PRODUCTION_MODE: ${DATA_REMOVAL_PROD_MODE:-false}
       DAEMON_MODE: ${DATA_REMOVAL_DAEMON_MODE:-false}
@@ -22,7 +22,7 @@ services:
 
   clean-up-daemon:
     image: ${CLEANUPDAEMON_IMAGE:-ghcr.io/ticketsbot-cloud/cleanupdaemon:1266ddeac31c626cfa64561b38a5cbeaeb9b475c}
-    container_name: ticketsbot-clean-up-daemon
+    container_name: clean-up-daemon
     environment:
       DB_URI: "postgres://postgres:${DATABASE_PASSWORD:-null}@postgres/ticketsbot"
       LOG_ARCHIVER_URI: http://logarchiver:4000
