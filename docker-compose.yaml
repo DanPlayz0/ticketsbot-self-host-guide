@@ -112,6 +112,7 @@ services:
   statsd:
     image: ${STATSD_IMAGE:-ghcr.io/statsd/statsd:v0.10.2}
     user: "${UID:-}:${GID:-}"
+    container_name: statsd
     networks:
       - app-network
 
