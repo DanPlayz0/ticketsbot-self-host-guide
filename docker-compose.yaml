@@ -438,6 +438,8 @@ services:
         GIT_URL: ${DASHBOARD_GIT_URL:-https://github.com/TicketsBot-cloud/dashboard}
         GIT_BRANCH: ${DASHBOARD_GIT_BRANCH:-master}
         COMMIT_HASH: ${DASHBOARD_COMMIT_HASH:-3b0bb67991599ed9a7fc3cae38f409e9aca6610d}
+        FRONTPAGE_URL: ${LANDING_PAGE_URL:-https://tickets.bot}
+        DOCS_URL: ${DOCS_URL:-https://docs.tickets.bot}
         INVITE_URL: https://discord.com/oauth2/authorize?client_id=${DISCORD_BOT_CLIENT_ID}&scope=bot+applications.commands&permissions=395942816984
 
         TITLE: ${DASHBOARD_TITLE:-}
