@@ -81,6 +81,7 @@ services:
   kafka:
     image: apache/kafka:3.7.2
     user: "${UID:-}:${GID:-}"
+    container_name: kafka
     environment:
       KAFKA_NODE_ID: 1
       KAFKA_PROCESS_ROLES: broker,controller
@@ -111,6 +112,7 @@ services:
   statsd:
     image: ${STATSD_IMAGE:-ghcr.io/statsd/statsd:v0.10.2}
     user: "${UID:-}:${GID:-}"
+    container_name: statsd
     networks:
       - app-network
 
@@ -355,6 +357,7 @@ services:
     image: ${CACHESYNC_IMAGE:-ghcr.io/ticketsbot-cloud/cache-sync-service:fbccb6951d74f901b93fa2e6484cf52478a4892a}
     user: "${UID:-}:${GID:-}"
     restart: on-failure:3
+    container_name: cachesync
     # ports:
     #   - '8091:8091' # metrics port
     environment:
@@ -378,6 +381,7 @@ services:
     image: ${API_IMAGE:-ghcr.io/ticketsbot-cloud/api:3b0bb67991599ed9a7fc3cae38f409e9aca6610d}
     user: "${UID:-}:${GID:-}"
     restart: on-failure:10
+    container_name: api
     ports:
       - "8082:8081"
     environment:
@@ -448,6 +452,7 @@ services:
         FAVICON_TYPE: ${DASHBOARD_FAVICON_TYPE:-}
         WHITELABEL_DISABLED: ${DASHBOARD_WHITELABEL_DISABLED:-true}
     user: "${UID:-}:${GID:-}"
+    container_name: dashboard
     ports:
       - "5000:5000"
     networks:
@@ -456,6 +461,7 @@ services:
   logarchiver:
     image: ${LOGARCHIVER_IMAGE:-ghcr.io/ticketsbot-cloud/logarchiver:7a7df5cacbdccbf47678a11c7709b9065b984ac8}
     user: "${UID:-}:${GID:-}"
+    container_name: logarchiver
     environment:
       ARCHIVER_ADDR: 0.0.0.0:4000
       S3_ENDPOINT: ${S3_ENDPOINT}
@@ -480,6 +486,7 @@ services:
   autoclosedaemon:
     image: ${AUTOCLOSEDAEMON_IMAGE:-ghcr.io/ticketsbot-cloud/autoclosedaemon:07010c3d05d2a4b8d8d46326a2aec3ead15068c5}
     user: "${UID:-}:${GID:-}"
+    container_name: autoclosedaemon
     environment:
       DATABASE_URI: postgres://postgres:${DATABASE_PASSWORD:-null}@${DATABASE_HOST:-postgres:5432}/ticketsbot
       DATABASE_THREADS: 4
@@ -505,6 +512,7 @@ services:
   discord-chat-replica:
     image: ${DISCORD_CHAT_REPLICA_IMAGE:-ghcr.io/ticketsbot-cloud/discord-chat-replica:d6350bf3c26b680efad7b823dd19e4d8fa37e6c2}
     user: "${UID:-}:${GID:-}"
+    container_name: discord-chat-replica
     environment:
       PORT: 8080
     networks:
@@ -513,6 +521,7 @@ services:
   import-sync-data:
     image: ${IMPORT_SYNC_IMAGE:-ghcr.io/ticketsbot-cloud/import-sync:d13e9e3aaa58e2e43038f62538cb7ec154d5331e}
     user: "${UID:-}:${GID:-}"
+    container_name: import-sync-data
     environment:
       DAEMON_ENABLED: true
       DAEMON_FREQUENCY: 1m
@@ -558,6 +567,7 @@ services:
   import-sync-transcripts:
     image: ${IMPORT_SYNC_IMAGE:-ghcr.io/ticketsbot-cloud/import-sync:d13e9e3aaa58e2e43038f62538cb7ec154d5331e}
     user: "${UID:-}:${GID:-}"
+    container_name: import-sync-transcripts
     environment:
       DAEMON_ENABLED: true
       DAEMON_FREQUENCY: 2m
