@@ -476,7 +476,7 @@ services:
         condition: service_healthy
 
   autoclosedaemon:
-    image: ${AUTOCLOSEDAEMOON_IMAGE:-ghcr.io/ticketsbot-cloud/autoclosedaemon:07010c3d05d2a4b8d8d46326a2aec3ead15068c5}
+    image: ${AUTOCLOSEDAEMON_IMAGE:-ghcr.io/ticketsbot-cloud/autoclosedaemon:07010c3d05d2a4b8d8d46326a2aec3ead15068c5}
     user: "${UID:-}:${GID:-}"
     environment:
       DATABASE_URI: postgres://postgres:${DATABASE_PASSWORD:-null}@${DATABASE_HOST:-postgres:5432}/ticketsbot
