@@ -1,0 +1,1 @@
+ALTER TABLE panels ADD COLUMN use_threads bool NOT NULL DEFAULT false;

@@ -28,6 +28,7 @@ services:
       - ./sql-migrations/8-per-panel-transcripts.sql:/docker-entrypoint-initdb.d/8-per-panel-transcripts.sql
       - ./sql-migrations/9-gdpr-logs.sql:/docker-entrypoint-initdb.d/9-gdpr-logs.sql
       - ./sql-migrations/10-form-input-api-fields.sql:/docker-entrypoint-initdb.d/10-form-input-api-fields.sql
+      - ./sql-migrations/11-per-panel-threads.sql:/docker-entrypoint-initdb.d/11-per-panel-threads.sql
     networks:
       - app-network
     healthcheck:

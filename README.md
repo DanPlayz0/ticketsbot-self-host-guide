@@ -121,6 +121,7 @@ For common issues, please refer to the [Common Issues](./wiki/common-issues.md) 
 
 If you have previously setup the bot and want to update to the latest version, you will need to run the following based on when you set this up. (Sorted newest first)
 
+- If your repo was missing `sql-migrations/11-per-panel-threads.sql`, run it within the `postgres` container, see [FAQ #9](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers) for how to do this.
 - If your repo was missing `sql-migrations/10-form-input-api-fields`, run it within the `postgres` container, see [FAQ #9](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers) for how to do this.
 - If your repo was missing `sql-migrations/9-gdpr-logs.sql`, run it within the `postgres` container, see [FAQ #9](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers) for how to do this.
 - If your repo was missing `sql-migrations/8-per-panel-transcripts.sql`, run it within the `postgres` container, see [FAQ #9](./wiki/faq.md#9-how-do-i-run-the-sql-commands-inside-the-database-containers) for how to do this.
