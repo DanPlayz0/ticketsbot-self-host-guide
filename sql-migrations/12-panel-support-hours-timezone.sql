@@ -1,0 +1,1 @@
+ALTER TABLE public.panel_support_hours ADD COLUMN "timezone" VARCHAR(50) NOT NULL DEFAULT 'UTC';
