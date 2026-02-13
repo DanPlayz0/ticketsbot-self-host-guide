@@ -128,7 +128,7 @@ services:
       - app-network
 
   worker-interactions:
-    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:622fdf8386540ba18a277a6fa71cc5a9587d9563}
+    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:cd3ec317d81f783f008e47eb225551aa7e2bf6e9}
     user: "${UID:-}:${GID:-}"
     container_name: worker-interactions
     restart: on-failure:10
@@ -210,7 +210,7 @@ services:
       - app-network
 
   worker-gateway:
-    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:622fdf8386540ba18a277a6fa71cc5a9587d9563}
+    image: ${WORKER_IMAGE:-ghcr.io/ticketsbot-cloud/worker:cd3ec317d81f783f008e47eb225551aa7e2bf6e9}
     user: "${UID:-}:${GID:-}"
     container_name: worker-gateway
     restart: on-failure:10
@@ -291,7 +291,7 @@ services:
       - app-network
 
   http-gateway:
-    image: ${HTTP_GATEWAY_IMAGE:-ghcr.io/ticketsbot-cloud/http-gateway:fbccb6951d74f901b93fa2e6484cf52478a4892a}
+    image: ${HTTP_GATEWAY_IMAGE:-ghcr.io/ticketsbot-cloud/http-gateway:e644cbdd8c480866eed24b3ad26449cfbd573b87}
     user: "${UID:-}:${GID:-}"
     container_name: http-gateway
     restart: on-failure:3
@@ -321,7 +321,7 @@ services:
       - app-network
 
   sharder-main:
-    image: ${SHADER_IMAGE:-ghcr.io/ticketsbot-cloud/main-sharder:fbccb6951d74f901b93fa2e6484cf52478a4892a}
+    image: ${SHADER_IMAGE:-ghcr.io/ticketsbot-cloud/main-sharder:df3ab8fbe762c5aec79088c5ac3c8342d5d455ed}
     user: "${UID:-}:${GID:-}"
     container_name: sharder-main
     hostname: sharder-0
@@ -356,7 +356,7 @@ services:
       - app-network
 
   cachesync:
-    image: ${CACHESYNC_IMAGE:-ghcr.io/ticketsbot-cloud/cache-sync-service:fbccb6951d74f901b93fa2e6484cf52478a4892a}
+    image: ${CACHESYNC_IMAGE:-ghcr.io/ticketsbot-cloud/cache-sync-service:df3ab8fbe762c5aec79088c5ac3c8342d5d455ed}
     user: "${UID:-}:${GID:-}"
     restart: on-failure:3
     container_name: cachesync
@@ -380,7 +380,7 @@ services:
       - app-network
 
   api:
-    image: ${API_IMAGE:-ghcr.io/ticketsbot-cloud/api:3b0bb67991599ed9a7fc3cae38f409e9aca6610d}
+    image: ${API_IMAGE:-ghcr.io/ticketsbot-cloud/api:704cd8e16971a861d233922f737caca1ea8d4758}
     user: "${UID:-}:${GID:-}"
     restart: on-failure:10
     container_name: api
@@ -443,7 +443,7 @@ services:
         WS_URL: ${API_URL:-http://localhost:8082}
         GIT_URL: ${DASHBOARD_GIT_URL:-https://github.com/TicketsBot-cloud/dashboard}
         GIT_BRANCH: ${DASHBOARD_GIT_BRANCH:-master}
-        COMMIT_HASH: ${DASHBOARD_COMMIT_HASH:-3b0bb67991599ed9a7fc3cae38f409e9aca6610d}
+        COMMIT_HASH: ${DASHBOARD_COMMIT_HASH:-704cd8e16971a861d233922f737caca1ea8d4758}
         FRONTPAGE_URL: ${LANDING_PAGE_URL:-https://tickets.bot}
         DOCS_URL: ${DOCS_URL:-https://docs.tickets.bot}
         INVITE_URL: https://discord.com/oauth2/authorize?client_id=${DISCORD_BOT_CLIENT_ID}&scope=bot+applications.commands&permissions=395942816984
