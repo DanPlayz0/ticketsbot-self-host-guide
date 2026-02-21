@@ -611,6 +611,22 @@ services:
         condition: service_healthy
     networks:
       - app-network
+  
+  category-update-producer:
+    image: ${CATEGORY_UPDATE_PRODUCER_IMAGE:-ghcr.io/ticketsbot-cloud/category-update-producer:1afc139dd8c13394f6cc6a8812187b7832b21c6b}
+    user: "${UID:-}:${GID:-}"
+    container_name: category-update-producer
+    environment:
+      SENTRY_DSN: ${SENTRY_DSN} 
+      JSON_LOGS: false
+      DATABASE_URI: postgres://postgres:${DATABASE_PASSWORD:-null}@${DATABASE_HOST:-postgres:5432}/ticketsbot
+      KAFKA_BROKERS: kafka:9092
+      KAFKA_TOPIC: ticketsbot
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - app-network
 
 networks:
   app-network:
