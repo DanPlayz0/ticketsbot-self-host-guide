@@ -321,7 +321,7 @@ services:
       - app-network
 
   sharder-main:
-    image: ${SHADER_IMAGE:-ghcr.io/ticketsbot-cloud/main-sharder:df3ab8fbe762c5aec79088c5ac3c8342d5d455ed}
+    image: ${SHADER_IMAGE:-ghcr.io/ticketsbot-cloud/main-sharder:e7710f27a30e6cec43e7d7bde18ad26b8294417f}
     user: "${UID:-}:${GID:-}"
     container_name: sharder-main
     hostname: sharder-0
