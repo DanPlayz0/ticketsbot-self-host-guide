@@ -34,18 +34,6 @@ services:
         mc mb myminio/${S3_ARCHIVE_BUCKET};
         mc anonymous set public myminio/${S3_ARCHIVE_BUCKET};
       fi;
-      if mc ls myminio/${S3_DATA_IMPORT_BUCKET} >/dev/null 2>&1; then
-        echo 'The ${S3_DATA_IMPORT_BUCKET} bucket already exists';
-      else
-        mc mb myminio/${S3_DATA_IMPORT_BUCKET};
-        mc anonymous set public myminio/${S3_DATA_IMPORT_BUCKET};
-      fi;
-      if mc ls myminio/${S3_TRANSCRIPT_IMPORT_BUCKET} >/dev/null 2>&1; then
-        echo 'The ${S3_TRANSCRIPT_IMPORT_BUCKET} bucket already exists';
-      else
-        mc mb myminio/${S3_TRANSCRIPT_IMPORT_BUCKET};
-        mc anonymous set public myminio/${S3_TRANSCRIPT_IMPORT_BUCKET};
-      fi;
       "
     networks:
       - app-network

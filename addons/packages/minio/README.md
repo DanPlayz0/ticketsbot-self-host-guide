@@ -23,8 +23,6 @@ include:
    S3_ACCESS=your_access_key
    S3_SECRET=your_secret_key
    S3_ARCHIVE_BUCKET=archive
-   S3_DATA_IMPORT_BUCKET=data-import
-   S3_TRANSCRIPT_IMPORT_BUCKET=transcript-import
    S3_ENDPOINT=minio:9000
    S3_SECURE=false
    ```
