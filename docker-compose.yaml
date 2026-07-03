@@ -421,12 +421,6 @@ services:
       # PREMIUM_PROXY_KEY
       # SESSION_DB_THREADS
       # SESSION_SECRET
-      S3_IMPORT_ENDPOINT: ${S3_ENDPOINT}
-      S3_IMPORT_SECURE: ${S3_SECURE:-true}
-      S3_IMPORT_ACCESS_KEY: ${S3_ACCESS}
-      S3_IMPORT_SECRET_KEY: ${S3_SECRET}
-      S3_IMPORT_TRANSCRIPT_BUCKET: ${S3_TRANSCRIPT_IMPORT_BUCKET}
-      S3_IMPORT_DATA_BUCKET: ${S3_DATA_IMPORT_BUCKET}
       POWEREDBY: ${POWERED_BY:-github.com/ticketsbot-cloud}
       ICON_URL: ${ICON_URL:-https://tickets.bot/assets/img/logo.png}
     depends_on:
