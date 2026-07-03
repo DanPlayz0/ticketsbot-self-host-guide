@@ -78,10 +78,10 @@ CREATE TABLE IF NOT EXISTS support_team_permissions(
 
 ---- Add more ticket permission (https://github.com/TicketsBot-cloud/database/pull/35):
 ALTER TABLE ticket_permissions
-   ADD COLUMN IF NOT EXISTS "send_voice_messages"   bool NOT NULL DEFAULT 't',
-   ADD COLUMN IF NOT EXISTS "send_tts_messages"     bool NOT NULL DEFAULT 't',
-   ADD COLUMN IF NOT EXISTS "use_external_emojis"   bool NOT NULL DEFAULT 't',
-   ADD COLUMN IF NOT EXISTS "use_external_stickers" bool NOT NULL DEFAULT 't';
+   ADD COLUMN IF NOT EXISTS "send_voice_messages"   bool NOT NULL DEFAULT 'f',
+   ADD COLUMN IF NOT EXISTS "send_tts_messages"     bool NOT NULL DEFAULT 'f',
+   ADD COLUMN IF NOT EXISTS "use_external_emojis"   bool NOT NULL DEFAULT 'f',
+   ADD COLUMN IF NOT EXISTS "use_external_stickers" bool NOT NULL DEFAULT 'f';
 
 CREATE TABLE IF NOT EXISTS panel_ticket_permissions(
 	"panel_id" int8 NOT NULL,
