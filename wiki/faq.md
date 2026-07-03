@@ -123,6 +123,8 @@ docker compose exec postgres-cache psql -U postgres -d botcache -c "SQL_COMMAND"
 
 ## 10. How do I import data from ticketsbot.net?
 
+> ⚠ Note: As ticketsbot.net has shut down operations in 2025, and tickets.bot has stopped supporting imports since the 23 April 2026, you will now have to run an older version of the guide to import any old exports that you still have downloaded prior to the shut down of ticketsbot.net. The last commit of the guide that allows importing is [commit 14021b39aee86ea6883267bb1fb927889b0857fa](https://github.com/DanPlayz0/ticketsbot-self-host-guide/commit/14021b39aee86ea6883267bb1fb927889b0857fa), please downgrade if you want to import.
+
 You first will need to have the exports from [export.ticketsbot.net](https://export.ticketsbot.net). Then you will need to open the self-hosted bot's dashboard and go to the import page and upload the exports.
 
 You must upload the data export first, wait for it to import, then after data is imported, you can upload the transcript export.
