@@ -21,6 +21,7 @@ ALTER TABLE panels ADD COLUMN IF NOT EXISTS "hide_close_button" bool NOT NULL DE
 ALTER TABLE panels ADD COLUMN IF NOT EXISTS "hide_close_with_reason_button" bool NOT NULL DEFAULT false;
 ALTER TABLE panels ADD COLUMN IF NOT EXISTS "hide_claim_button" bool NOT NULL DEFAULT false;
 
+---- Add support for labels on tickets & transcripts (https://github.com/TicketsBot-cloud/database/pull/31):
 -- ticketlabels.go
 CREATE TABLE IF NOT EXISTS ticket_labels(
 	"guild_id" int8 NOT NULL,
@@ -32,8 +33,6 @@ CREATE TABLE IF NOT EXISTS ticket_labels(
 );
 CREATE INDEX IF NOT EXISTS ticket_labels_guild_id_idx ON ticket_labels("guild_id");
 
-
----- Add support for labels on tickets & transcripts (https://github.com/TicketsBot-cloud/database/pull/31):
 -- ticketlabelassignments.go
 CREATE TABLE IF NOT EXISTS ticket_label_assignments(
 	"guild_id" int8 NOT NULL,
