@@ -21,6 +21,18 @@ ALTER TABLE panels ADD COLUMN IF NOT EXISTS "hide_close_button" bool NOT NULL DE
 ALTER TABLE panels ADD COLUMN IF NOT EXISTS "hide_close_with_reason_button" bool NOT NULL DEFAULT false;
 ALTER TABLE panels ADD COLUMN IF NOT EXISTS "hide_claim_button" bool NOT NULL DEFAULT false;
 
+-- ticketlabels.go
+CREATE TABLE IF NOT EXISTS ticket_labels(
+	"guild_id" int8 NOT NULL,
+	"label_id" SERIAL,
+	"name" varchar(32) NOT NULL,
+	"colour" int4 NOT NULL DEFAULT 4869178,
+	PRIMARY KEY("guild_id", "label_id"),
+	UNIQUE("guild_id", "name")
+);
+CREATE INDEX IF NOT EXISTS ticket_labels_guild_id_idx ON ticket_labels("guild_id");
+
+
 ---- Add support for labels on tickets & transcripts (https://github.com/TicketsBot-cloud/database/pull/31):
 -- ticketlabelassignments.go
 CREATE TABLE IF NOT EXISTS ticket_label_assignments(
@@ -33,18 +45,6 @@ CREATE TABLE IF NOT EXISTS ticket_label_assignments(
 );
 CREATE INDEX IF NOT EXISTS tkla_guild_ticket_idx ON ticket_label_assignments("guild_id", "ticket_id");
 CREATE INDEX IF NOT EXISTS tkla_guild_label_idx ON ticket_label_assignments("guild_id", "label_id");
-
--- ticketlabels.go
-CREATE TABLE IF NOT EXISTS ticket_labels(
-	"guild_id" int8 NOT NULL,
-	"label_id" SERIAL,
-	"name" varchar(32) NOT NULL,
-	"colour" int4 NOT NULL DEFAULT 4869178,
-	PRIMARY KEY("guild_id", "label_id"),
-	UNIQUE("guild_id", "name")
-);
-CREATE INDEX IF NOT EXISTS ticket_labels_guild_id_idx ON ticket_labels("guild_id");
-
 ---- Add owner and real owner to blacklist server (https://github.com/TicketsBot-cloud/database/pull/25):
 ALTER TABLE server_blacklist
 ADD COLUMN IF NOT EXISTS "owner_id" INT8,
